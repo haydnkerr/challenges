@@ -1,11 +1,14 @@
 
 
+// let countDownDate = new Date("Dec 12, 2023 19:00:00").getTime()
 let countDownDate = new Date("Nov 3, 2023 19:00:00").getTime()
 
 let daysLeft = document.getElementById('days')
 let hoursLeft = document.getElementById('hours')
 let minsLeft = document.getElementById('minutes')
 let secsLeft = document.getElementById('seconds')
+let countdownInterface = document.getElementById('countdown-interface')
+let ratInterface = document.getElementById('rat')
 
 const d = new Date();
 let time = d.getTime();
@@ -50,7 +53,9 @@ setInterval (function() {
     const d = new Date();
 let time = d.getTime();
     let difference = countDownDate - time;
-
+    if (difference < 0) {
+        quizTime()
+    }
 
 let days = Math.floor(difference / (1000 * 60 * 60 * 24));
 let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -81,5 +86,12 @@ if (secs < 10) {
     secsLeft.innerHTML = secs
 }
 },1000)
+
+function quizTime() {
+    ratInterface.classList.remove('display-none')
+    countdownInterface.classList.add('display-none')
+    
+}
+
 
 

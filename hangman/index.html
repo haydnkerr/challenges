@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="hidden-word"></h1>
+    <input maxlength="1" id="user-input">
+    <button id="letter-submit">Submit</button>
+    <input id="user-word-input">
+    <button id="word-submit">Submit</button>
+    <button id="generate-word">New Word</button>
+    <button id="number-nine" value="9">number</button>
+</body>
+
+<script>
+
+    wordList = [
+        "apple", "apricot", "avocado", "banana", "blackberry", "blueberry", "cherry", "coconut", "cranberry", "date",
+        "elderberry", "fig", "grape", "guava", "kiwi", "lemon", "lime", "mango", "nectarine", "orange",
+        "papaya", "peach", "pear", "persimmon", "pineapple", "plum", "pomegranate", "raspberry", "strawberry", "tangerine",
+        "watermelon", "alpaca", "antelope", "armadillo", "baboon", "badger", "bat", "bear", "beaver", "bison",
+        "boar", "buffalo", "camel", "cat", "cheetah", "chimpanzee", "cougar", "cow", "coyote", "deer",
+        "dingo", "dog", "donkey", "elephant", "elk", "ferret", "fox", "gazelle", "giraffe", "goat",
+        "gorilla", "guinea pig", "hamster", "hare", "hedgehog", "hippopotamus", "horse", "hyena", "ibex", "iguana",
+        "jackal", "jaguar", "kangaroo", "koala", "lemur", "leopard", "lion", "llama", "lynx", "mandrill",
+        "marmoset", "meerkat", "moose", "opossum", "orangutan", "otter", "panda", "panther", "penguin", "pig",
+        "puma", "quokka", "rabbit", "raccoon", "rhinoceros", "seal", "sheep", "skunk", "sloth", "tapir",
+        "tiger", "walrus", "warthog", "weasel", "whale", "wolf", "wolverine", "wombat", "zebra", "aardvark",
+        "alligator", "anaconda", "ant", "anteater", "armadillo", "baboon", "badger", "bald eagle", "bat", "beagle",
+        "bear", "beaver", "bee", "bison", "black widow spider", "boa constrictor", "bobcat", "butterfly", "camel",
+        "canary", "capuchin monkey", "caracal", "cat", "chameleon", "cheetah", "chicken", "chimpanzee", "chinchilla",
+        "chipmunk", "clam", "cobra", "cockroach", "condor", "cougar", "cow", "coyote", "crab", "crane",
+        "crocodile", "crow", "deer", "dhole", "dingo", "dog", "dolphin", "donkey", "dormouse", "eagle",
+        "earwig", "eel", "elephant", "falcon", "ferret", "finch", "firefly", "fish", "flamingo", "flea",
+        "fly", "flying squirrel", "fox", "frog", "gerbil", "giant panda", "gibbon", "giraffe", "goat", "golden eagle",
+        "golden retriever", "goldfish", "goose", "gopher", "gorilla", "grasshopper", "great blue heron", "green iguana",
+        "green sea turtle", "grizzly bear", "groundhog", "guinea pig", "guppy", "hamster", "hare", "harp seal", "hawk",
+        "hedgehog", "hermit crab", "heron", "herring", "hippopotamus", "hornet", "horse", "human", "hummingbird", "humpback whale",
+        "hyena", "iguana", "impala", "indri", "insect", "jackal", "jaguar", "jellyfish", "kangaroo", "king cobra",
+        "kingfisher", "kiwi", "koala", "komodo dragon", "kookaburra", "kudu", "lemming", "lemur", "leopard", "lion",
+        "little brown bat", "llama", "lobster", "lynx", "macaroni penguin", "macaw", "magellanic penguin", "magpie", "malayan civet",
+        "mallard duck", "maltese", "manatee", "mandrill", "manta ray", "marbled polecat", "margay", "meerkat", "mink", "mole",
+        "mongoose", "monitor lizard", "monkey", "moose", "mouse", "mosquito", "mosquito hawk", "moth", "mountain gorilla", "mountain lion",
+        "mouse", "mule", "neanderthal", "newt", "northern right whale", "ocelot", "octopus", "okapi", "opossum", "orang-utan", "ostrich",
+        "otter", "owl", "pacific black duck", "pacific tree frog", "panda", "panther", "parrot", "peacock", "pekingese", "pelican",
+        "penguin", "persian", "pigeon", "polar bear", "pony", "porcupine", "possum", "praying mantis", "puffer fish", "puma", "python",
+        "quokka", "rabbit", "raccoon", "rat", "rattlesnake", "red-eyed tree frog", "red panda", "reindeer", "rhinoceros", "robin", "rooster",
+        "salamander", "samoyed", "sea lion", "sea otter", "sea turtle", "sea urchin", "seagull", "seahorse", "seal", "serval", "sheep", "shih tzu",
+        "siamese", "siamese fighting fish", "siberian husky", "silver dollar", "skunk", "sloth", "snail", "snake", "snowshoe", "snowy owl", "spider",
+        "spider monkey", "spoonbill", "squid", "squirrel", "starfish", "stoat", "striped rocket frog", "sumatran tiger", "swan", "tamarin", "tapir", "tarantula",
+        "tawny owl", "tiger", "toad", "toucan", "tree frog", "tropicbird", "tufted penguin", "tuna", "turkey", "turkish van", "turtle", "umbrellabird", "vampire bat",
+        "vulture", "wallaby", "walrus", "warthog", "wasp", "water buffalo", "weasel", "whale", "whippet", "white tiger", "white-faced capuchin", "wildcat", "wolf", "wolverine",
+        "wombat", "woodpecker", "worm", "wren", "yellow-eyed penguin", "zebra", "zorse", "archery", "badminton", "baseball", "basketball", "billiards", "bobsleigh", "bocce",
+        "bodybuilding", "bowling", "boxing", "canoeing", "cricket", "curling", "cycling", "disc golf", "diving", "fencing", "figure skating", "flag football", "football", "golf", "gymnastics",
+        "handball", "hockey", "horse racing", "hunting", "ice hockey", "ice skating", "kayaking", "kickboxing", "lacrosse", "martial arts", "mountaineering", "netball", "paintball", "paragliding",
+        "ping pong", "polo", "racquetball", "rock climbing", "roller skating", "rowing", "rugby", "sailing", "scuba diving", "skateboarding", "skiing", "snowboarding", "soccer", "softball", "squash",
+        "surfing", "swimming", "table tennis", "taekwondo", "tennis", "track and field", "triathlon", "ultimate frisbee", "volleyball", "wakeboarding", "water polo", "weightlifting", "wrestling", "yoga"
+    ]
+    let word = '';
+    let hiddenWord = '';
+    let num = 0
+    let letterList = ''
+    let generateWordBtn = document.getElementById('generate-word')
+    let hiddenWordDisplay = document.getElementById('hidden-word')
+    let letterSubmitBtn = document.getElementById('letter-submit')
+    let userGuess = document.getElementById('user-input')
+    let userWordGuess = document.getElementById('user-word-input')
+    let wordSubmitBtn = document.getElementById('word-submit')
+    let letterGuess = ''
+
+
+
+
+    window.addEventListener("load", initiate);
+    letterSubmitBtn.addEventListener('click', checkLetter)
+    generateWordBtn.addEventListener('click', newWord)
+
+
+    function initiate() {
+        num = Math.floor(Math.random() * 430)
+        word = wordList[num]
+        for (let i = 0; i < word.length; i++) {
+            hiddenWord += '-'
+        }
+        hiddenWordDisplay.innerHTML = hiddenWord
+        console.log(wordList.length)
+    }
+
+
+    function checkLetter() {
+        let count = 0
+        letterGuess = userGuess.value;
+        letterList += letterGuess;
+        console.log(letterList)
+        for (let i = 0; i < word.length; i++) {
+            if (letterGuess == word[i]) {
+                count += 1
+                hiddenWord = hiddenWord.substr(0, i) + letterGuess + hiddenWord.substr(i + 1);
+                hiddenWordDisplay.innerHTML = hiddenWord
+            }
+        }
+
+    }
+
+    function checkWord() {
+
+    }
+
+    function newWord() {
+        word = '';
+        hiddenWord = '';
+        num = 0
+        num = Math.floor(Math.random() * 430)
+        word = wordList[num]
+        for (let i = 0; i < word.length; i++) {
+            hiddenWord += '-'
+        }
+        hiddenWordDisplay.innerHTML = hiddenWord
+
+        console.log(word)
+
+    }
+
+    let sum = 9 + 9;
+
+console.log(sum)
+let nineBtn = document.getElementById('number-nine')
+
+nineBtn.addEventListener('click',nine)
+
+function nine() {
+    sum += 9;
+    console.log(sum)
+}
+
+</script>
+
+</html>
