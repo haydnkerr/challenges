@@ -1,7 +1,7 @@
 
 
 // let countDownDate = new Date("Dec 12, 2023 19:00:00").getTime()
-let countDownDate = new Date("Nov 3, 2023 19:30:00").getTime()
+let countDownDate = new Date("Nov 3, 2023 20:15:00").getTime()
 
 let daysLeft = document.getElementById('days')
 let hoursLeft = document.getElementById('hours')
