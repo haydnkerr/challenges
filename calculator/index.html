@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <section>
+        <h1 id="display"></h1>
+    </section>
+
+    <section class="button-layout">
+        <button id="seven-btn" class="num-btn" value="7">7</button>
+        <button id="eight-btn" class="num-btn" value="8">8</button>
+        <button id="nine-btn" class="num-btn" value="9">9</button>
+        <button id="delete-btn" class="delete-btn" value="">Del</button>
+        <button id="four-btn" class="num-btn" value="4">4</button>
+        <button id="five-btn" class="num-btn" value="5">5</button>
+        <button id="six-btn" class="num-btn" value="6">6</button>
+        <button id="add-btn" class="operator-btn" value="+">+</button>
+        <button id="one-btn" class="num-btn" value="1">1</button>
+        <button id="two-btn" class="num-btn" value="2">2</button>
+        <button id="three-btn" class="num-btn" value="3">3</button>
+
+        <button id="subtract-btn" class="operator-btn" value="-">-</button>
+
+        <button id="decimal-btn" class="num-btn" value=".">.</button>
+        <button id="zero-btn" class="num-btn" value="0">0</button>
+
+        <button id="divide-btn" class="operator-btn" value="/">/</button>
+        <button id="multiply-btn" class="operator-btn" value="*">*</button>
+        <button id="reset-btn" class="span-two reset-btn" value="">Reset</button>
+        <button id="equal-btn" class="span-two equal-btn" value="=">=</button>
+    </section>
+
+    
+
+    <script>
+        let oneBtn = document.getElementById('one-btn')
+        let twoBtn = document.getElementById('two-btn')
+        let multiplyBtn = document.getElementById('multiply-btn')
+        let subtractBtn = document.getElementById('subtract-btn')
+        let addBtn = document.getElementById('add-btn')
+        let divideBtn = document.getElementById('divide-btn')
+        let equalBtn = document.getElementById('equal-btn')
+        let display = document.getElementById('display')
+        let equation = ''
+        let inp
+        let jon
+        let middle
+        let numBtn = document.querySelectorAll('.num-btn')
+        let userInput = false;
+        let inputOne
+        let inputTwo
+
+        // btnBtn.addEventListener('click', two)
+
+
+        // oneBtn.addEventListener('click', onePress)
+        // twoBtn.addEventListener('click', onePress)
+        multiplyBtn.addEventListener('click', press)
+        subtractBtn.addEventListener('click', press)
+        divideBtn.addEventListener('click', press)
+        addBtn.addEventListener('click', press)
+        equalBtn.addEventListener('click', equal)
+
+        function myFunction(e) {
+            if (userInput == false) {
+                display.innerHTML += e.value
+                equation += e.value
+                console.log(equation)
+            }
+
+        }
+
+
+
+        numBtn.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                myFunction(btn);
+            });
+        });
+
+
+        function two() {
+            display.innerHTML += this.value
+            equation += this.value
+            console.log(equation)
+        }
+
+        function press() {
+            if (equation.length == 0) {
+                equation += '-'
+                display.innerHTML += this.value
+            } else {
+                middle = this.value
+                display.innerHTML += this.value
+                // equation += this.value
+                inputOne = parseInt(equation)
+                equation = ''
+            }
+
+        }
+
+
+        function equal() {
+            inputTwo = parseInt(equation)
+            if (middle == '*') {
+                jon = inputOne * inputTwo
+                display.innerHTML = jon
+                equation = jon
+            } else if (middle == '-') {
+                jon = inputOne - inputTwo
+                display.innerHTML = jon
+                equation = jon
+            } else if (middle == '+') {
+                jon = inputOne + inputTwo
+                display.innerHTML = jon
+                equation = jon
+            } else {
+                jon = inputOne / inputTwo
+                display.innerHTML = jon
+                equation = jon
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
