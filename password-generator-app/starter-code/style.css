@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100svw;
+    flex-direction: column;
+    gap: 10px;
+    color: white
+}
+
+.container {
+    background-color: #24232a;
+    width: 500px;
+    padding: 15px;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+button {
+    background-color: #b9fdb6;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#my-slider {
+    width: 100%
+}

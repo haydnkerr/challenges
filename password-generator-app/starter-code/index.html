@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Password generator app</title>
+
+  <link href="./style.css" rel="stylesheet">
+  <script src="./script.js"></script>
+</head>
+
+<body>
+
+  <h2>Password Generator</h2>
+
+  <section class="container">
+    <h1 id="generated-password"></h1>
+    <img id="" src="./assets/images/icon-copy.svg">
+  </section>
+
+  <section class="container">
+    <div>
+      <p>Character Length</p>
+      <span id="character-length-display"></span>
+    </div>
+
+    <input type="range" min="1" max="15" value="4" id="my-slider">
+    <div class="checkbox-container">
+      <input type="checkbox" class="criteria-checkbox" value="1" id="uppercase-checkbox">
+      <p>Include Uppercase Letters</p>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" class="criteria-checkbox" value="2" id="lowercase-checkbox">
+      <p>Include Lowercase Letters</p>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" class="criteria-checkbox" value="3" id="numbers-checkbox">
+      <p>Include Numbers</p>
+    </div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" class="criteria-checkbox" value="4" id="symbols-checkbox">
+      <p>Include Symbols</p>
+    </div>
+
+
+
+
+    <div>
+      <h4>Strength</h4>
+      <div class="password-strength-container">
+        <h3 id="password-strength"></h3>
+        <div>
+          <span class="password-strength-box" id="password-strength-one"></span>
+          <span class="password-strength-box" id="password-strength-two"></span>
+          <span class="password-strength-box" id="password-strength-three"></span>
+          <span class="password-strength-box" id="password-strength-four"></span>
+        </div>
+      </div>
+    </div>
+    <button class="generate-password-btn" id="generate-password-btn">
+      <h4>Generate</h4>
+      <img src="./assets/images/icon-arrow-right.svg">
+    </button>
+  </section>
+
+
+
+</body>
+
+</html>

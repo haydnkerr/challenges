@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link href="./style.css" rel="stylesheet">
+  <title>Frontend Mentor | Tic Tac Toe</title>
+</head>
+<body>
+
+  <section class="main-menu-container" id="main-menu-container">
+    <img src="./assets/logo.svg">
+    <div class="main-menu-inner-container">
+      <h3>Pick Player 1's Mark</h3>
+      <div class="player-choice-container">
+        <button id="player-choose-cross">
+          <img>
+        </button>
+        <button id="player-choose-circle">
+          <img>
+        </button>
+      </div>
+      <h4>Remember: X Goes First</h4>
+    </div>
+    <button class="game-start-btn" id="game-start-computer-btn">New Game (Vs CPU)</button>
+    <button class="game-start-btn" id="game-start-player-btn">New Game (Vs Player)</button>
+  </section>
+
+  <section class="winning-screen-container hidden" id="winning-screen-container">
+    <div class="winning-statement-container">
+      <p>You Won!</p>
+      <div class="winning-statement">
+        <img id="winning-piece">
+        <h1>takes the round</h1>
+      </div>
+      
+      <div class="winning-statement-btn-container">
+        <button id="quit-btn">Quit</button>
+        <button id="next-round-btn">Next Round</button>
+      </div>
+    </div>
+
+
+  </section>
+
+  
+
+
+  <main class="hidden" id="play-screen">
+    
+
+    <heading>
+      <img src="./assets/logo.svg">
+      <div class="turn-indicator-container">
+        <img id="turn-indicator" src="./assets/icon-x.svg">
+        <h3>TURN</h3>
+      </div>
+      <button id="restart-btn"></button>
+    </heading>
+    <section class="gameboard" id="gameboard">
+      <button value="0" class="btn empty" type="button"></button>
+      <button value="1" class="btn empty"></button>
+      <button value="2" class="btn empty"></button>
+      <button value="3" class="btn empty"></button>
+      <button value="4" class="btn empty"></button>
+      <button value="5" class="btn empty"></button>
+      <button value="6" class="btn empty"></button>
+      <button value="7" class="btn empty"></button>
+      <button value="8" class="btn empty"></button>
+    </section>
+
+    <section class="score-container">
+      <div class="win-container score-container-element">
+        <div>
+         <h4>X (YOU)</h4>
+        </div>
+        <h2 id="win-tally"></h2>
+      </div>
+      <div class="draw-container score-container-element">
+        <div>
+          <h4>TIES</h4>
+        </div>
+        <h2 id="draw-tally"></h2>
+      </div>
+      <div class="lose-container score-container-element">
+        <div>
+          <h4>O (CPU)</h4>
+        </div>
+        <h2 id="lose-tally"></h2>
+      </div>
+
+    </section>
+
+
+  </main>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>

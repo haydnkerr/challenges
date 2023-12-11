@@ -1,0 +1,67 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameboard {
+    height: 500px;
+    width: 500px;
+    background: gray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px
+}
+
+.gameboard-piece {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    transition: 1s;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.one {
+    background-image: url("./assets/one.png");
+    
+}
+
+.two {
+    background-image: url("./assets/two.svg");
+    
+}
+
+.three {
+    background-image: url("./assets/three.png");
+    
+}
+
+.four {
+    background-image: url("./assets/four.svg");
+    
+}
+
+.five {
+    background-image: url("./assets/five.svg");
+    
+}
+
+.six {
+    background-image: url("./assets/facebook-black.svg");
+    
+}
+
+.one:hover {
+    background-color: unset;
+}
+
+.gameboard-piece:hover {
+    background-color: unset;
+}
