@@ -33,12 +33,42 @@ width: 400px;
 
 .player-choice-container {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    background-color: #1d2a32;
+    border-radius: 5px;
 }
 
 .player-choice-container  button {
     width: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#player-choose-cross {
+    background-image: url("./assets/icon-x.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #d79c30;
+    background-size: 25%;
+}
+
+#player-choose-circle {
+    background-color: none;
+    background: transparent;
+    background-image: url("./assets/icon-o.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    
 }
 
 #game-start-computer-btn {
@@ -93,7 +123,7 @@ width: 400px;
 .winning-statement-btn-container button{
     padding: 10px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 #next-round-btn {
@@ -130,6 +160,11 @@ heading {
 .turn-indicator-container img {
     height: 15px;
     width: 15px;
+}
+
+.restart-btn-container {
+    display: flex;
+    justify-content: flex-end;
 }
 
 #restart-btn {

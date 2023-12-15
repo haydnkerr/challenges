@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+body {
+    width: 100svw;
+    padding: 25px;
+}
+
+.hero-container {
+    width: 100%;
+    background-image: url("./assets/home/desktop/image-hero-coffeepress.jpg");
+    background-size: cover;
+    background-position: right;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+}
+
+.hero-container h1 {
+    max-width: 300px;
+}
+
+.hero-container p {
+    max-width: 250px;
+}

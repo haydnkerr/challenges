@@ -64,4 +64,5 @@ body {
 
 .gameboard-piece:hover {
     background-color: unset;
+    transform: rotateY('180deg');
 }

@@ -12,7 +12,10 @@ let mainMenuContainer = document.getElementById('main-menu-container')
 let playScreen = document.getElementById('play-screen')
 let gameStartComputerBtn = document.getElementById('game-start-computer-btn')
 let gameStartPlayerBtn = document.getElementById('game-start-player-btn')
-let playerOneTurn = true
+let playerChooseCross = document.getElementById('player-choose-cross')
+let playerChooseCircle = document.getElementById('player-choose-circle')
+let playerOneTurn = true;
+let playerOneCross = true;
 let wins = 0
 let losses = 0
 let draws = 0
@@ -28,6 +31,9 @@ winTally.innerHTML = wins
 loseTally.innerHTML = losses
 drawTally.innerHTML = draws
 
+
+// playerChooseCircle.addEventListener('click',chooseCircle)
+// playerChooseCross.addEventListener('click', chooseCross)
 restartBtn.addEventListener('click', initiateGame)
 quitBtn.addEventListener('click', quitGame)
 nextRoundBtn.addEventListener('click', nextRound)
@@ -69,6 +75,19 @@ function nextRound() {
     playerOneTiles = []
     playerTwoTiles = []
     gameOver = false;
+    
+    if (playerOneCross) {
+        playerOneTurn = true;
+        computerTurn = false;
+    } else if(computerActive) {
+        playerOneTurn = false;
+        computerTurn = true;
+        computerRandomTurn()
+    } else {
+        playerOneTurn = false;
+        computerTurn = false;
+    }
+    
 
 }
 
@@ -97,7 +116,7 @@ gameTile.forEach(function (btn) {
 
 function chooseTile(e) {
     console.log(totalTurns)
-    if (playerOneTurn) {
+    if (playerOneTurn && playerOneCross) {
         if (e.className == 'btn empty')
             e.className = 'btn cross'
         playerOneTurn = false
