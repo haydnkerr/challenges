@@ -24,8 +24,8 @@ section {
 
 p {
     border: 1px solid grey;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
