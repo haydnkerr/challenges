@@ -12,6 +12,7 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: #1d2a32;
+    padding: 15px
 }
 
 .main-menu-container {

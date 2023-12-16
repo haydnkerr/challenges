@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="number-cluster">
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+    </div>
+    <span>-</span>
+    <div class="number-cluster">
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+    </div>
+    <span>-</span>
+    <div class="number-cluster">
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+        <p class="number-input"></p>
+    </div>
+
+
+
+
+
+    <script>
+
+        let numberRandomize;
+        let counter = 0
+        let inputq = document.querySelectorAll('.number-input')
+
+        function myFunction(e) {
+            if (counter <= 10) {
+                num = Math.floor(Math.random() * 10)
+                e.innerHTML = num
+                counter += 1
+            } else if (counter > 10) {
+                clearInterval(numberRandomize)
+                counter = 0
+            }
+
+        }
+
+        inputq.forEach(function (p) {
+            p.addEventListener('click', function () {
+                clearInterval(numberRandomize); // Clear previous interval
+                numberRandomize = setInterval(function () { random(p); }, 50);
+            });
+        });
+
+        // randomBtn.addEventListener('click', function() {
+        //     numberRandomize = setInterval(random(btn), 50)
+        // } 
+
+        // );
+
+        function random(e) {
+
+            if (counter <= 10) {
+                num = Math.floor(Math.random() * 10)
+                e.innerHTML = num
+                counter += 1
+            } else if (counter > 10) {
+                clearInterval(numberRandomize)
+                counter = 0
+            }
+
+        }
+    </script>
+</body>
+
+</html>
