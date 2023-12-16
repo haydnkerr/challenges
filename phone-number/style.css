@@ -5,10 +5,16 @@
 }
 body {
     display: flex;
+    flex-direction: column;
     width: 100svw;
     height: 100svh;
     justify-content: center;
     align-items: center;
+    
+}
+
+section {
+    display: flex;
     gap: 5px;
 }
 
