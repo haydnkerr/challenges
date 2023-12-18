@@ -93,8 +93,31 @@ span {
 }
 
 @media only screen and (min-width: 940px){
-        .supervisor-card, .karma-card {
+        /* .supervisor-card, .karma-card {
             transform: translateY(50%);
+        } */
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .supervisor-card {
+            grid-area: 2 / 1 / 4 / 2;
+        }
+        
+        .team-builder-card {
+            grid-area: 1 / 2 / 3 / 3;
+        }
+        
+        .karma-card {
+            grid-area: 3 / 2 / 5 / 3;
+        }
+        
+        .calculator-card {
+            grid-area: 2 / 3 / 4 / 4;
         }
 
         body {
