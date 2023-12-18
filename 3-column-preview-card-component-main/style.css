@@ -15,6 +15,7 @@ body {
     color: white;
     font-family: 'Lexend Deca';
     font-weight: 400;
+    background-color: hsl(0, 0%, 95%);
 }
 
 h2 {
