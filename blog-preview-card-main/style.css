@@ -38,7 +38,7 @@ h5 {
 
 p {
     color: grey;
-    font-weight: ;
+    line-height: 25px;
 }
 
 .card-container {
@@ -51,6 +51,7 @@ p {
     border-radius: 20px;
     border: 1px solid black;
     box-shadow: 7px 7px black;
+
 }
 
 .card-top-img {
@@ -73,7 +74,7 @@ p {
 .card-content {
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 15px
 }
 
 .card-author {
