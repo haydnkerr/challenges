@@ -20,3 +20,29 @@ main {
     background-color: white;
     width: 500px
 }
+
+details > summary::after {
+    content: ''; /* Empty content */
+    display: inline-block;
+    width: 20px; /* Adjust the width of the image */
+    height: 20px; /* Adjust the height of the image */
+    background-image: url('./assets/icon-plus.svg'); /* Replace with the path to your image */
+    background-size: cover; /* or contain, depending on your preference */
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+details[open] > summary::after {
+    content: ''; /* Empty content */
+    display: inline-block;
+    width: 20px; /* Adjust the width of the image */
+    height: 20px; /* Adjust the height of the image */
+    background-image: url('./assets/icon-minus.svg'); /* Replace with the path to your image */
+    background-size: cover; /* or contain, depending on your preference */
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+
