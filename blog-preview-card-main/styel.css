@@ -19,15 +19,16 @@ h2 {
     font-size: 24px;
     cursor: pointer;
     transition: 0.2s;
+    
+}
+
+h2:hover {
+    color: hsl(47, 88%, 63%);
     text-shadow:
    1px 1px 0 #000,  
     1px 1px 0 #000,
     1px 1px 0 #000,
     1px 1px 0 #000;
-}
-
-h2:hover {
-    color: hsl(47, 88%, 63%);
     
 }
 
