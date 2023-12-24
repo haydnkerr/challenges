@@ -87,13 +87,18 @@ header {
     opacity: 0;
 }
 
+.welcome-message {
+
+    max-width: 564px;
+}
+
 .welcome-message p {
     color: #ABC1E1
 }
 
 main {
     width: 100%;
-    max-width: 1160px;;
+    max-width: 1160px;
 }
 
 /****** Screen Layout ******/
@@ -160,6 +165,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 564px;
 }
 
 .question-number-container {
@@ -198,11 +204,12 @@ main {
     align-items: center;
     width: 100%;
     border-radius: 24px;
-    padding: 20px;
+    padding: 10px 20px;
     max-width: 564px;
+    min-width: 400px;
     cursor: pointer;
     justify-content: space-between;
-    height: 92px;
+    min-height: 92px;
 }
 
 .quiz-option-container.light-theme {
@@ -242,8 +249,7 @@ label img {
     max-width: 564px;
     cursor: pointer;
     height: 92px;
-    
-
+    min-width: 400px;
 }
 
 
@@ -338,13 +344,68 @@ body.light-theme {
     color: #313E51;
 }
 
+
 @media only screen and (max-width: 1000px) {
+    .welcome-message {
+        padding: 0px 10px 10px 0px;
+    }
+
+}
+@media only screen and (max-width: 800px) {
     body {
         background-image: url("./assets/images/pattern-background-tablet-dark.svg");
     }
 
     body.light-theme {
         background-image: url("./assets/images/pattern-background-tablet-light.svg");
+    }
+
+
+    .submit-btn .quiz-option-container {
+        height: 80px;
+        border-radius: 24px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome-message {
+        padding: 0px;
+        margin-bottom: 40px;
+    }
+
+    .welcome-message p {
+        font-size: 14px;
+    }
+
+    .quiz-menu-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .question-container {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+
+    .submit-btn .quiz-option-container {
+        height: 64px;
+        border-radius: 12px;
+    }
+
+    .progress-bar-container {
+        margin-top: 24px;
+    }
+
+    .score-message {
+        width: 100%;
+    }
+    
+    .score-container {
+        width: 100%;
     }
 }
 
