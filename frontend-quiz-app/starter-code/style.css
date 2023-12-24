@@ -367,7 +367,11 @@ body.light-theme {
         font-size: 18px;
     }
 
-    .quiz-option h4 {
+    .quiz-option-container h4 {
+        font-size: 18px;
+    }
+
+    .letter h5 {
         font-size: 18px;
     }
     
