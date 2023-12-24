@@ -221,7 +221,10 @@ main {
     padding: 12px 18px;
     border-radius: 8px;
     margin-right: 20px;
+    font-size: 24px;
+    font-weight: 700;
 }
+
 
 label img {
     opacity: 0;
