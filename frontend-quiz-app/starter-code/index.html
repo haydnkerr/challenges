@@ -20,12 +20,16 @@
 
   <header>
     <div id="quiz-heading-container" class="display-flex">
-      <img id="quiz-genre-img" class="quiz-genre-img img-container">
+      <img id="quiz-genre-img" class="quiz-genre-img img-container" src="assets/images/icon-js.svg">
       <h4 id="quiz-genre-heading" class="quiz-genre-heading"></h4>
 
     </div>
-    <div>
-      <p> test</p>
+    <div class="theme-toggle-container">
+      <img id="sun-icon" src="./assets/images/icon-sun-light.svg">
+      <div id="switch-container" class="switch-container">
+        <div id="switch-button" class="switch-button"></div>
+      </div>
+      <img  id="moon-icon" src="./assets/images/icon-moon-light.svg">
     </div>
 
   </header>
@@ -56,8 +60,8 @@
               HTML
             </h4>
           </div>
-          <h4 class="hidden">
-            <span id="">
+          <h4 id="html-score-container" class="hidden">
+            <span id="html-score">
               8
             </span> / 10
           </h4>
@@ -74,8 +78,8 @@
               CSS
             </h4>
           </div>
-          <h4 class="hidden">
-            <span id="">
+          <h4 id="css-score-container" class="hidden">
+            <span id="css-score">
               8
             </span> / 10
           </h4>
@@ -95,8 +99,8 @@
               Javascript
             </h4>
           </div>
-          <h4 class="hidden">
-            <span id="">
+          <h4 id="js-score-container" class="hidden">
+            <span id="js-score">
               8
             </span> / 10
           </h4>
@@ -113,8 +117,8 @@
               Accessibility
             </h4>
           </div>
-          <h4 class="hidden">
-            <span id="">
+          <h4 id="accessibility-score-container" class="hidden">
+            <span id="accessibility-score">
               8
             </span> / 10
           </h4>
@@ -176,7 +180,7 @@
         <input value="2" type="radio" id="option-three" class="answer" name="quiz">
         <label for="option-three" class="quiz-option-container">
           <div class="display-flex">
-            <h4 class="letter" class="answer-content">C</h4>
+            <h4 class="letter answer-content">C</h4>
             <h4 id="answer-c"></h4>
           </div>
 

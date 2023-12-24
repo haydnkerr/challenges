@@ -13,6 +13,7 @@ let quizHeadingContainer = document.getElementById('quiz-heading-container')
 let quizGenreHeading = document.querySelectorAll('.quiz-genre-heading')
 let quizGenreImg = document.querySelectorAll('.quiz-genre-img')
 let progressBar = document.getElementById('progress-bar')
+let quizOptionContainer = document.querySelectorAll('.quiz-option-container')
 
 let currentQuestionNumber = document.getElementById('current-question-num')
 let submitBtn = document.getElementById('submit-btn')
@@ -29,6 +30,24 @@ let question = document.getElementById('question')
 let userAnswerInput = document.querySelectorAll('.answer')
 let answerContent = document.querySelectorAll('.answer-content')
 let emptyMsg = document.getElementById("empty-answer-msg")
+let progressBarContainer = document.querySelector('.progress-bar-container')
+
+let htmlScore = document.getElementById('html-score')
+let cssScore = document.getElementById('css-score')
+let jsScore = document.getElementById('js-score')
+let accessibilityScore = document.getElementById('acessibility-score')
+
+let htmlScoreContainer = document.getElementById('html-score-container')
+let cssScoreContainer = document.getElementById('css-score-container')
+let jsScoreContainer = document.getElementById('js-score-container')
+let accessibilityScoreContainer = document.getElementById('accessibility-score-container');
+
+/******** Theme Toggle *********/
+let switchContainer = document.getElementById('switch-container');
+let switchBtn = document.getElementById('switch-button')
+let moonIcon = document.getElementById('moon-icon')
+let sunIcon = document.getElementById('sun-icon')
+
 
 /********* Indicators *******/
 let questionNumber = 1;
@@ -41,10 +60,13 @@ let userGuess = ' '
 let answerChosen = false;
 let answerGiven = false;
 let isAnswerCorrect = false;
+let toggleTheme = true;
 
 
 
 /******* Evenet Listeners  *********/
+switchContainer.addEventListener("click", toggleThemeSlider);
+
 quizTopic.forEach(function (element) {
    element.addEventListener('click', populateQuiz)
 })
@@ -82,7 +104,7 @@ function populateQuiz() {
 }
 
 function populateQuestions() {
-   
+
    currentQuestionNumber.innerHTML = questionNumber
    question.innerHTML = quizzes[quizGenre].questions[currentQuestion].question
    answerA.innerHTML = quizzes[quizGenre].questions[currentQuestion].options[0]
@@ -128,6 +150,12 @@ function userInput() {
    userAnswerInput.forEach(function (element) {
       if (element.checked == true) {
          element.nextElementSibling.style.border = "2px solid #A729F5"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#A729F5"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "white"
+      } else {
+         element.nextElementSibling.style.border = "2px solid #3f4c65"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
       }
 
    });
@@ -145,6 +173,8 @@ function checkAnswer() {
             radio.checked = false;
             radio.nextElementSibling.querySelector('img').style.opacity = '0'
             radio.nextElementSibling.style.border = '2px solid #3f4c65'
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
          });
 
          aImg.classList.remove('correct')
@@ -194,19 +224,38 @@ function giveAnswer() {
       if (element.checked == true && isAnswerCorrect) {
          element.nextElementSibling.querySelector('img').style.opacity = '1'
          element.nextElementSibling.style.border = "2px solid #26D782"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#26D782"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "white"
       } else if (element.checked == true) {
          element.nextElementSibling.querySelector('img').style.opacity = '1'
          element.nextElementSibling.style.border = "2px solid #EE5454"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#EE5454"
+         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "white"
+
+
       }
 
       if (element.nextElementSibling.querySelector('img').classList.contains('correct')) {
          element.nextElementSibling.querySelector('img').style.opacity = '1'
-      } 
+      }
 
    });
 }
 
 function newQuiz() {
+   if (quizGenre == 0) {
+      htmlScore.innerHTML = playerScore
+      htmlScoreContainer.classList.remove('hidden')
+   } else if (quizGenre == 1) {
+      cssScore.innerHTML = playerScore
+      cssScoreContainer.classList.remove('hidden')
+   } else if (quizGenre == 2) {
+      jsScore.innerHTML = playerScore
+      jsScoreContainer.classList.remove('hidden')
+   } else {
+      accessibilityScore.innerHTML = playerScore
+      accessibilityScoreContainer.classList.remove('hidden')
+   }
    homeScreen.classList.remove('hidden')
    scoreScreen.classList.add('hidden')
    playerScore = 0
@@ -219,6 +268,30 @@ function newQuiz() {
    answerChosen = false;
    answerGiven = false;
 }
+
+function toggleThemeSlider() {
+   if (toggleTheme) {
+     switchBtn.style.transform = "translateX(-20px)";
+     document.body.classList.add('light-theme')
+     toggleTheme = false;
+     sunIcon.src = "./assets/images/icon-sun-dark.svg"
+     moonIcon.src = "./assets/images/icon-moon-dark.svg"
+     progressBarContainer.classList.add('light-theme')
+     for (let i = 0; i < quizOptionContainer.length; i++) {
+      quizOptionContainer[i].classList.add('light-theme')
+     }
+   } else {
+     switchBtn.style.transform = "translateX(0px)";
+     document.body.classList.remove('light-theme')
+     toggleTheme = true;
+     sunIcon.src = "./assets/images/icon-sun-light.svg"
+     moonIcon.src = "./assets/images/icon-moon-light.svg"
+     progressBarContainer.classList.remove('light-theme')
+     for (let i = 0; i < quizOptionContainer.length; i++) {
+      quizOptionContainer[i].classList.remove('light-theme')
+     }
+   }
+ }
 
 
 
