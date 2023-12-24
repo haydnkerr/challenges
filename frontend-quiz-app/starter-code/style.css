@@ -17,6 +17,7 @@ body {
     background-size: cover;
     background-color: #343e4f;
     background-image: url("./assets/images/pattern-background-desktop-dark.svg");
+    overflow-x: hidden;
 }
 
 body.light-theme {
