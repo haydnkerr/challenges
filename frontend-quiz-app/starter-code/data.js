@@ -1,5 +1,6 @@
-{
-    "quizzes": [
+export {quizzes}
+
+    const quizzes = [
         {
             "title": "HTML",
             "icon": "./assets/images/icon-html.svg",
@@ -17,22 +18,22 @@
                 {
                     "question": "Which of the following is the correct structure for an HTML document?",
                     "options": [
-                        "<html><head></head><body></body></html>",
-                        "<head><html></html><body></body></head>",
-                        "<body><head></head><html></html></body>",
-                        "<html><body></body><head></head></html>"
+                        "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;",
+                        "&lt;head&gt;&lt;html&gt;&lt;/html&gt;&lt;body&gt;&lt;/body&gt;&lt;/head&gt;",
+                        "&lt;body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;&lt;/body&gt;",
+                        "&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;"
                     ],
-                    "answer": "<html><head></head><body></body></html>"
+                    "answer": "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;"
                 },
                 {
                     "question": "Which HTML element is used to define the title of a document?",
                     "options": [
-                        "<head>",
-                        "<title>",
-                        "<header>",
-                        "<top>"
+                        "&lt;head&gt;",
+                        "&lt;title&gt;",
+                        "&lt;header&gt;",
+                        "&lt;top&gt;"
                     ],
-                    "answer": "<title>"
+                    "answer": "&lt;title&gt;"
                 },
                 {
                     "question": "What is the purpose of the <body> tag in HTML?",
@@ -47,22 +48,22 @@
                 {
                     "question": "Which HTML tag is used to create a hyperlink?",
                     "options": [
-                        "<hyperlink>",
-                        "<link>",
-                        "<a>",
-                        "<href>"
+                        "&lt;hyperlink&gt;",
+                        "&lt;link&gt;",
+                        "&lt;a&gt;",
+                        "&lt;href&gt;"
                     ],
-                    "answer": "<a>"
+                    "answer": "&lt;a&gt;"
                 },
                 {
                     "question": "Which tag is used to display images in HTML?",
                     "options": [
-                        "<img>",
-                        "<image>",
-                        "<src>",
-                        "<pic>"
+                        "&lt;img&gt;",
+                        "&lt;image&gt;",
+                        "&lt;src&gt;",
+                        "&lt;pic&gt;"
                     ],
-                    "answer": "<img>"
+                    "answer": "&lt;img&gt;"
                 },
                 {
                     "question": "What attribute is used to provide the path of an image in the <img> tag?",
@@ -77,15 +78,15 @@
                 {
                     "question": "Which HTML tag is used to create an unordered list?",
                     "options": [
-                        "<ul>",
-                        "<ol>",
-                        "<list>",
-                        "<li>"
+                        "&lt;ul&gt;",
+                        "&lt;ol&gt;",
+                        "&lt;list&gt;",
+                        "&lt;li&gt;"
                     ],
-                    "answer": "<ul>"
+                    "answer": "&lt;ul&gt;"
                 },
                 {
-                    "question": "What does the <br> tag do?",
+                    "question": "What does the &lt;br&gt; tag do?",
                     "options": [
                         "It breaks the text into two sections.",
                         "It creates a bold text.",
@@ -136,7 +137,7 @@
                         "// this is a comment //",
                         "/* this is a comment */",
                         "-- this is a comment --",
-                        "<!-- this is a comment -->"
+                        "&lt;!-- this is a comment --&gt;"
                     ],
                     "answer": "/* this is a comment */"
                 },
@@ -271,7 +272,7 @@
                     "options": [
                       "'This is a single-line comment",
                       "//This is a single-line comment",
-                      "<!--This is a single-line comment-->",
+                      "&lt;!--This is a single-line comment--&gt;",
                       "/* This is a single-line comment */"
                     ],
                     "answer": "//This is a single-line comment"
@@ -335,12 +336,12 @@
                 {
                     "question": "Which element is used to provide alternative text for images for screen reader users?",
                     "options": [
-                        "<alt>",
-                        "<figcaption>",
-                        "<description>",
-                        "<img alt='description'>"
+                        "&lt;alt&gt;",
+                        "&lt;figcaption&gt;",
+                        "&lt;description&gt;",
+                        "&lt;img alt='description'&gt;"
                     ],
-                    "answer": "<img alt='description'>"
+                    "answer": "&lt;img alt='description'&gt;"
                 },
                 {
                     "question": "What does ARIA stand for in web development?",
@@ -375,12 +376,12 @@
                 {
                     "question": "Which of the following elements is inherently focusable, meaning it can receive focus without a 'tabindex' attribute?",
                     "options": [
-                        "<div>",
-                        "<span>",
-                        "<a href='...'>",
-                        "<p>"
+                        "&lt;div&gt;",
+                        "&lt;span&gt;",
+                        "&lt;a href='...'&gt;",
+                        "&lt;p&gt;"
                     ],
-                    "answer": "<a href='...'>"
+                    "answer": "&lt;a href='...'&gt;"
                 },
                 {
                     "question": "What is the purpose of the 'lang' attribute in an HTML page?",
@@ -425,4 +426,3 @@
             ]
         }
     ]
-}

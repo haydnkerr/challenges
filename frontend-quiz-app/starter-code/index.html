@@ -1,51 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link href="./style.css" rel="stylesheet">
+  <script type="module" src="./script.js" defer></script>
+  <script src="data.js" defer></script>
   <title>Frontend Mentor | Frontend quiz app</title>
 </head>
-<body>
 
-  <!-- Quiz menu start -->
+<body class="dark-theme">
 
-  Welcome to the Frontend Quiz!
-  Pick a subject to get started.
+  <header>
+    <div id="quiz-heading-container" class="display-flex">
+      <img id="quiz-genre-img" class="quiz-genre-img img-container">
+      <h4 id="quiz-genre-heading" class="quiz-genre-heading"></h4>
 
-  HTML
-  CSS
-  JavaScript
-  Accessibility
+    </div>
+    <div>
+      <p> test</p>
+    </div>
 
-  <!-- Quiz menu end -->
+  </header>
 
-  <!-- Quiz question start -->
+  <main>
+    <section id="home-screen" class="main-layout">
+      <div class="welcome-message">
+        <h1>
+          Welcome to the
+          <strong>Frontend Quiz!</strong>
+        </h1>
 
-  Question <!-- number --> of 10
+        <p>
+          <em>
+            Pick a subject to get started.
+          </em>
+        </p>
+      </div>
 
-  A
-  B
-  C
-  D
+      <div class="quiz-menu-container">
+        <button value="0" id="html-option-container" class="quiz-option quiz-option-container">
+          <div class="display-flex">
+            <div class="html-img-container img-container">
+              <img src="./assets/images/icon-html.svg">
+            </div>
 
-  Submit answer
+            <h4>
+              HTML
+            </h4>
+          </div>
+          <h4 class="hidden">
+            <span id="">
+              8
+            </span> / 10
+          </h4>
 
-  <!-- Quiz question end -->
+        </button>
 
-  <!-- Quiz completed start -->
+        <button value="1" id="css-option-container" class="quiz-option quiz-option-container">
+          <div class="display-flex">
+            <div class="css-img-container img-container">
+              <img src="./assets/images/icon-css.svg">
+            </div>
 
-  Quiz completed
-  You scored...
+            <h4>
+              CSS
+            </h4>
+          </div>
+          <h4 class="hidden">
+            <span id="">
+              8
+            </span> / 10
+          </h4>
 
-  <!-- score --> out of 10
 
-  <!-- Quiz completed end -->
+
+
+        </button>
+
+        <button value="2" id="javascript-option-container" class="quiz-option quiz-option-container">
+          <div class="display-flex">
+            <div class="js-img-container img-container">
+              <img src="./assets/images/icon-js.svg">
+            </div>
+
+            <h4>
+              Javascript
+            </h4>
+          </div>
+          <h4 class="hidden">
+            <span id="">
+              8
+            </span> / 10
+          </h4>
+
+
+        </button>
+
+        <button value='3' id="accessibility-option-container" class="quiz-option quiz-option-container">
+          <div class="display-flex">
+            <div class="accessibility-img-container  img-container">
+              <img src="./assets/images/icon-accessibility.svg">
+            </div>
+            <h4>
+              Accessibility
+            </h4>
+          </div>
+          <h4 class="hidden">
+            <span id="">
+              8
+            </span> / 10
+          </h4>
+
+
+        </button>
+
+      </div>
+    </section>
+
+
+    <section id="quizz-screen" class="main-layout dark-theme hidden">
+      <div class="question-container">
+        <div>
+          <div class="question-number-container">
+            <p>
+              <em>
+                Question <span id="current-question-num"></span> of 10
+              </em>
+            </p>
+          </div>
+
+          <div class="question">
+            <h3 id="question">
+            </h3>
+          </div>
+        </div>
+
+
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progress-bar">
+
+          </div>
+
+        </div>
+      </div>
+
+      <form class="quiz-menu-container">
+        <input value="0" type="radio" id="option-one" class="answer" name="quiz">
+        <label for="option-one" class="quiz-option-container">
+          <div class="display-flex">
+            <h4 class="letter">A</h4>
+            <h4 id="answer-a" class="answer-content"></h4>
+          </div>
+
+          <img id="answer-a-img" src="">
+        </label>
+
+        <input value="1" type="radio" id="option-two" class="answer" name="quiz">
+        <label for="option-two" class="quiz-option-container">
+          <div class="display-flex">
+            <h4 class="letter" class="answer-content">B</h4>
+            <h4 id="answer-b"></h4>
+          </div>
+
+          <img id="answer-b-img" src="">
+        </label>
+
+        <input value="2" type="radio" id="option-three" class="answer" name="quiz">
+        <label for="option-three" class="quiz-option-container">
+          <div class="display-flex">
+            <h4 class="letter" class="answer-content">C</h4>
+            <h4 id="answer-c"></h4>
+          </div>
+
+          <img id="answer-c-img" src="">
+        </label>
+
+        <input value="3" type="radio" id="option-four" class="answer" name="quiz">
+        <label for="option-four" class="quiz-option-container">
+          <div class="display-flex">
+            <h4 class="letter" class="answer-content">D</h4>
+            <h4 id="answer-d"></h4>
+          </div>
+
+          <img id="answer-d-img" src="">
+        </label>
+        <button type="button" id="submit-btn" class="submit-btn">
+          <h4>Submit Answer</h4>
+        </button>
+        <div id="empty-answer-msg" class="display-flex">
+          <img src="./assets/images/icon-incorrect.svg">
+          <p>Please select an answer</p>
+        </div>
+      </form>
+    </section>
+
+    <section id="score-screen" class="main-layout hidden">
+      <div class="score-message">
+        <h1>
+          Quiz completed
+          <strong>You scored..</strong>
+        </h1>
+      </div>
+
+      <div class="score-container">
+        <div class="score-card">
+          <div class="display-flex">
+            <img id="" class="quiz-genre-img img-container">
+          <h4 id="" class="quiz-genre-heading"></h4>
+          </div>
+          
+          <div class="score-tally">
+            <span id="final-score"></span><h4 style="text-align: center">out of 10</h4>
+          </div>
+        </div>
+        <button id="new-quiz-btn" class="submit-btn"><h4>Play Again</h4></button>
+      </div>
+    </section>
+  </main>
+
+
+
+
 
 
   <script src="script.js" type="module"></script>
 
 </body>
+
 </html>

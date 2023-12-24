@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="./style.css" rel="stylesheet">
+  <script src="./script.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <img src="./images/logo.svg">
+    <section class="calculator-container">
+      <div class="user-input-container">
+        <div>
+          <div class="input-headings">
+            <p>
+              Bill
+            </p>
+            <p id="tip-error" class="error-msg hidden">
+              Can't be zero
+            </p>
+          </div>
+          
+          <input class="full-width-input" id="bill-total-input" type="number" value="" placeholder="0">
+
+        </div>
+
+        <div>
+          <p>
+            Select Tip %
+          </p>
+          <div class="tip-btn-container">
+            <button class="active-tip tip-btn" id="one" value="0.05">5%</button>
+            <button class="tip-btn" id="two" value="0.10">10%</button>
+            <button class="tip-btn" id="three"  value="0.15">15%</button>
+            <button class="tip-btn" id="four"  value="0.20">20%</button>
+            <button class="tip-btn"  value="0.25">25%</button>
+            <input id="custom-tip-input" type="number" placeholder="Custom">
+          </div>
+
+
+
+        </div>
+
+        <div>
+          <div class="input-headings">
+            <p>
+              Number of People
+            </p>
+            <p id="people-error" class="error-msg hidden">
+              Can't be zero
+            </p>
+          </div>
+          
+
+          <input class="full-width-input" id="total-people-input" type="number" value="" placeholder="0">
+        </div>
+      </div>
+
+      <div class="tip-result-container">
+        <div class="tip-result-content">
+          <div class="result-container">
+            <div class="tip-result-heading">
+              <p>
+                Tip Amount
+              </p>
+              <h5>
+                / person
+              </h5>
+
+            </div>
+            <h1 id="tip-amount-total-display">$0.00</h1>
+          </div>
+
+          <div class="result-container">
+            <div class="tip-result-heading">
+              <p>
+                Total
+              </p>
+              <h5>
+                / person
+              </h5>
+
+            </div>
+            <h1 id="total-display">$0.00</h1>
+          </div>
+
+
+        </div>
+
+        <button id="reset-btn">RESET</button>
+      </div>
+
+    </section>
+  </main>
+
+
+
+
+  
+ 
+
+ 
+
+
+</body>
+
+
+
+
+</html>

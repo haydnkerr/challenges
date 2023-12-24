@@ -1,0 +1,222 @@
+:root {
+  --main-color: hsl(183, 100%, 15%);
+  --secondary-color: hsl(172, 67%, 45%);
+  --background-color: hsl(185, 41%, 84%);
+  --hover-color: 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-size: 24px;
+  font-family: "Space Mono";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 0 0 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 85px;
+  max-width: 920px;
+}
+
+h1 {
+  color: var(--secondary-color);
+  font-size: 3rem;
+}
+
+h5 {
+  font-size: 13px;
+  color: hsl(184, 14%, 56%);
+  font-weight: 400;
+}
+
+p {
+  font-size: 1rem;
+  color: #5E7A7D;
+}
+
+.error-msg {
+  color: #E17457;
+}
+
+.calculator-container {
+  background-color: white;
+  padding: 32px;
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0px 5px 15px hsla(183, 100%, 15%, 0.223);
+
+}
+
+.user-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-right: 20px;
+}
+
+input {
+  background-color: hsl(189, 41%, 97%);
+  border: 2px solid hsl(189, 41%, 97%);
+  border-radius: 5px;
+  outline: none;
+  font-weight: 700;
+}
+
+input[type=number]:focus {
+  border: 2px solid #26C2AE;
+}
+
+.input-headings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-width-input {
+  width: 100%;
+  padding-right:10px;
+  text-align: right;
+  font-family: "Space Mono";
+  background-repeat: no-repeat;
+  background-position: 5%;
+  margin-top: 6px;
+  font-size: 1.5rem;
+  color: var(--main-color);
+
+}
+
+#bill-total-input {
+  background-image: url("./images/icon-dollar.svg");
+}
+
+#total-people-input {
+  background-image: url("./images/icon-person.svg");
+}
+
+.tip-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tip-btn {
+  padding: 5px 15px;
+  color: white;
+  font-family: "Space Mono";
+  font-size: 1.5rem;
+  border-radius: 5px;
+  width: 29%;
+  max-width: 115px;
+  background-color: var(--main-color);
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 700;
+}
+
+.tip-btn:hover {
+  background-color: #9FE8DF;
+  color: var(--main-color)
+}
+
+.active-tip {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  
+}
+
+#custom-tip-input {
+  width: 29%;
+  max-width: 115px;
+  padding: 3px;
+  font-family: "Space Mono";
+  color: var(--main-color);
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: 2px solid hsl(189, 41%, 97%);
+  text-align: center;
+  font-weight: 700;
+}
+
+#custom-tip-input:focus {
+  border: 2px solid #26C2AE;
+}
+
+
+
+.tip-result-container {
+  background-color: var(--main-color);
+  width: 100%;
+  max-width: 415px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.tip-result-heading {
+  
+}
+
+.tip-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px
+}
+
+.tip-result-content p{
+  color: white;
+}
+
+.result-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reset-btn {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  border: none;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--main-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#reset-btn:hover {
+  background-color: #9FE8DF;
+}
+
+
+
+
+
+
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} 
+
+.hidden {
+  display: none;
+}
