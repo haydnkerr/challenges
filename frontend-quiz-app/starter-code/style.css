@@ -294,7 +294,7 @@ label img {
 }
 
 /******* Interactive states of input *********/
-input[type=radio]:hover + label > div > h4.letter {
+input[type=radio]:hover + label > div > h5#letter {
     color: #A729F5;
     background-color: #F6E7FF;
 }

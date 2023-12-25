@@ -28,6 +28,7 @@ let cImg = document.getElementById('answer-c-img')
 let dImg = document.getElementById('answer-d-img')
 let question = document.getElementById('question')
 let userAnswerInput = document.querySelectorAll('.answer')
+let quizOption = document.querySelectorAll('.quiz-option-answer')
 let answerContent = document.querySelectorAll('.answer-content')
 let emptyMsg = document.getElementById("empty-answer-msg")
 let progressBarContainer = document.querySelector('.progress-bar-container')
@@ -73,12 +74,36 @@ quizTopic.forEach(function (element) {
 
 userAnswerInput.forEach(function (element) {
    element.addEventListener('change', userInput)
+
 })
+
+quizOption.forEach(function (element) {
+
+   element.addEventListener('mouseover', inputHover)
+   element.addEventListener('mouseout', inputHoverOut)
+})
+
+
+
 
 submitBtn.addEventListener("click", checkAnswer);
 newQuizBtn.addEventListener('click', newQuiz)
 
 /******** Functions ********** */
+
+function inputHover() {
+   console.log('triggered')
+   this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F6E7FF"
+   this.querySelector('.display-flex').querySelector('.letter').style.color = "#A729F5"
+   
+}
+
+function inputHoverOut() {
+   console.log('triggered')
+   this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+   this.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+   
+}
 
 function populateQuiz() {
    quizGenre = this.value
@@ -271,27 +296,27 @@ function newQuiz() {
 
 function toggleThemeSlider() {
    if (toggleTheme) {
-     switchBtn.style.transform = "translateX(-20px)";
-     document.body.classList.add('light-theme')
-     toggleTheme = false;
-     sunIcon.src = "./assets/images/icon-sun-dark.svg"
-     moonIcon.src = "./assets/images/icon-moon-dark.svg"
-     progressBarContainer.classList.add('light-theme')
-     for (let i = 0; i < quizOptionContainer.length; i++) {
-      quizOptionContainer[i].classList.add('light-theme')
-     }
+      switchBtn.style.transform = "translateX(-20px)";
+      document.body.classList.add('light-theme')
+      toggleTheme = false;
+      sunIcon.src = "./assets/images/icon-sun-dark.svg"
+      moonIcon.src = "./assets/images/icon-moon-dark.svg"
+      progressBarContainer.classList.add('light-theme')
+      for (let i = 0; i < quizOptionContainer.length; i++) {
+         quizOptionContainer[i].classList.add('light-theme')
+      }
    } else {
-     switchBtn.style.transform = "translateX(0px)";
-     document.body.classList.remove('light-theme')
-     toggleTheme = true;
-     sunIcon.src = "./assets/images/icon-sun-light.svg"
-     moonIcon.src = "./assets/images/icon-moon-light.svg"
-     progressBarContainer.classList.remove('light-theme')
-     for (let i = 0; i < quizOptionContainer.length; i++) {
-      quizOptionContainer[i].classList.remove('light-theme')
-     }
+      switchBtn.style.transform = "translateX(0px)";
+      document.body.classList.remove('light-theme')
+      toggleTheme = true;
+      sunIcon.src = "./assets/images/icon-sun-light.svg"
+      moonIcon.src = "./assets/images/icon-moon-light.svg"
+      progressBarContainer.classList.remove('light-theme')
+      for (let i = 0; i < quizOptionContainer.length; i++) {
+         quizOptionContainer[i].classList.remove('light-theme')
+      }
    }
- }
+}
 
 
 
