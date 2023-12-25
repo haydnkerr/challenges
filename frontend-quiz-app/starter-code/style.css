@@ -56,7 +56,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
-    padding-top: 50px;
+    padding-top: 75px;
 }
 
 .theme-toggle-container {
@@ -88,7 +88,7 @@ header {
 }
 
 .welcome-message {
-
+    width: 50%;
     max-width: 564px;
 }
 
@@ -374,6 +374,7 @@ body.light-theme {
     .welcome-message {
         padding: 0px;
         margin-bottom: 40px;
+        width: 100%;
     }
 
     .welcome-message p {
