@@ -19,15 +19,20 @@
 <body>
 
     <header>
-        <nav class="mobile-nav-container">
-            <div>
-
-            </div>
-            <img src="assets/shared/desktop/logo.svg">
-            <img src="./assets/shared/desktop/icon-cart.svg">
-
+        <nav class="nav-container">
+          <img class="mobile-nav" src="./assets/shared/tablet/icon-hamburger.svg">
+          
+          <img src="assets/shared/desktop/logo.svg">
+          <ul class="desktop-nav">
+            <li><a href="#" class="subtitle">home</a></li>
+            <li><a href="./headphones.html" class="subtitle">headphones</a></li>
+            <li><a href="./speakers.html" class="subtitle">speakers</a></li>
+            <li><a href="./earphones.html" class="subtitle">earphones</a></li>
+          </ul>
+          <img class="shopping-cart-icon" src="./assets/shared/desktop/icon-cart.svg">
+    
         </nav>
-    </header>
+      </header>
 
     <main>
         <section class="product-hero-container">
@@ -100,9 +105,9 @@
 
                         <img id="product-card-one-img" class="product-card-img">
     
-                    <h3 id="product-card-one-heading">
+                    <h5 id="product-card-one-heading">
 
-                    </h3>
+                    </h5>
                     <button id="product-card-one-btn" class="btn orange-btn sub-title">
                         see product
                     </button>
@@ -112,9 +117,9 @@
  
                         <img id="product-card-two-img" class="product-card-img">
 
-                    <h3 id="product-card-two-heading">
+                    <h5 id="product-card-two-heading">
 
-                    </h3>
+                    </h5>
                     <button id="product-card-two-btn" href="" class="btn orange-btn sub-title">
                         see product
                     </button>
@@ -124,9 +129,9 @@
 
                         <img id="product-card-three-img" class="product-card-img">
 
-                    <h3 id="product-card-three-heading">
+                    <h5 id="product-card-three-heading">
 
-                    </h3>
+                    </h5>
                     <a id="product-card-three-btn" href="" class="btn orange-btn sub-title">
                         see product
                     </a>
@@ -213,38 +218,41 @@
     </main>
 
     <footer>
-        <div>
+        <section class="footer-container">
+          <div class="footer-nav">
             <img src="./assets/shared/desktop/logo.svg">
             <ul>
-                <li><a class="sub-title">home</a></li>
-                <li><a class="sub-title">headphones</a></li>
-                <li><a class="sub-title">speakers</a></li>
-                <li><a class="sub-title">earphones</a></li>
+              <li><a class="sub-title">home</a></li>
+              <li><a class="sub-title">headphones</a></li>
+              <li><a class="sub-title">speakers</a></li>
+              <li><a class="sub-title">earphones</a></li>
             </ul>
-        </div>
-
-
-        <p>
+          </div>
+      
+      
+          <p>
             Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
             and sound specialists who are devoted to helping you get the most out of personal audio. Come and
             visit our demo facility - we’re open 7 days a week.
-        </p>
-
-        <div>
+          </p>
+      
+          <div class="copyright-container">
             <p>
-                <strong>Copyright 2021. All Rights Reserved</strong>
+              <strong>Copyright 2021. All Rights Reserved</strong>
             </p>
-
+      
             <div class="social-icons-container">
-                <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
-                <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
-                <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
+              <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
+              <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
+              <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
             </div>
-        </div>
-
-
-
-    </footer>
+          </div>
+        </section>
+        
+    
+    
+    
+      </footer>
 
 </body>
 

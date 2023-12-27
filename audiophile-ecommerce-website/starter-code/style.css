@@ -36,7 +36,7 @@ h4 {
 }
 
 h5 {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
 }
 
 h6 {
@@ -121,7 +121,7 @@ header {
     background: #191919;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 36px 24px
 }
@@ -131,6 +131,19 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1100px;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 25px;
+    list-style-type: none;
+    color: white;
+    display: none;
+}
+
+.desktop-nav li:hover {
+    text-decoration: underline;
 }
 
 /********** Cart Styling *********/
@@ -532,13 +545,35 @@ section {
 }
 
 
+/*********** Footer ************/
 
 
 footer {
     width: 100%;
-    padding: 25px;
+    padding: 50px;
     background-color: black;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    color: #979797;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 footer ul {
@@ -547,6 +582,17 @@ footer ul {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    cursor: pointer;
+}
+
+footer li:hover {
+    text-decoration: underline;
+}
+
+.copyright-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px
 }
 
 .social-icons-container {
@@ -554,6 +600,13 @@ footer ul {
     gap: 15px;
     justify-content: center;
 }
+
+.social-icons-container a {
+    cursor: pointer;
+    margin: 0px 5px
+}
+
+
 
 .hidden {
     display: none;
@@ -590,6 +643,19 @@ footer ul {
 @media only screen and (min-width: 600px) {
 
 
+    .product-suggestions-container {
+        margin-bottom: 100px;
+    }
+    .product-suggestions {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px
+    }
+
+    .product-suggestion-card {
+        width: 100%;
+    }
+
     .product-category-container {
         flex-direction: row;
         gap: 10px;
@@ -618,6 +684,23 @@ footer ul {
     .yx1-product-preview-card img {
         content: url("./assets/product-yx1-earphones/tablet/image-category-page-preview.jpg");
     }
+
+
+
+    footer p {
+        text-align: left;
+    }
+
+    .footer-nav ul {
+        flex-direction: row;
+    }
+
+    .copyright-container {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -637,9 +720,6 @@ footer ul {
         font-size: 28px;
     }
 
-    h5 {
-        font-size: 24px;
-    }
 
     h6 {
         font-size: 18px;
@@ -647,6 +727,35 @@ footer ul {
 
     p {
         font-size: 15px;
+    }
+
+    .desktop-nav {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .company-info-container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 75px;
+        margin-bottom: 100px;
+        
+    }
+
+    .company-info {
+        width: 50%;
+        text-align: left;
+        max-width: 445px;
+    }
+
+    .company-info-img {
+        height: 540px;
+        width: 50%;
+        background-image: url("./assets/shared/desktop/image-best-gear.jpg");
     }
 
     .hero-section {
@@ -663,9 +772,52 @@ footer ul {
 
     .product-category-container {
         gap: 25px;
+        margin-bottom: 150px;
+    }
+
+    .product-preview-container {
+        gap: 100px;
+        margin-bottom: 200px;
+    }
+
+    .product-preview-card {
+        flex-direction: row;
+        gap: 75px;
+    }
+
+    .preview-card-reversed {
+        flex-direction: row-reverse;
+    }
+
+    .product-preview-card-content {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .product-preview-card img {
+        width: 50%;
     }
 
     .yx1-product-preview-card img {
         content: url("./assets/product-yx1-earphones/desktop/image-category-page-preview.jpg");
+    }
+
+    .footer-container {
+        align-items: flex-start;
+    }
+
+    .social-icons-container {
+        transform: translateY(-75px);
+    }
+
+    .footer-nav {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer p {
+        max-width: 50%;
     }
 }
