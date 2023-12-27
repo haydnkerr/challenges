@@ -1,60 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="./script.js" defer></script>
+
   <title>Frontend Mentor | Audiophile e-commerce website</title>
 </head>
+
+
 <body>
-  Home
-  Headphones
-  Speakers
-  Earphones
+  <header>
+    <nav class="mobile-nav-container">
+      <div>
 
-  New product
-  XX99 Mark II Headphones
-  Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
-  
-  See product
+      </div>
+      <img src="assets/shared/desktop/logo.svg">
+      <img src="./assets/shared/desktop/icon-cart.svg">
 
-  Headphones
-  Shop
+    </nav>
+  </header>
 
-  Speakers
-  Shop
+  <div class="cart-container-overlay">
+    <div class="cart-content-max-width">
+      <div class="cart-container">
+        <div class="flex-row space-between">
+          <h6>
+            cart (<span class="cart-item-quantity-total"></span>)
+          </h6>
+          <button>
+            <p class="orange-font">remove all</p>
+          </button>
+        </div>
 
-  Earphones
-  Shop
+        <div class="cart-item-list-container">
+          <div class="cart-item-container flex-row space-between align-center">
+            <div class="flex-row">
+              <img src="./assets/cart/image-xx59-headphones.jpg">
+              <div>
+                <strong>
+                  <p>xx99 mk ii</p>
+                </strong>
+                <p class="overline-text">$ 2,999</p>
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
 
-  ZX9 speaker
-  Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
-  See product
+        <div class="cart-price-total-container flex-row space-between">
+          <p>total</p>
+          <h6 class="cart-price-total"></h6>
+        </div>
+        <a class="btn orange-btn">checkout</a>
+      </div>
+    </div>
 
-  ZX7 speaker
-  See product
 
-  YX1 earphones
-  See product
+  </div>
+  <div class="hero-section">
+    <div class="hero-section-display">
+      <div class="hero-section-content">
+        <p><span class="overline-text">New product</span></p>
+        <h1>
+          XX99 Mark II Headphones
+        </h1>
+        <p>
+          Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+        </p>
+        <a href="product-page.html" class="sub-title btn orange-btn xx99-ii-headphones-product-page">
+          see product
+        </a>
+      </div>
+    </div>
 
-  Bringing you the best audio gear
-  Located at the heart of New York City, Audiophile is the premier store for high end headphones, 
-  earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration 
-  rooms available for you to browse and experience a wide range of our products. Stop by our store 
-  to meet some of the fantastic people who make Audiophile the best place to buy your portable 
-  audio equipment.
 
-  Home
-  Headphones
-  Speakers
-  Earphones
+  </div>
 
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers 
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and 
-  visit our demo facility - we’re open 7 days a week.
 
-  Copyright 2021. All Rights Reserved
+
+  <main>
+    <section class="product-category-container">
+      <div id="headphones-product-card" class="product-category-card">
+        <div class="category-card-transform">
+          <img src="./assets/shared/desktop/image-category-thumbnail-headphones.png">
+          <h6>
+            Headphones
+          </h6>
+          <div class="shop-btn-container">
+            <a href="./headphones.html" class="sub-title">Shop</a>
+            <img src="./assets/shared/desktop/icon-arrow-right.svg">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="product-category-card">
+        <div class="category-card-transform">
+          <img src="./assets/shared/desktop/image-category-thumbnail-speakers.png">
+          <h6>
+            Speakers
+          </h6>
+          <div class="shop-btn-container">
+            <a href="./speakers.html" class="sub-title">Shop</a>
+            <img src="./assets/shared/desktop/icon-arrow-right.svg">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="product-category-card">
+        <div class="category-card-transform">
+          <img src="./assets/shared/desktop/image-category-thumbnail-earphones.png">
+          <h6>
+            Earphones
+          </h6>
+          <div class="shop-btn-container">
+            <a href="./earphones.html" class="sub-title">Shop</a>
+            <img src="./assets/shared/desktop/icon-arrow-right.svg">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="zx9-container container">
+      <img src="./assets/home/mobile/image-speaker-zx9.png">
+      <h1>
+        ZX9 Speaker
+      </h1>
+      <p>
+        Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+      </p>
+      <a href="product-page.html" class="sub-title btn black-btn zx9-speaker-product-page">
+        see product
+      </a>
+    </section>
+
+    <section class="zx7-container container">
+
+      <h4>
+        ZX7 Speaker
+      </h4>
+      <a href="product-page.html" class="sub-title btn clear-btn">
+        see product
+      </a>
+    </section>
+
+    <section class="yx1-earphones-container">
+      <div class="earphones-img-container">
+
+      </div>
+
+      <div class="earphones-info-container container">
+        <h4>
+          YX1 earphones
+        </h4>
+        <a href="product-page.html" class="sub-title btn clear-btn">
+          see product
+        </a>
+      </div>
+    </section>
+
+    <section class=" company-info-container">
+      <div class="company-info-img">
+
+      </div>
+      <div class="company-info">
+        <h2>
+          Bringing you the <span class="orange-font">best</span> audio gear
+        </h2>
+        <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones,
+          earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration
+          rooms available for you to browse and experience a wide range of our products. Stop by our store
+          to meet some of the fantastic people who make Audiophile the best place to buy your portable
+          audio equipment.</p>
+      </div>
+
+    </section>
+
+
+
+
+  </main>
+
+  <footer>
+    <div>
+      <img src="./assets/shared/desktop/logo.svg">
+      <ul>
+        <li><a class="sub-title">home</a></li>
+        <li><a class="sub-title">headphones</a></li>
+        <li><a class="sub-title">speakers</a></li>
+        <li><a class="sub-title">earphones</a></li>
+      </ul>
+    </div>
+
+
+    <p>
+      Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
+      and sound specialists who are devoted to helping you get the most out of personal audio. Come and
+      visit our demo facility - we’re open 7 days a week.
+    </p>
+
+    <div>
+      <p>
+        <strong>Copyright 2021. All Rights Reserved</strong>
+      </p>
+
+      <div class="social-icons-container">
+        <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
+        <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
+        <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
+      </div>
+    </div>
+
+
+
+  </footer>
+
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>

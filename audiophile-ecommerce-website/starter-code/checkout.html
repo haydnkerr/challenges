@@ -6,105 +6,234 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link href="./style.css" rel="stylesheet">
 
   <title>Frontend Mentor | Audiophile e-commerce website</title>
 </head>
 
 <body>
-  Home
-  Headphones
-  Speakers
-  Earphones
 
-  
-  <!-- Cart Modal -->
-  Cart(3)
-  Remove All
-
-  XX99 MK II x1
-  $2,999
-  
-  XX59 x2
-  $899
-  
-  YX1 x1
-  $599
-  
-  Total $5,396
-
-  Checkout
-  <!-- Cart modal end -->
-
-  
-  Go back
-
-  Checkout
-
-  Billing details
-  Name
-  Email address
-  Phone number
-
-  Shipping info
-  Address
-  ZIP code
-  City
-  Country
-
-  Payment details
-  Payment method
-  e-Money
-  Cash on delivery
-  e-Money number
-  e-money PIN
-
-  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives 
-  at your residence. Just make sure your address is correct so that your order will not be cancelled.
-
-  Summary
-  XX99 MK II x1
-  $2,999
-
-  XX59 x2
-  $899
-
-  YX1 x1
-  $599
-
-  Total $5,396
-  Shipping $10
-  VAT $120
-
-  Grand total $5,526
-
-  Continue & pay
+  <header>
+    <nav class="mobile-nav-container">
 
 
-  <!-- Success Modal -->
-  Thank you for your order
-  You will receive an email confirmation shortly.
+      <div>
 
-  XX99 MK II x 1
-  $2,999
-  and 2 other item(s)
+      </div>
+      <img src="assets/shared/desktop/logo.svg">
+      <img src="./assets/shared/desktop/icon-cart.svg">
 
-  Grand total
-  $5,526
+    </nav>
+  </header>
 
-  Back to home
-  <!-- End success modal -->
+  <div class="payment-success-modal">
+    <img>
+    <h2>thank you for your order</h2>
+    <p>You will recieve an email confirmation shortly</p>
+    <div>
+
+    </div>
+    <a href="./index.html" class="btn orange-btn">back to home</a>
+  </div>
+
+  <main>
+    <section class="checkout-container">
+      <h2>Checkout</h2>
+      <form>
+        <h6>billing details</h6>
+        <div class="billing-details-container">
+          <div class="form-input-container">
+            <label>Name</label>
+            <input type="name">
+          </div>
+
+          <div class="form-input-container">
+            <label>Email Address</label>
+            <input type="email">
+          </div>
+
+          <div class="form-input-container">
+            <label>Phone Number</label>
+            <input type>
+          </div>
+
+        </div>
+        <h6>shipping info</h6>
+        <div class="shipping-info-container">
+          <div class="form-input-container">
+            <label>Address</label>
+            <input type="text">
+          </div>
+
+          <div class="form-input-container">
+            <label>ZIP Code</label>
+            <input type="number">
+          </div>
+
+          <div class="form-input-container">
+            <label>City</label>
+            <input type="text">
+          </div>
+
+          <div class="form-input-container">
+            <label>Country</label>
+            <input type="text">
+          </div>
+
+        </div>
+
+      </form>
 
 
-  Home
-  Headphones
-  Speakers
-  Earphones
+      
 
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-  visit our demo facility - we’re open 7 days a week.
+      <div class="payment-details-container">
 
-  Copyright 2021. All Rights Reserved
+      </div class="disclaimer-container">
+      <img>
+      <p>
+        The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
+        at your residence. Just make sure your address is correct so that your order will not be cancelled.
+
+      </p>
+
+      <div>
+
+      </div>
+    </section>
+
+
+
+
+  </main>
+
+  <footer>
+    <div>
+      <img src="./assets/shared/desktop/logo.svg">
+      <ul>
+        <li><a class="sub-title">home</a></li>
+        <li><a class="sub-title">headphones</a></li>
+        <li><a class="sub-title">speakers</a></li>
+        <li><a class="sub-title">earphones</a></li>
+      </ul>
+    </div>
+
+
+    <p>
+      Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
+      and sound specialists who are devoted to helping you get the most out of personal audio. Come and
+      visit our demo facility - we’re open 7 days a week.
+    </p>
+
+    <div>
+      <p>
+        <strong>Copyright 2021. All Rights Reserved</strong>
+      </p>
+
+      <div class="social-icons-container">
+        <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
+        <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
+        <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
+      </div>
+    </div>
+
+
+
+  </footer>
+
+</body>
+Home
+Headphones
+Speakers
+Earphones
+
+
+<!-- Cart Modal -->
+Cart(3)
+Remove All
+
+XX99 MK II x1
+$2,999
+
+XX59 x2
+$899
+
+YX1 x1
+$599
+
+Total $5,396
+
+Checkout
+<!-- Cart modal end -->
+
+
+Go back
+
+Checkout
+
+Billing details
+Name
+Email address
+Phone number
+
+Shipping info
+Address
+ZIP code
+City
+Country
+
+Payment details
+Payment method
+e-Money
+Cash on delivery
+e-Money number
+e-money PIN
+
+
+Summary
+XX99 MK II x1
+$2,999
+
+XX59 x2
+$899
+
+YX1 x1
+$599
+
+Total $5,396
+Shipping $10
+VAT $120
+
+Grand total $5,526
+
+Continue & pay
+
+
+<!-- Success Modal -->
+Thank you for your order
+You will receive an email confirmation shortly.
+
+XX99 MK II x 1
+$2,999
+and 2 other item(s)
+
+Grand total
+$5,526
+
+Back to home
+<!-- End success modal -->
+
+
+Home
+Headphones
+Speakers
+Earphones
+
+Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
+and sound specialists who are devoted to helping you get the most out of personal audio. Come and
+visit our demo facility - we’re open 7 days a week.
+
+Copyright 2021. All Rights Reserved
 </body>
 
 </html>
