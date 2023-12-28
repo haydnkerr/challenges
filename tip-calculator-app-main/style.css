@@ -29,6 +29,7 @@ main {
   align-items: center;
   gap: 85px;
   max-width: 920px;
+  padding: 25px;
 }
 
 h1 {
@@ -219,4 +220,10 @@ input::-webkit-inner-spin-button {
 
 .hidden {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .calculator-container {
+    flex-direction: column;
+  }
 }
