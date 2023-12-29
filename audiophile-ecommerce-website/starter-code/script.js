@@ -22,6 +22,11 @@ let productCardThreeImg = document.getElementById('product-card-three-img')
 let productCardThreeHeading = document.getElementById('product-card-three-heading')
 let productCardThreeBtn = document.getElementById('product-card-three-btn')
 
+/***** Home Buttons *******/
+let homeX99TwoBtn = document.getElementById('home-x99-ii-product-btn')
+let homeZx9Btn = document.getElementById('home-zx9-product-btn')
+let homeZx7Btn = document.getElementById('home-zx7-product-btn')
+let homeYx1Btn = document.getElementById('home-yx1-product-btn')
 
 // let xx99ProductBtn = document.getElementById('xx99-mark-one-headphones')
 // let xx59ProductBtn = document.getElementById('xx59-headphones')
@@ -29,6 +34,26 @@ let productCardThreeBtn = document.getElementById('product-card-three-btn')
 // let xx99TwoProductBtn = document.getElementById('xx99-mark-two-headphones')
 // let zx7ProductBtn = document.getElementById('zx7-speaker')
 
+homeX99TwoBtn.addEventListener('click', function(event) {
+    n = 3;
+    event.preventDefault();
+    populateProductPage(3);
+})
+
+homeZx9Btn.addEventListener('click', function() {
+    n = 5;
+    populateProductPage(5)
+})
+
+homeZx7Btn.addEventListener('click', function() {
+    n = 4;
+    populateProductPage(4)
+})
+
+homeYx1Btn.addEventListener('click', function() {
+    n = 0;
+    populateProductPage(0)
+})
 
 
 let quantity = 1
@@ -57,6 +82,8 @@ function populateProductPage(num) {
         top: 0,
         behavior: 'smooth'
     });
+
+    window.location.assign('product-page.html');
 
     
     fetch('data.json')

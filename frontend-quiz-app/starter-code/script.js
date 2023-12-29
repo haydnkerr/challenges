@@ -18,6 +18,7 @@ let quizOptionContainer = document.querySelectorAll('.quiz-option-container')
 let currentQuestionNumber = document.getElementById('current-question-num')
 let submitBtn = document.getElementById('submit-btn')
 let newQuizBtn = document.getElementById('new-quiz-btn')
+let questionContainer = document.querySelector('.question-number-container')
 let answerA = document.getElementById('answer-a')
 let answerB = document.getElementById('answer-b')
 let answerC = document.getElementById('answer-c')
@@ -32,7 +33,9 @@ let quizOption = document.querySelectorAll('.quiz-option-answer')
 let answerContent = document.querySelectorAll('.answer-content')
 let emptyMsg = document.getElementById("empty-answer-msg")
 let progressBarContainer = document.querySelector('.progress-bar-container')
+let welcomeMessage = document.querySelector('.welcome-message')
 
+let scoreCard = document.querySelector('.score-card')
 let htmlScore = document.getElementById('html-score')
 let cssScore = document.getElementById('css-score')
 let jsScore = document.getElementById('js-score')
@@ -92,17 +95,15 @@ newQuizBtn.addEventListener('click', newQuiz)
 /******** Functions ********** */
 
 function inputHover() {
-   console.log('triggered')
    this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F6E7FF"
    this.querySelector('.display-flex').querySelector('.letter').style.color = "#A729F5"
-   
+
 }
 
 function inputHoverOut() {
-   console.log('triggered')
    this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
    this.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
-   
+
 }
 
 function populateQuiz() {
@@ -177,11 +178,12 @@ function userInput() {
          element.nextElementSibling.style.border = "2px solid #A729F5"
          element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#A729F5"
          element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "white"
-      } else {
-         element.nextElementSibling.style.border = "2px solid #3f4c65"
-         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
-         element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
       }
+      // else {
+      //    element.nextElementSibling.style.border = "2px solid #3f4c65"
+      //    element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+      //    element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+      // }
 
    });
 }
@@ -195,11 +197,23 @@ function checkAnswer() {
          currentQuestion += 1
          submitBtn.innerHTML = '<h4>Submit Answer</h4>'
          userAnswerInput.forEach(function (radio) {
-            radio.checked = false;
             radio.nextElementSibling.querySelector('img').style.opacity = '0'
-            radio.nextElementSibling.style.border = '2px solid #3f4c65'
-            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
-            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+            if (radio.checked == true) {
+               radio.checked = false;
+               radio.nextElementSibling.querySelector('img').style.opacity = '0'
+
+               if (toggleTheme) {
+                  radio.nextElementSibling.style.border = '2px solid #3f4c65'
+                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+               } else {
+                  radio.nextElementSibling.style.border = '2px solid white'
+                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+               }
+
+            }
+
          });
 
          aImg.classList.remove('correct')
@@ -298,6 +312,11 @@ function toggleThemeSlider() {
    if (toggleTheme) {
       switchBtn.style.transform = "translateX(-20px)";
       document.body.classList.add('light-theme')
+      question.classList.add('light-theme')
+      questionContainer.classList.add('light-theme')
+      welcomeMessage.classList.add('light-theme')
+      emptyMsg.classList.add('light-theme')
+      scoreCard.classList.add('light-theme')
       toggleTheme = false;
       sunIcon.src = "./assets/images/icon-sun-dark.svg"
       moonIcon.src = "./assets/images/icon-moon-dark.svg"
@@ -305,9 +324,26 @@ function toggleThemeSlider() {
       for (let i = 0; i < quizOptionContainer.length; i++) {
          quizOptionContainer[i].classList.add('light-theme')
       }
+
+      userAnswerInput.forEach(function (radio) {
+         radio.nextElementSibling.querySelector('img').style.opacity = '0'
+         if (radio.checked == false) {
+            radio.nextElementSibling.style.border = '2px solid white'
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+         }
+
+      });
+
+
    } else {
       switchBtn.style.transform = "translateX(0px)";
+      scoreCard.classList.remove('light-theme')
+      question.classList.remove('light-theme')
       document.body.classList.remove('light-theme')
+      questionContainer.classList.remove('light-theme')
+      welcomeMessage.classList.remove('light-theme')
+      emptyMsg.classList.remove('light-theme')
       toggleTheme = true;
       sunIcon.src = "./assets/images/icon-sun-light.svg"
       moonIcon.src = "./assets/images/icon-moon-light.svg"
@@ -315,6 +351,19 @@ function toggleThemeSlider() {
       for (let i = 0; i < quizOptionContainer.length; i++) {
          quizOptionContainer[i].classList.remove('light-theme')
       }
+      
+
+      userAnswerInput.forEach(function (radio) {
+         radio.nextElementSibling.querySelector('img').style.opacity = '0'
+         if (radio.checked == false) {
+            radio.nextElementSibling.style.border = '2px solid #3f4c65'
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+            
+
+         }
+
+      });
    }
 }
 

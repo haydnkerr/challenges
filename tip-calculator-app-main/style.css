@@ -77,7 +77,7 @@ input {
 }
 
 input[type=number]:focus {
-  border: 2px solid #26C2AE;
+  outline: 2px solid #26C2AE;
 }
 
 .input-headings {

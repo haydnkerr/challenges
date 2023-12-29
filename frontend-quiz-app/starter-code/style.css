@@ -96,6 +96,10 @@ header {
     color: #ABC1E1
 }
 
+.welcome-message.light-theme p {
+    color:#343e4f;
+}
+
 main {
     width: 100%;
     max-width: 1160px;
@@ -140,8 +144,11 @@ main {
 }
 
 .quiz-option-container.light-theme h4 {
-    color: #313E51
+    color: #313E51;
+    
 }
+
+
 
 .quiz-option:hover {
     background-color: #58657b;
@@ -159,6 +166,10 @@ main {
     align-items: flex-end;
 }
 
+#question.light-theme {
+    color: #313E51;
+}
+
 .question-container {
     width: 50%;
     padding: 0px 75px 85px 0px;
@@ -172,6 +183,10 @@ main {
     font-weight: 300;
     color: #ABC1E1;
     margin-bottom: 27px;
+}
+
+.question-number-container.light-theme {
+    color:#313E51;
 }
 
 .progress-bar-container {
@@ -259,6 +274,10 @@ label img {
     background-color: #c372f5;
 }
 
+#empty-answer-msg.light-theme p {
+    color:#343e4f;
+}
+
 .score-message {
     width: 50%;
 }
@@ -280,11 +299,20 @@ label img {
     margin-bottom: 24px;
 }
 
+.score-card.light-theme {
+    background-color: white;
+    color:#343e4f
+}
+
 .score-tally {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.score-tally h4 {
+    font-weight: 400;
 }
 
 #final-score {

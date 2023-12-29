@@ -30,6 +30,8 @@ tipBtn.forEach(function (element) {
 
 billTotalInput.addEventListener('input', updateBillTotal)
 
+
+
 numPeopleInput.addEventListener('input', updateNumPeople)
 
 customTip.addEventListener('input', customTipInput)
@@ -41,6 +43,7 @@ function updateNumPeople() {
     if (numPeople == 0) {
         peopleError.classList.remove('hidden')
         this.style.border = '2px solid red'
+        this.style.outline = 'none'
     } else {
         peopleError.classList.add('hidden')
         this.style.border = '2px solid hsl(189, 41%, 97%)'
@@ -63,9 +66,11 @@ function updateBillTotal() {
     if (billAmount == 0) {
         tipError.classList.remove('hidden')
         this.style.border = '2px solid red'
+
     } else {
         tipError.classList.add('hidden')
         this.style.border = '2px solid hsl(189, 41%, 97%)'
+
     }
     calculateTip()
 }
