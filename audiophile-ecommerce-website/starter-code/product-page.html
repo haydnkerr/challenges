@@ -11,7 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
     <script src="./script.js" defer></script>
+
 
     <title>Frontend Mentor | Audiophile e-commerce website</title>
 </head>
@@ -20,19 +22,19 @@
 
     <header>
         <nav class="nav-container">
-          <img class="mobile-nav" src="./assets/shared/tablet/icon-hamburger.svg">
-          
-          <img src="assets/shared/desktop/logo.svg">
-          <ul class="desktop-nav">
-            <li><a href="#" class="subtitle">home</a></li>
-            <li><a href="./headphones.html" class="subtitle">headphones</a></li>
-            <li><a href="./speakers.html" class="subtitle">speakers</a></li>
-            <li><a href="./earphones.html" class="subtitle">earphones</a></li>
-          </ul>
-          <img class="shopping-cart-icon" src="./assets/shared/desktop/icon-cart.svg">
-    
+            <img class="mobile-nav" src="./assets/shared/tablet/icon-hamburger.svg">
+
+            <img src="assets/shared/desktop/logo.svg">
+            <ul class="desktop-nav">
+                <li><a href="#" class="subtitle">home</a></li>
+                <li><a href="./headphones.html" class="subtitle">headphones</a></li>
+                <li><a href="./speakers.html" class="subtitle">speakers</a></li>
+                <li><a href="./earphones.html" class="subtitle">earphones</a></li>
+            </ul>
+            <img class="shopping-cart-icon" src="./assets/shared/desktop/icon-cart.svg">
+
         </nav>
-      </header>
+    </header>
 
     <main>
         <section class="product-hero-container">
@@ -52,12 +54,12 @@
                         <input id="item-quantity-indicator" class="item-quantity-indicator" value="1">
                         <button id="increase-quantity-btn" class="increment-btn">+</button>
                     </div>
-    
+
                     <button id="add-to-cart-btn" class="btn orange-btn add-to-cart-btn sub-title">
                         Add to cart
                     </button>
                 </div>
-                
+
             </div>
 
         </section>
@@ -103,8 +105,8 @@
             <div class="product-suggestions">
                 <div class="product-suggestion-card">
 
-                        <img id="product-card-one-img" class="product-card-img">
-    
+                    <img id="product-card-one-img" class="product-card-img">
+
                     <h5 id="product-card-one-heading">
 
                     </h5>
@@ -114,8 +116,8 @@
                 </div>
 
                 <div class="product-suggestion-card">
- 
-                        <img id="product-card-two-img" class="product-card-img">
+
+                    <img id="product-card-two-img" class="product-card-img">
 
                     <h5 id="product-card-two-heading">
 
@@ -127,7 +129,7 @@
 
                 <div class="product-suggestion-card">
 
-                        <img id="product-card-three-img" class="product-card-img">
+                    <img id="product-card-three-img" class="product-card-img">
 
                     <h5 id="product-card-three-heading">
 
@@ -219,40 +221,162 @@
 
     <footer>
         <section class="footer-container">
-          <div class="footer-nav">
-            <img src="./assets/shared/desktop/logo.svg">
-            <ul>
-                <li><a href="./index.html" class="sub-title">home</a></li>
-                <li><a href="./headphones.html" class="sub-title">headphones</a></li>
-                <li><a href="./speakers.html" class="sub-title">speakers</a></li>
-                <li><a href="./earphones.html" class="sub-title">earphones</a></li>
-              </ul>
-          </div>
-      
-      
-          <p>
-            Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-            and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-            visit our demo facility - we’re open 7 days a week.
-          </p>
-      
-          <div class="copyright-container">
-            <p>
-              <strong>Copyright 2021. All Rights Reserved</strong>
-            </p>
-      
-            <div class="social-icons-container">
-              <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
-              <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
-              <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
+            <div class="footer-nav">
+                <img src="./assets/shared/desktop/logo.svg">
+                <ul>
+                    <li><a href="./index.html" class="sub-title">home</a></li>
+                    <li><a href="./headphones.html" class="sub-title">headphones</a></li>
+                    <li><a href="./speakers.html" class="sub-title">speakers</a></li>
+                    <li><a href="./earphones.html" class="sub-title">earphones</a></li>
+                </ul>
             </div>
-          </div>
+
+
+            <p>
+                Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
+                and sound specialists who are devoted to helping you get the most out of personal audio. Come and
+                visit our demo facility - we’re open 7 days a week.
+            </p>
+
+            <div class="copyright-container">
+                <p>
+                    <strong>Copyright 2021. All Rights Reserved</strong>
+                </p>
+
+                <div class="social-icons-container">
+                    <a><img src="./assets/shared/desktop/icon-facebook.svg"></a>
+                    <a><img src="./assets/shared/desktop/icon-twitter.svg"></a>
+                    <a><img src="./assets/shared/desktop/icon-instagram.svg"></a>
+                </div>
+            </div>
         </section>
-        
-    
-    
-    
-      </footer>
+
+
+
+
+    </footer>
+
+
+    <script>
+
+
+
+        fetch('data.json')
+
+
+            .then(response => response.json())
+            .then(data => {
+
+
+                let n = localStorage.getItem('nValue');
+
+                productImg.src = data[n].image.mobile
+                productHeading.innerHTML = data[n].name
+                productDescription.innerHTML = data[n].description
+                productFeatures.innerHTML = data[n].features
+                productPrice.innerHTML = data[n].price
+
+                productImgOne.src = data[n].gallery.first.mobile
+                productImgTwo.src = data[n].gallery.second.mobile
+                productImgThree.src = data[n].gallery.third.mobile
+
+                productCardOneHeading.innerHTML = data[n].others[0].name
+                productCardOneBtn.id = data[n].others[0].slug
+                productCardOneImg.src = data[n].others[0].image.mobile
+
+                productCardTwoHeading.innerHTML = data[n].others[1].name
+                productCardTwoBtn.id = data[n].others[1].slug
+                productCardTwoImg.src = data[n].others[1].image.mobile
+
+                productCardThreeHeading.innerHTML = data[n].others[2].name
+                productCardThreeBtn.id = data[n].others[2].slug
+                productCardThreeImg.src = data[n].others[2].image.mobile
+
+
+                for (let i = 0; i < data[n].includes.length; i++) {
+                    let newDiv = document.createElement('div')
+                    newDiv.innerHTML = "<p class=orange-font>" + data[n].includes[i].quantity + "x</p>" + "<p>" + data[n].includes[i].item + "</p>"
+                    newDiv.classList.add('item-count-container')
+                    itemExtrasList.appendChild(newDiv)
+                };
+
+                let xx99ProductBtn = document.getElementById('xx99-mark-one-headphones')
+                let xx59ProductBtn = document.getElementById('xx59-headphones')
+                let zx9ProductBtn = document.getElementById('zx9-speaker')
+                let xx99TwoProductBtn = document.getElementById('xx99-mark-two-headphones')
+                let zx7ProductBtn = document.getElementById('zx7-speaker')
+                let yx1ProductBtn = document.getElementById('yx1-earphones')
+
+                if (xx99ProductBtn !== null) {
+                    console.log(true)
+                    xx99ProductBtn.addEventListener('click', function (event) {
+                        n = 2
+                        localStorage.setItem('nValue', n);
+
+                    })
+                } else {
+                    console.log('false')
+                };
+
+                // xx99ProductBtn.addEventListener('click', function (event) {
+                //         n = 2
+                //         localStorage.setItem('nValue', n);
+                // })
+
+
+                    xx99TwoProductBtn.addEventListener('click', function (event) {
+                        n = 3
+                        localStorage.setItem('nValue', n);
+                    })
+
+
+
+
+                    zx9ProductBtn.addEventListener('click', function (event) {
+                        n = 5;
+                        localStorage.setItem('nValue', n);
+                    })
+
+
+
+
+                    zx7ProductBtn.addEventListener('click', function (event) {
+                        n = 4
+                        localStorage.setItem('nValue', n);
+                    })
+
+
+
+                    yx1ProductBtn.addEventListener('click', function (event) {
+                        n = 0
+                        localStorage.setItem('nValue', n);
+                    })
+
+
+
+                    xx59ProductBtn.addEventListener('click', function (event) {
+                        n = 1
+                        localStorage.setItem('nValue', n);
+                    })
+
+
+
+
+
+
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+            });
+
+
+
+
+
+
+    </script>
+
+
 
 </body>
 

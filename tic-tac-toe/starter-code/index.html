@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link href="./style.css" rel="stylesheet">
   <title>Frontend Mentor | Tic Tac Toe</title>
@@ -13,30 +16,30 @@
   <section class="main-menu-container" id="main-menu-container">
     <img src="./assets/logo.svg">
     <div class="main-menu-inner-container">
-      <h3>Pick Player 1's Mark</h3>
+      <h4 style="color:#A8BFC9">PICK PLAYER 1'S MARK</h4>
       <div class="player-choice-container">
         <button id="player-choose-cross">
         </button>
         <button id="player-choose-circle">
         </button>
       </div>
-      <h4>Remember: X Goes First</h4>
+      <p style="color:#a8bfc977">REMEMBER: X GOES FIRST</p>
     </div>
-    <button class="game-start-btn" id="game-start-computer-btn">New Game (Vs CPU)</button>
-    <button class="game-start-btn" id="game-start-player-btn">New Game (Vs Player)</button>
+    <button class="game-start-btn" id="game-start-computer-btn"><h3>New Game (Vs CPU)</h3></button>
+    <button class="game-start-btn" id="game-start-player-btn"><h3>New Game (Vs Player)</h3></button>
   </section>
 
   <section class="winning-screen-container hidden" id="winning-screen-container">
     <div class="winning-statement-container">
-      <p>You Won!</p>
+      <h4 class="win-statement-heading">You Won!</h4>
       <div class="winning-statement">
-        <img id="winning-piece">
-        <h1>takes the round</h1>
+        <img id="winning-piece" src="./assets/icon-x.svg">
+        <h1 id="winning-color">takes the round</h1>
       </div>
       
       <div class="winning-statement-btn-container">
-        <button id="quit-btn">Quit</button>
-        <button id="next-round-btn">Next Round</button>
+        <button id="quit-btn"><h4>QUIT</h4></button>
+        <button id="next-round-btn"><h4>NEXT ROUND</h4></button>
       </div>
     </div>
 
@@ -75,19 +78,19 @@
     <section class="score-container">
       <div class="win-container score-container-element">
         <div>
-         <h4>X (YOU)</h4>
+         <p>X (YOU)</p>
         </div>
         <h2 id="win-tally"></h2>
       </div>
       <div class="draw-container score-container-element">
         <div>
-          <h4>TIES</h4>
+          <p>TIES</h4>
         </div>
         <h2 id="draw-tally"></h2>
       </div>
       <div class="lose-container score-container-element">
         <div>
-          <h4>O (CPU)</h4>
+          <p>O (CPU)</p>
         </div>
         <h2 id="lose-tally"></h2>
       </div>

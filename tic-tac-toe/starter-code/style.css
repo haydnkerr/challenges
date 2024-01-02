@@ -2,18 +2,54 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "outfit";
+    
 }
 
 body {
-    width: 100svw;
-    height: 100svh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #1d2a32;
-    padding: 15px
+    padding: 15px;
+    font-weight: 700;
+    
+    
 }
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+
+}
+
+h3 {
+    font-size: 1.25rem;
+    letter-spacing: 1.25px;
+    color: #1A2A33;
+}
+
+h4 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+p {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    color: #1A2A33;
+}
+
+
 
 .main-menu-container {
 display: flex;
@@ -26,10 +62,12 @@ width: 400px;
 .main-menu-inner-container {
     background-color: #24353f;
     width: 100%;
-    padding: 10px;
+    padding: 25px 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-radius: 10px;
+    border-bottom: 8px solid #18252c;
 }
 
 .player-choice-container {
@@ -40,6 +78,7 @@ width: 400px;
     justify-content: space-between;
     background-color: #1d2a32;
     border-radius: 5px;
+    margin: 20px 0px
 }
 
 .player-choice-container  button {
@@ -58,13 +97,12 @@ width: 400px;
     background-image: url("./assets/icon-x.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #d79c30;
+    background-color: #f2b137;
     background-size: 25%;
 }
 
 #player-choose-circle {
-    background-color: none;
-    background: transparent;
+    background-color: transparent;
     background-image: url("./assets/icon-o.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -72,15 +110,25 @@ width: 400px;
     
 }
 
+
+
 #game-start-computer-btn {
-    background-color: #e8b451;
+    background-color: #f2b137;
     
     border-bottom: 3px solid #d79c30;
 }
 
+#game-start-computer-btn:hover {
+    background-color: #ffc860;
+}
+
 #game-start-player-btn {
-    background-color: #62c1bd;
+    background-color: #31C3BD;
     border-bottom: 3px solid #50a09c;
+}
+
+#game-start-player-btn:hover {
+    background-color: #65E9E4;
 }
 
 .game-start-btn {
@@ -94,14 +142,22 @@ width: 400px;
 
 .winning-screen-container {
     background: rgba(0, 0, 0, 0.442);
-    width: 100svw;
-    height: 100svh;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.win-statement-heading {
+    color: #A8BFC9; 
+}
+
+#winning-color {
+    color: #31C3BD
 }
 
 .winning-statement-container {
@@ -121,18 +177,28 @@ width: 400px;
     gap: 15px;
 }
 
+.winning-statement-btn-container {
+
+}
+
 .winning-statement-btn-container button{
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    
 }
 
 #next-round-btn {
-    background-color: #d79c30;
+    background-color: #F2B137;
+    color: #1A2A33;
+    margin-left: 16px;
+    border-bottom: 4px solid #ab7b24;
 }
 
 #quit-btn {
-    background-color: #acbec8;
+    background-color: #A8BFC9;
+    color: #1A2A33;
+    border-bottom: 4px solid #8d9ea5;
 }
 
 main {
@@ -149,6 +215,7 @@ heading {
 
 .turn-indicator-container {
     background-color: #24353f;
+    border-bottom: 4px solid #172229;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,6 +237,7 @@ heading {
 
 #restart-btn {
     background-color: #acbec8;
+    
     background-image: url("./assets/icon-restart.svg");
     height: 40px;
     width: 40px;
@@ -177,8 +245,9 @@ heading {
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    border-bottom: 4px solid #8898a0;
 }
 
 #restart-btn:hover {
@@ -212,7 +281,7 @@ heading {
 }
 
 .win-container {
-    background: #62c1bd;
+    background: #31C3BD;
 }
 
 .draw-container {
@@ -220,7 +289,7 @@ heading {
 }
 
 .lose-container {
-    background: #e8b451;
+    background: #F2B137;
 }
 
 .btn {
@@ -232,6 +301,7 @@ heading {
     background-position: center;
     cursor: pointer;
     border-radius: 15px;
+    border-bottom: 8px solid #172229;
 }
 
 .btn:hover {
