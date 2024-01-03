@@ -4,45 +4,111 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #8B6990;
+    --secondary-color: hsl(292, 42%, 14%);
+    --accent-color: #AD28EB;
+    --background-color: hsl(275, 100%, 97%);
+}
+
+
+h1 {
+    font-size: 56px;
+    color: var(--secondary-color);
+}
+
+h2 {
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--main-color);
+    padding-top: 24px;
+}
+
 body {
-    height: 100svh;
+    height: 100vh;
+    font-family: 'Work Sans';
     background-color: hsl(275, 100%, 97%);
-    background-image: url("./assets/background-pattern-desktop.svg");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    background-image: url("./assets/background-pattern-mobile.svg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 100px 25px;
+}
+
+.heading-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 50px;
 }
 
 main {
     background-color: white;
-    width: 500px
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 600px;
 }
 
-details > summary::after {
-    content: ''; /* Empty content */
-    display: inline-block;
-    width: 20px; /* Adjust the width of the image */
-    height: 20px; /* Adjust the height of the image */
-    background-image: url('./assets/icon-plus.svg'); /* Replace with the path to your image */
-    background-size: cover; /* or contain, depending on your preference */
-    margin-right: 10px; /* Adjust spacing as needed */
-}
+
 
 summary {
+    list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+summary::-webkit-details-marker {
+    display: none; 
+}
+
+summary::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url("./assets/icon-plus.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+summary::before {
+    display: none;
+}
+
+
+
+summary:hover {
+    cursor: pointer;
+    color: var(--accent-color);
 }
 
 details[open] > summary::after {
-    content: ''; /* Empty content */
-    display: inline-block;
-    width: 20px; /* Adjust the width of the image */
-    height: 20px; /* Adjust the height of the image */
-    background-image: url('./assets/icon-minus.svg'); /* Replace with the path to your image */
-    background-size: cover; /* or contain, depending on your preference */
-    margin-right: 10px; /* Adjust spacing as needed */
+    background-image: url("./assets/icon-minus.svg");
 }
+
+details {
+    padding: 24px 0px
+}
+
+hr {
+    border-color: var(--background-color);
+}
+
+@media only screen and (min-width: 750px) {
+    body {
+        background-image: url("./assets/background-pattern-desktop.svg")
+    }
+}
+
+
+
 
