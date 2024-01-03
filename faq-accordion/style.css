@@ -70,7 +70,8 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-    content: '';
+    content: 'addddd';
+    color:#8b699000;
     width: 30px;
     height: 30px;
     background-image: url("./assets/icon-plus.svg");
