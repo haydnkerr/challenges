@@ -199,7 +199,7 @@ function userInput() {
             element.nextElementSibling.classList.remove('checked')
          } else {
             element.nextElementSibling.style.border = '2px solid white'
-            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
             element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
             element.nextElementSibling.classList.remove('checked')
          }
@@ -229,7 +229,7 @@ function checkAnswer() {
                   radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
                } else {
                   radio.nextElementSibling.style.border = '2px solid white'
-                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+                  radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
                   radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
                }
 
@@ -350,7 +350,7 @@ function toggleThemeSlider() {
          radio.nextElementSibling.querySelector('img').style.opacity = '0'
          if (radio.checked == false) {
             radio.nextElementSibling.style.border = '2px solid white'
-            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+            radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
             radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
          }
 

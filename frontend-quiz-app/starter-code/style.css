@@ -6,8 +6,8 @@
 
 body {
     width: 100vw;
-    height: 100vh;
-    padding: 0px 24px;
+    height: 100%;
+    padding: 0px 24px 40px 24px;
     font-family: "Rubik";
     display: flex;
     justify-content: flex-start;
