@@ -222,7 +222,7 @@ function checkAnswer() {
             if (radio.checked == true) {
                radio.checked = false;
                radio.nextElementSibling.querySelector('img').style.opacity = '0'
-
+               radio.nextElementSibling.classList.remove('checked')
                if (toggleTheme) {
                   radio.nextElementSibling.style.border = '2px solid #3f4c65'
                   radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
