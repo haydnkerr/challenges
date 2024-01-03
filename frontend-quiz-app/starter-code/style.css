@@ -221,7 +221,7 @@ main {
     border-radius: 24px;
     padding: 10px 20px;
     max-width: 564px;
-    min-width: 400px;
+ 
     cursor: pointer;
     justify-content: space-between;
     min-height: 92px;
@@ -264,7 +264,6 @@ label img {
     max-width: 564px;
     cursor: pointer;
     height: 92px;
-    min-width: 400px;
 }
 
 
