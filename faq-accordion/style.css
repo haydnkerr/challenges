@@ -46,7 +46,7 @@ body {
 .heading-container {
     display: flex;
     gap: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 24px;
 }
 
 main {
