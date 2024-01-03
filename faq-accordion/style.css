@@ -100,7 +100,7 @@ details {
 }
 
 hr {
-    border-color: var(--background-color);
+    border: 1px solid var(--background-color);
 }
 
 @media only screen and (min-width: 750px) {
