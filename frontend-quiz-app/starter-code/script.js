@@ -95,14 +95,25 @@ newQuizBtn.addEventListener('click', newQuiz)
 /******** Functions ********** */
 
 function inputHover() {
-   this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F6E7FF"
-   this.querySelector('.display-flex').querySelector('.letter').style.color = "#A729F5"
+   if (this.classList.contains('checked')) {
+      this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#A729F5"
+      this.querySelector('.display-flex').querySelector('.letter').style.color = "white"
+   } else {
+      this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F6E7FF"
+      this.querySelector('.display-flex').querySelector('.letter').style.color = "#A729F5"
+   }
+
 
 }
 
 function inputHoverOut() {
-   this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
-   this.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+   if (this.classList.contains('checked')) {
+      this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#A729F5"
+      this.querySelector('.display-flex').querySelector('.letter').style.color = "white"
+   } else {
+      this.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+      this.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+   }
 
 }
 
@@ -178,12 +189,22 @@ function userInput() {
          element.nextElementSibling.style.border = "2px solid #A729F5"
          element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#A729F5"
          element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "white"
+         element.nextElementSibling.classList.add('checked')
       }
-      // else {
-      //    element.nextElementSibling.style.border = "2px solid #3f4c65"
-      //    element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
-      //    element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
-      // }
+      else if (element.checked == false) {
+         if (toggleTheme) {
+            element.nextElementSibling.style.border = "2px solid #3f4c65"
+            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
+            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+            element.nextElementSibling.classList.remove('checked')
+         } else {
+            element.nextElementSibling.style.border = '2px solid white'
+            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "white"
+            element.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
+            element.nextElementSibling.classList.remove('checked')
+         }
+
+      }
 
    });
 }
@@ -351,7 +372,7 @@ function toggleThemeSlider() {
       for (let i = 0; i < quizOptionContainer.length; i++) {
          quizOptionContainer[i].classList.remove('light-theme')
       }
-      
+
 
       userAnswerInput.forEach(function (radio) {
          radio.nextElementSibling.querySelector('img').style.opacity = '0'
@@ -359,7 +380,7 @@ function toggleThemeSlider() {
             radio.nextElementSibling.style.border = '2px solid #3f4c65'
             radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.backgroundColor = "#F4F6FA"
             radio.nextElementSibling.querySelector('.display-flex').querySelector('.letter').style.color = "#626C7F"
-            
+
 
          }
 
