@@ -8,6 +8,7 @@ let turnIndicator = document.getElementById('turn-indicator')
 let quitBtn = document.getElementById('quit-btn')
 let nextRoundBtn = document.getElementById('next-round-btn')
 let winningScreenContainer = document.getElementById('winning-screen-container')
+let winStatementHeading = document.querySelector('.win-statement-heading')
 let winningPiece = document.getElementById('winning-piece')
 let winningColor = document.getElementById('winning-color')
 let mainMenuContainer = document.getElementById('main-menu-container')
@@ -16,9 +17,13 @@ let gameStartComputerBtn = document.getElementById('game-start-computer-btn')
 let gameStartPlayerBtn = document.getElementById('game-start-player-btn')
 let playerChooseCross = document.getElementById('player-choose-cross')
 let playerChooseCircle = document.getElementById('player-choose-circle')
+let circlePerson = document.getElementById('circle-person')
+let crossPerson = document.getElementById('cross-person')
 let playerOneTurn = true;
 let playerTwoTurn = false;
 let playerOneCross = true;
+let playerOneWin = false;
+let playerTwoWin = false;
 let wins = 0
 let losses = 0
 let draws = 0
@@ -45,12 +50,14 @@ gameStartPlayerBtn.addEventListener('click', playPlayer)
 
 function chooseCircle() {
     playerOneCross = false
+    
     playerChooseCross.style.backgroundColor = 'transparent'
     playerChooseCircle.style.backgroundColor = "#31c3bd"
 }
 
 function chooseCross() {
     playerOneCross = true
+
     playerChooseCross.classList.add('active-choice')
     playerChooseCircle.classList.remove('active-choice')
     playerChooseCross.style.backgroundColor = '#f2b137'
@@ -73,6 +80,9 @@ function playPlayer() {
 }
 
 function initiateGame() {
+    wins = 0
+    losses = 0
+    draws = 0
     winTally.innerHTML = wins
     loseTally.innerHTML = losses
     drawTally.innerHTML = draws
@@ -100,9 +110,25 @@ function initiateGame() {
         playerTwoTurn = true;
     }
 
+    //******** Change Player names at bottom of screen  **************//
+    if (playerOneCross && computerActive) {
+        crossPerson.innerHTML = "YOU"
+        circlePerson.innerHTML = "CPU"
+    } else if(playerOneCross && !computerActive) {
+        crossPerson.innerHTML = "P1"
+        circlePerson.innerHTML = "P2"
+    } else if(!playerOneCross && !computerActive) {
+        crossPerson.innerHTML = "P2"
+        circlePerson.innerHTML = "P1"
+    } else {
+        crossPerson.innerHTML = "CPU"
+        circlePerson.innerHTML = "YOU"
+    }
+
 }
 
 function nextRound() {
+    winningColor.innerHTML = "takes the round"
     winningScreenContainer.classList.add('hidden')
     totalTurns = 0
     turnIndicatorChange()
@@ -117,6 +143,7 @@ function nextRound() {
 
         playerOneTurn = true;
         computerTurn = false;
+        playerTwoTurn = false;
     } else if (computerActive) {
 
         playerOneTurn = false;
@@ -126,6 +153,7 @@ function nextRound() {
 
         playerOneTurn = false;
         computerTurn = false;
+        playerTwoTurn = true
     }
 
 
@@ -166,11 +194,8 @@ function chooseTile(e) {
             totalTurns += 1
             checkWin()
         }
-        if (computerActive) {
-            computerTurn = true
-            setTimeout(computerRandomTurn, 500)
-        }
-    } else if (playerOneTurn && playerOneCross == false){
+
+    } else if (playerOneTurn && playerOneCross == false) {
         if (e.className == 'btn empty') {
             e.className = 'btn circle'
             playerOneTurn = false
@@ -179,10 +204,7 @@ function chooseTile(e) {
             totalTurns += 1
             checkWin()
         }
-        if (computerActive) {
-            computerTurn = true
-            setTimeout(computerRandomTurn, 500)
-        }
+        
     } else if (playerTwoTurn && playerOneCross) {
         if (e.className == 'btn empty') {
             e.className = 'btn circle'
@@ -202,28 +224,110 @@ function chooseTile(e) {
             totalTurns += 1
             checkWin()
         }
+    } 
+
+    if (computerActive && !playerOneTurn) {
+        computerTurn = true
+        setTimeout(computerRandomTurn, 500)
     }
 
 }
 
 function computerRandomTurn() {
     while (computerTurn && gameOver == false) {
-        randomNum = Math.floor(Math.random() * 9)
-        console.log(randomNum)
-        if ((gameboard.children[randomNum].className == 'btn empty') && (playerOneCross == true)) {
-            gameboard.children[randomNum].className = 'btn circle';
+        if (gameboard.children[2].className == 'btn empty' && ((playerOneTiles.includes(5) && playerOneTiles.includes(8)) || (playerOneTiles.includes(0) && playerOneTiles.includes(1)) || (playerOneTiles.includes(4) && playerOneTiles.includes(6)))) {
+            gameboard.children[2].className = 'btn circle';
+            playerTwoTiles.push(parseInt(2))
             computerTurn = false
             playerOneTurn = true
-            playerTwoTiles.push(parseInt(randomNum))
             totalTurns += 1
             checkWin()
-        } else if (gameboard.children[randomNum].className == 'btn empty') {
-            gameboard.children[randomNum].className = 'btn cross';
+
+        } else if (gameboard.children[1].className == 'btn empty' && ((playerOneTiles.includes(4) && playerOneTiles.includes(7)))) {
+            gameboard.children[1].className = 'btn circle';
+            playerTwoTiles.push(parseInt(1))
             computerTurn = false
             playerOneTurn = true
-            playerTwoTiles.push(parseInt(randomNum))
             totalTurns += 1
             checkWin()
+
+        } else if (gameboard.children[0].className == 'btn empty' && ((playerOneTiles.includes(1) && playerOneTiles.includes(2)) || (playerOneTiles.includes(3) && playerOneTiles.includes(6)) || (playerOneTiles.includes(4) && playerOneTiles.includes(8)))) {
+            gameboard.children[0].className = 'btn circle';
+            computerTurn = false
+            playerOneTurn = true
+            playerTwoTiles.push(parseInt(0))
+            totalTurns += 1
+            console.log('zero')
+            checkWin()
+
+        } else if (gameboard.children[3].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(6)) || (playerOneTiles.includes(4) && playerOneTiles.includes(5)) )) {
+            gameboard.children[3].className = 'btn circle';
+            playerTwoTiles.push(parseInt(3))
+            computerTurn = false
+            playerOneTurn = true
+            totalTurns += 1
+            checkWin()
+
+        }  else if (gameboard.children[4].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(8)) || (playerOneTiles.includes(1) && playerOneTiles.includes(7)) || (playerOneTiles.includes(2) && playerOneTiles.includes(7)) || (playerOneTiles.includes(3) && playerOneTiles.includes(5)))) {
+            gameboard.children[4].className = 'btn circle';
+            playerTwoTiles.push(parseInt(4))
+            computerTurn = false
+            playerOneTurn = true
+            totalTurns += 1
+            checkWin()
+
+        } else if (gameboard.children[5].className == 'btn empty' && ((playerOneTiles.includes(2) && playerOneTiles.includes(8)) || (playerOneTiles.includes(4) && playerOneTiles.includes(3)) )) {
+            gameboard.children[5].className = 'btn circle';
+            playerTwoTiles.push(parseInt(5))
+            computerTurn = false
+            playerOneTurn = true
+            totalTurns += 1
+            checkWin()
+
+        } else if (gameboard.children[6].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(3)) || (playerOneTiles.includes(4) && playerOneTiles.includes(2)) || (playerOneTiles.includes(7) && playerOneTiles.includes(8)))) {
+            gameboard.children[6].className = 'btn circle';
+            computerTurn = false
+            playerOneTurn = true
+            playerTwoTiles.push(parseInt(6))
+            totalTurns += 1
+            console.log('six')
+            checkWin()
+
+        } else if (gameboard.children[7].className == 'btn empty' && ((playerOneTiles.includes(1) && playerOneTiles.includes(4)) || (playerOneTiles.includes(6) && playerOneTiles.includes(8)) )) {
+            gameboard.children[7].className = 'btn circle';
+            playerTwoTiles.push(parseInt(7))
+            computerTurn = false
+            playerOneTurn = true
+            totalTurns += 1
+            checkWin()
+
+        }  else if (gameboard.children[8].className === 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(4)) || (playerOneTiles.includes(2) && playerOneTiles.includes(5)) || (playerOneTiles.includes(6) && playerOneTiles.includes(7)))) {
+            gameboard.children[8].className = 'btn circle';
+            computerTurn = false
+            playerOneTurn = true
+            playerTwoTiles.push(parseInt(8))
+            totalTurns += 1
+            console.log('eight')
+            checkWin()
+
+        } else {
+            randomNum = Math.floor(Math.random() * 9)
+            console.log(randomNum)
+            if ((gameboard.children[randomNum].className == 'btn empty') && (playerOneCross == true)) {
+                gameboard.children[randomNum].className = 'btn circle';
+                computerTurn = false
+                playerOneTurn = true
+                playerTwoTiles.push(parseInt(randomNum))
+                totalTurns += 1
+                checkWin()
+            } else if (gameboard.children[randomNum].className == 'btn empty') {
+                gameboard.children[randomNum].className = 'btn cross';
+                computerTurn = false
+                playerOneTurn = true
+                playerTwoTiles.push(parseInt(randomNum))
+                totalTurns += 1
+                checkWin()
+            }
         }
     }
 }
@@ -242,14 +346,16 @@ function checkWin() {
         if ((winningCombos[i].every(elem => playerOneTiles.includes(elem)))) {
             console.log('one win')
             wins += 1
-            winTally.innerHTML = wins
+            // winTally.innerHTML = wins
             gameOver = true
-            winningScreenContainer.classList.remove('hidden')
+            playerOneWin = true
+            gameWinScreen()
         } else if ((winningCombos[i].every(elem => playerTwoTiles.includes(elem)))) {
             console.log('two win')
             losses += 1
-            loseTally.innerHTML = losses
-            winningScreenContainer.classList.remove('hidden')
+            // loseTally.innerHTML = losses
+            playerTwoWin = true
+            gameWinScreen()
             gameOver = true
         }
     }
@@ -258,9 +364,58 @@ function checkWin() {
         draws += 1
         drawTally.innerHTML = draws
         gameOver = true
-        winningScreenContainer.classList.remove('hidden')
+        gameWinScreen()
+        
     }
 
+}
+
+function gameWinScreen() {
+    if (playerOneWin && playerOneCross) {
+        winTally.innerHTML = wins
+        winningPiece.src = './assets/icon-x.svg'
+        winningColor.style.color = '#31C3BD'
+        if (computerActive) {
+            winStatementHeading.innerHTML = "YOU WON!"       
+        } else {
+            winStatementHeading.innerHTML = "PLAYER ONE WINS!"
+        }
+    } else if (playerOneWin && !playerOneCross) {
+        loseTally.innerHTML = wins
+        winningPiece.src = './assets/icon-o.svg'
+        winningColor.style.color = '#F2B137'
+        if (computerActive) {
+            winStatementHeading.innerHTML = "YOU WON!"       
+        } else {
+            winStatementHeading.innerHTML = "PLAYER ONE WINS!"
+        }
+    } else if (playerTwoWin && playerOneCross) {
+        loseTally.innerHTML = losses
+        winningPiece.src = './assets/icon-o.svg'
+        winningColor.style.color = '#F2B137'
+        if (computerActive) {
+            winStatementHeading.innerHTML = "OH NO YOU LOST!"       
+        } else {
+            winStatementHeading.innerHTML = "PLAYER TWO WINS!"
+        }
+    } else if (playerTwoWin && !playerOneCross) {
+        winTally.innerHTML = losses
+        winningPiece.src = './assets/icon-x.svg'
+        winningColor.style.color = '#31C3BD'
+        if (computerActive) {
+            winStatementHeading.innerHTML = "OH NO YOU!"       
+        } else {
+            winStatementHeading.innerHTML = "PLAYER TWO WINS!"
+        }
+    }
+
+    if (!playerTwoWin && !playerOneWin) {
+        winningColor.innerHTML = "its a draw"
+        winningColor.style.color = "#A8BFC9"
+    }
+    winningScreenContainer.classList.remove('hidden')
+    playerTwoWin = false
+    playerOneWin = false
 }
 
 

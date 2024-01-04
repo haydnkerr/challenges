@@ -31,9 +31,9 @@
 
   <section class="winning-screen-container hidden" id="winning-screen-container">
     <div class="winning-statement-container">
-      <h4 class="win-statement-heading">You Won!</h4>
+      <h4 class="win-statement-heading"></h4>
       <div class="winning-statement">
-        <img id="winning-piece" src="./assets/icon-x.svg">
+        <img id="winning-piece" src="">
         <h1 id="winning-color">takes the round</h1>
       </div>
       
@@ -78,7 +78,7 @@
     <section class="score-container">
       <div class="win-container score-container-element">
         <div>
-         <p>X (YOU)</p>
+         <p>X (<span id="cross-person"></span>)</p>
         </div>
         <h2 id="win-tally"></h2>
       </div>
@@ -90,7 +90,7 @@
       </div>
       <div class="lose-container score-container-element">
         <div>
-          <p>O (CPU)</p>
+          <p>O (<span id="circle-person"></span>)</p>
         </div>
         <h2 id="lose-tally"></h2>
       </div>
