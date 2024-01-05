@@ -236,7 +236,12 @@ function chooseTile(e) {
 function computerRandomTurn() {
     while (computerTurn && gameOver == false) {
         if (gameboard.children[2].className == 'btn empty' && ((playerOneTiles.includes(5) && playerOneTiles.includes(8)) || (playerOneTiles.includes(0) && playerOneTiles.includes(1)) || (playerOneTiles.includes(4) && playerOneTiles.includes(6)))) {
-            gameboard.children[2].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[2].className = 'btn circle';
+            } else {
+                gameboard.children[2].className = 'btn cross';
+            }
+            
             playerTwoTiles.push(parseInt(2))
             computerTurn = false
             playerOneTurn = true
@@ -244,7 +249,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[1].className == 'btn empty' && ((playerOneTiles.includes(4) && playerOneTiles.includes(7)))) {
-            gameboard.children[1].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[1].className = 'btn circle';
+            } else {
+                gameboard.children[1].className = 'btn cross';
+            }
             playerTwoTiles.push(parseInt(1))
             computerTurn = false
             playerOneTurn = true
@@ -252,7 +261,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[0].className == 'btn empty' && ((playerOneTiles.includes(1) && playerOneTiles.includes(2)) || (playerOneTiles.includes(3) && playerOneTiles.includes(6)) || (playerOneTiles.includes(4) && playerOneTiles.includes(8)))) {
-            gameboard.children[0].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[0].className = 'btn circle';
+            } else {
+                gameboard.children[0].className = 'btn cross';
+            }
             computerTurn = false
             playerOneTurn = true
             playerTwoTiles.push(parseInt(0))
@@ -261,7 +274,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[3].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(6)) || (playerOneTiles.includes(4) && playerOneTiles.includes(5)) )) {
-            gameboard.children[3].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[3].className = 'btn circle';
+            } else {
+                gameboard.children[3].className = 'btn cross';
+            }
             playerTwoTiles.push(parseInt(3))
             computerTurn = false
             playerOneTurn = true
@@ -269,7 +286,11 @@ function computerRandomTurn() {
             checkWin()
 
         }  else if (gameboard.children[4].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(8)) || (playerOneTiles.includes(1) && playerOneTiles.includes(7)) || (playerOneTiles.includes(2) && playerOneTiles.includes(7)) || (playerOneTiles.includes(3) && playerOneTiles.includes(5)))) {
-            gameboard.children[4].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[4].className = 'btn circle';
+            } else {
+                gameboard.children[4].className = 'btn cross';
+            }
             playerTwoTiles.push(parseInt(4))
             computerTurn = false
             playerOneTurn = true
@@ -277,7 +298,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[5].className == 'btn empty' && ((playerOneTiles.includes(2) && playerOneTiles.includes(8)) || (playerOneTiles.includes(4) && playerOneTiles.includes(3)) )) {
-            gameboard.children[5].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[5].className = 'btn circle';
+            } else {
+                gameboard.children[5].className = 'btn cross';
+            }
             playerTwoTiles.push(parseInt(5))
             computerTurn = false
             playerOneTurn = true
@@ -285,7 +310,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[6].className == 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(3)) || (playerOneTiles.includes(4) && playerOneTiles.includes(2)) || (playerOneTiles.includes(7) && playerOneTiles.includes(8)))) {
-            gameboard.children[6].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[6].className = 'btn circle';
+            } else {
+                gameboard.children[6].className = 'btn cross';
+            }
             computerTurn = false
             playerOneTurn = true
             playerTwoTiles.push(parseInt(6))
@@ -294,7 +323,11 @@ function computerRandomTurn() {
             checkWin()
 
         } else if (gameboard.children[7].className == 'btn empty' && ((playerOneTiles.includes(1) && playerOneTiles.includes(4)) || (playerOneTiles.includes(6) && playerOneTiles.includes(8)) )) {
-            gameboard.children[7].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[7].className = 'btn circle';
+            } else {
+                gameboard.children[7].className = 'btn cross';
+            }
             playerTwoTiles.push(parseInt(7))
             computerTurn = false
             playerOneTurn = true
@@ -302,7 +335,11 @@ function computerRandomTurn() {
             checkWin()
 
         }  else if (gameboard.children[8].className === 'btn empty' && ((playerOneTiles.includes(0) && playerOneTiles.includes(4)) || (playerOneTiles.includes(2) && playerOneTiles.includes(5)) || (playerOneTiles.includes(6) && playerOneTiles.includes(7)))) {
-            gameboard.children[8].className = 'btn circle';
+            if (playerOneCross) {
+                gameboard.children[8].className = 'btn circle';
+            } else {
+                gameboard.children[8].className = 'btn cross';
+            }
             computerTurn = false
             playerOneTurn = true
             playerTwoTiles.push(parseInt(8))

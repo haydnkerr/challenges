@@ -49,6 +49,10 @@ p {
     color: #1A2A33;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 
 
 .main-menu-container {
@@ -56,7 +60,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 15px;
-width: 400px;
+width: 100%;
+max-width: 400px;
 }
 
 .main-menu-inner-container {
@@ -202,7 +207,8 @@ width: 400px;
 }
 
 main {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 
 heading {
@@ -223,6 +229,10 @@ heading {
     border-radius: 10px;
     gap: 8px;
     color: white;
+}
+
+.turn-indicator-container h3 {
+    color: silver
 }
 
 .turn-indicator-container img {
@@ -261,6 +271,12 @@ heading {
     width: 100%;
     height: 400px;
     gap: 15px;
+}
+
+@media only screen and (max-width: 350px) {
+    .gameboard {
+        height: 350px
+    }
 }
 
 .score-container {
