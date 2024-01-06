@@ -13,7 +13,7 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
     background-color: white;
     justify-content: center;
     align-items: center;
@@ -112,6 +112,7 @@ p {}
     position: absolute;
     width: 100vw;
     padding: 25px;
+    z-index: 10;
 }
 
 .in-game-menu {
@@ -123,7 +124,7 @@ p {}
     gap: 20px;
     width: 100%;
     max-width: 400px;
-    z-index: 5;
+    
 }
 
 /**************   Gameboard Container   **************/
