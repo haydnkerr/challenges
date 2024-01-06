@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-text: hsl(229, 25%, 31%);
+    --score-text: hsl(229, 64%, 46%);
+    --header-outline: hsl(217, 16%, 45%);
+}
+
+/******* Contents *******/
+/*
+1. Universal Stylings
+2. Score Container
+3. Player Choose Piece Container
+4. Rules Container
+5. Match/Winner Container 
+Media Queries
+
+*/
+
+/********** 1. Universal Stylings **************/
+
+body {
+    font-family: "Barlow Semi Condensed";
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #565468;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3B4262;
+}
+
+h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+}
+
+h5 {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: #2A45C2;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+/***************** 2. Score Container *************/
+
+
+/***************** 3. Player Choose Piece Container ***************/
+
+
+/***************** 4. Rules Container ********************/
+
+
+/***************** 5. Match/Winner Container *******************/
+
+
+/************** Media Queries ***************/
+@media only screen and (min-width: 750px) {
+    h2 {
+        font-size: 4rem;
+    }
+    
+    h4 {
+        font-size: 1.5rem;
+    }
+    
+    h5 {
+        font-size: 1rem;
+    }
+}

@@ -1,28 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap" rel="stylesheet">
+
   <title>Frontend Mentor | Memory game</title>
   <link href="./style.css" rel="stylesheet">
-  
+
 </head>
 
 <body>
-
-  <section id="gameboard">
-
+  <!--      Home Menu     -->
+  <section id="home-menu-container" class="home-menu-container display-none">
+    <h2>memory</h2>
+    <div class="home-menu">
+      <div class="home-menu-item">
+        <h3>Select Theme</h3>
+        <div class="button-container">
+          <button class="active">Numbers</button>
+          <button>Icons</button>
+        </div>
+      </div>
+      <div class="home-menu-item">
+        <h3>Number of Players</h3>
+        <div class="button-container">
+          <button class="active btn" value="1">1</button>
+          <button class="btn" value="2">2</button>
+          <button class="btn" value="3">3</button>
+          <button class="btn" value="4">4</button>
+        </div>
+      </div>
+      <div class="home-menu-item">
+        <h3>Grid Size</h3>
+        <div class="button-container">
+          <button class="btn active" value="16">4x4</button>
+          <button value="36" class="btn">6x6</button>
+        </div>
+      </div>
+      <button class=" btn start-game-btn orange-btn">Start Game</button>
+    </div>
 
   </section>
-  <h1 id="player-one-score"></h1>
 
-  
+  <!--      In Game Menu     -->
+  <section class="in-game-menu-container display-none">
+    <div class="in-game-menu">
+      <button class="orange-btn btn" id="restart-btn">Restart</button>
+      <button class="btn" id="new-game-btn">New Game</button>
+      <button class="btn" id="resume-game-btn">Resume Game</button>
+    </div>
+
+  </section>
+
+  <!--      Gameboard Container     -->
+
+  <section class="gameboard-container" id="gameboard-container">
+    <div class="gameboard-header">
+      <img src="./assets/logo.svg">
+      <button class="orange-btn btn" id="in-game-menu-btn">Menu</button>
+    </div>
+    <div class="gameboard">
+      <button value="1" class="game-piece active-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back one">
+
+          </div>
+        </div>
+      </button>
+      <button value="1" class="game-piece active-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back one">
+
+          </div>
+        </div>
+      </button>
+      <button value="2" class="game-piece active-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back two">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="3" class="game-piece active-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back three">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="4" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back four">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="2" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back two">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="3" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back three">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="4" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back four">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="6" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back six">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="5" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back five">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="5" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back five">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="6" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back six">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="7" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back seven">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="7" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back seven">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="8" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back eight">
+
+          </div>
+        </div>
+      </button>
+
+      <button value="8" class="game-piece">
+        <div class="game-piece-inner">
+          <div class="game-piece-front">
+
+          </div>
+          <div class="game-piece-back eight">
+
+          </div>
+        </div>
+      </button>
+
+
+      
+
+    </div>
+
+    <div class="stat-tracker-container">
+      <div class="stats point-tracker-container display-none">
+        <div class="turn-indicator-container">
+          <div class="turn-triangle">
+
+          </div>
+          <div class="player-points-container">
+            <p>P1</p>
+            <h2 id="time-indicator">4</h2>
+          </div>
+          <div class="current-turn-statement">
+            <p>current turn</p>
+          </div>
+        </div>
+        <div class="turn-indicator-container">
+          <div class="turn-triangle">
+
+          </div>
+          <div class="player-points-container">
+            <p>P1</p>
+            <h2 id="time-indicator">4</h2>
+          </div>
+          <div class="current-turn-statement">
+            <p>current turn</p>
+          </div>
+        </div>
+        <div class="turn-indicator-container">
+          <div class="turn-triangle">
+
+          </div>
+          <div class="player-points-container">
+            <p>P1</p>
+            <h2 id="time-indicator">4</h2>
+          </div>
+          <div class="current-turn-statement">
+            <p>current turn</p>
+          </div>
+        </div>
+        <div class="turn-indicator-container">
+          <div class="turn-triangle">
+
+          </div>
+          <div class="player-points-container">
+            <p>P1</p>
+            <h2 id="time-indicator">4</h2>
+          </div>
+          <div class="current-turn-statement">
+            <p>current turn</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats time-tracker-container">
+        <div class="stats-cell">
+          <p>Time</p>
+          <h2 id="time-indicator">1:53</h2>
+        </div>
+        <div class="stats-cell">
+          <p>Moves</p>
+          <h2 id="total-moves-indicator">39</h2>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
 
   <script src="./script.js"></script>
 
 
 </body>
+
 </html>
