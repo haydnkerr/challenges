@@ -40,6 +40,7 @@ loseTally.innerHTML = losses
 drawTally.innerHTML = draws
 
 
+
 playerChooseCircle.addEventListener('click', chooseCircle)
 playerChooseCross.addEventListener('click', chooseCross)
 restartBtn.addEventListener('click', initiateGame)
