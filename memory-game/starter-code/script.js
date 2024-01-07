@@ -233,6 +233,21 @@ function initiateGame() {
         btn.addEventListener('click', chooseTile)
     })
 
+    let gamePieceBack = document.querySelectorAll('.game-piece-back')
+
+    gamePieceBack.forEach( function(element) {
+        if(gridSize == 4) {
+            element.style.fontSize = "5rem"
+        } else if (gridSize == 6) {
+            element.style.fontSize = "4rem"
+        } else if (gridSize == 16) {
+            element.style.fontSize = "2.75rem"
+        } else if (gridSize == 36) {
+            element.style.fontSize = "1.35rem"
+        }
+        
+    })
+
     numOfTurns = 0
     numOfMatches = 0
     seconds = 0
