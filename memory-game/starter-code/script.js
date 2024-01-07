@@ -17,6 +17,7 @@ let playerOneScore = 0
 let playerTwoScore = 0
 let playerThreeScore = 0
 let playerFourScore = 0
+let currentPlayer = 1
 
 let playerOneFirstChoice = 0
 let PlayerOneFirstChoice = 0
@@ -73,7 +74,7 @@ startGameBtn.addEventListener('click', function () {
     initiateGame()
 })
 
-// In Game Menu Buttons
+/*********** In Game Menu Buttons ****************/
 let resumeGameBtn = document.getElementById('resume-game-btn')
 let newGameBtn = document.getElementById('new-game-btn')
 let restartBtn = document.getElementById('restart-btn')
@@ -97,12 +98,21 @@ function resumeGame() {
     inGameMenu.classList.add('display-none')
 }
 
+/******************* Win Container  *******************/
+let setupNewGameBtn = document.getElementById('setup-new-game-btn')
+
+setupNewGameBtn.addEventListener('click', function() {
+    homeMenu.classList.remove('display-none')
+    gameboardContainer.classList.add('display-none')
+})
+
 /********* Gameboard **********/
 let gameboardContainer = document.getElementById('gameboard-container')
 let gamePiece = document.querySelectorAll('.game-piece')
+let turnIndicatorContainer = document.getElementById('point-tracker-container')
 
 let gameboardArray = [];
-let classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
+let classNames = ['filler','zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen','eighteen'];
 
 let choiceOneValue
 let choiceTwoValue
@@ -150,6 +160,15 @@ function chooseTile() {
 function determinePair() {
     let gamePiece = document.querySelectorAll('.game-piece')
     if (choiceOneValue == choiceTwoValue) {
+        if (currentPlayer == 1) {
+            playerOneScore +=1
+        } else if(currentPlayer == 2) {
+            playerTwoScore +=1
+        } else if(currentPlayer == 3) {
+            playerThreeScore +=1
+        } else if(currentPlayer == 4) {
+            playerFourScore +=1
+        }
         for (let i = 0; i < gamePiece.length; i++) {
             let innerPiece = gamePiece[i].querySelector('.game-piece-inner');
 
@@ -179,7 +198,15 @@ function determinePair() {
     numOfTurns = 0
     totalMoves += 1
     totalMovesIndicator.innerHTML = totalMoves
-    totalMovesWin.innerHTML = totalMoves
+    totalMovesWin.innerHTML = totalMoves + " Moves"
+    
+    if (numPlayers == currentPlayer) {
+        currentPlayer = 1
+    } else {
+        currentPlayer += 1
+    }
+    
+    changePlayer()
 }
 
 function winFunction() {
@@ -190,7 +217,9 @@ function winFunction() {
 function initiateGame() {
     setUpIndicators()
     randomArray.splice(gridSize, randomArray.length)
+    classNames.splice(gridSize, classNames.length)
     console.log(randomArray)
+    console.log(classNames)
     gameStart = true
     timeIndicator.innerHTML = seconds
     totalMovesIndicator.innerHTML = totalMoves
@@ -224,6 +253,9 @@ function initiateGame() {
         innerDiv.appendChild(back)
         slot.appendChild(innerDiv)
         randomArray.splice(randomNum, 1)
+        
+        console.log(classNames)
+        console.log(randomArray)
         // gameboardArray.push(slot)
         gameboard.appendChild(slot);
     }
@@ -259,7 +291,7 @@ function initiateGame() {
     totalMovesWin.innerHTML = totalMoves
 
     randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18]
-    classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
+    classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen'];
 }
 
 function setUpIndicators() {
@@ -275,13 +307,20 @@ function setUpIndicators() {
 
 
             let turnTriangle = document.createElement('div');
-            turnTriangle.className = 'turn-triangle display-none';
+            if (i == 0) {
+                turnTriangle.className = 'turn-triangle';
+            } else {
+                turnTriangle.className = 'turn-triangle';
+            }         
 
 
             let playerPointsContainer = document.createElement('div');
-            playerPointsContainer.className = 'player-points-container';
-
-
+            if (i == 0) {
+                playerPointsContainer.className = 'player-points-container';
+            } else {
+                playerPointsContainer.className = 'player-points-container';
+            } 
+            
             let playerDiv = document.createElement('p');
             let num = i + 1
             playerDiv.textContent = 'P' + num;
@@ -300,7 +339,12 @@ function setUpIndicators() {
             currentTurnStatement.className = 'current-turn-statement';
 
             let currentTurn = document.createElement('span');
-            currentTurn.className = 'current-turn display-none';
+            if (i == 0) {
+                currentTurn.className = 'current-turn';
+            } else {
+                currentTurn.className = 'current-turn';
+            } 
+            
             currentTurn.textContent = 'current turn';
 
             currentTurnStatement.appendChild(currentTurn);
@@ -316,8 +360,39 @@ function setUpIndicators() {
 
         }
     }
-
+    changePlayer()
 }
+
+function changePlayer() {
+    if (numPlayers > 1) {
+        for (let i = 1; i <= numPlayers; i++) {
+            let div = turnIndicatorContainer
+            if (currentPlayer == i) {
+                div.childNodes[i].childNodes[0].style.opacity = "1"
+                div.childNodes[i].childNodes[1].classList.add('active')
+                div.childNodes[i].childNodes[2].style.opacity = "1"
+            } else {
+                div.childNodes[i].childNodes[0].style.opacity = "0"
+                div.childNodes[i].childNodes[1].classList.remove('active')
+                div.childNodes[i].childNodes[2].style.opacity = "0"
+            }
+            if (i == 1) {
+                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerOneScore
+            } else if(i == 2) {
+                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerTwoScore
+            } else if(i == 3) {
+                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerThreeScore
+            } else if(i == 4) {
+                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerFourScore
+            }
+        }
+
+        
+    }
+    
+}
+
+
 
 let timeTracker = setInterval(determineTime, 1000);
 
@@ -325,7 +400,6 @@ let timeTracker = setInterval(determineTime, 1000);
 function determineTime() {
     if (gameStart) {
         seconds += 1
-        console.log(seconds)
         if (seconds > 59) {
             minutes += 1
             seconds = 0

@@ -308,32 +308,32 @@ p {
 }
 
 .twelve {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/zebra.png");
 
 }
 
 .thirteen {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/monkey.png");
 
 }
 
 .fourteen {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/rat.png");
 
 }
 
 .fifteen {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/crocodile.png");
 
 }
 
 .sixteen {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/elephant.png");
 
 }
 
 .seventeen {
-    background-image: url("./assets/kangaroo.png");
+    background-image: url("./assets/frog.png");
 
 }
 
@@ -385,6 +385,7 @@ p {
     border-bottom: 15px solid var(--accent-color);
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+    opacity: 0;
 
 }
 
@@ -418,6 +419,10 @@ p {
     max-width: 540px;
 }
 
+.current-turn-statement {
+    opacity: 0
+}
+
 .current-turn {
     font-size: 0.60rem;
     text-transform: uppercase;
@@ -435,6 +440,10 @@ p {
     justify-content: center;
     align-items: center;
     padding: 24px
+}
+
+.win-container p {
+    color: #7191A5
 }
 
 .win-menu {
