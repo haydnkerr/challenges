@@ -3,6 +3,8 @@ window.onload = initiateGame
 let homeMenu = document.getElementById('home-menu-container')
 let startGameBtn = document.getElementById('start-game-btn')
 
+startGameBtn.addEventListener('click', initiateGame)
+
 let gameboard = document.getElementById('gameboard')
 let slot = '';
 let randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
@@ -44,9 +46,23 @@ function resumeGame() {
 /********* Gameboard **********/
 let gamePiece = document.querySelectorAll('.game-piece')
 
+let gameboardArray = [];
+let classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
+
 let choiceOneValue
 let choiceTwoValue
 let numOfTurns = 0
+let numOfMatches = 0
+
+let seconds = 0
+let minutes = 0
+let totalMoves = 0
+let timeIndicator = document.getElementById('time-passed')
+let totalMovesIndicator = document.getElementById('total-moves-indicator')
+
+let winContainer = document.getElementById('win-container')
+
+/********** Event Listeners ********************/
 
 gamePiece.forEach(function (btn) {
     btn.addEventListener('click', chooseTile)
@@ -72,7 +88,6 @@ function chooseTile() {
 function determinePair() {
     let gamePiece = document.querySelectorAll('.game-piece')
     if (choiceOneValue == choiceTwoValue) {
-        console.log('correct')
         for (let i = 0; i < gamePiece.length; i++) {
             let innerPiece = gamePiece[i].querySelector('.game-piece-inner');
 
@@ -81,7 +96,11 @@ function determinePair() {
             }
 
         }
+        numOfMatches += 1
 
+        if (numOfMatches == 8) {
+            winFunction()
+        }
 
     } else {
         for (let i = 0; i < gamePiece.length; i++) {
@@ -95,14 +114,18 @@ function determinePair() {
     choiceOneValue = 0
     choiceTwoValue = 0
     numOfTurns = 0
+    totalMoves += 1
+    totalMovesIndicator.innerHTML = totalMoves
+}
+
+function winFunction() {
+    winContainer.classList.remove('display-none')
 }
 
 
-let gameboardArray = [];
-
-startGameBtn.addEventListener('click', initiateGame)
-
 function initiateGame() {
+    timeIndicator.innerHTML = seconds
+    totalMovesIndicator.innerHTML = totalMoves
     while (gameboard.firstChild) {
         gameboard.removeChild(gameboard.firstChild);
     }
@@ -135,7 +158,31 @@ function initiateGame() {
     })
 }
 
-let classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+let timeTracker = setInterval(determineTime,1000);
+
+function determineTime() {
+    seconds += 1
+    if (seconds > 59) {
+        minutes += 1
+        seconds = 0
+        
+        
+    } 
+    if(minutes == 0) {
+    timeIndicator.innerText = seconds
+    } else {
+        if (seconds < 10) {
+            timeIndicator.innerText = minutes + ":0" + seconds
+        } else {
+            timeIndicator.innerText = minutes + ":" + seconds
+        }
+    }
+    
+    console.log(seconds)
+    
+}
+
+
 
 
 
