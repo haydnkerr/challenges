@@ -61,8 +61,13 @@ let timeIndicator = document.getElementById('time-passed')
 let totalMovesIndicator = document.getElementById('total-moves-indicator')
 
 let winContainer = document.getElementById('win-container')
+let totalMovesWin = document.getElementById('total-moves-win')
+let totalTimeWin = document.getElementById('total-time-win')
+let winRestartBtn = document.getElementById('win-restart-btn')
 
 /********** Event Listeners ********************/
+
+winRestartBtn.addEventListener('click', initiateGame)
 
 gamePiece.forEach(function (btn) {
     btn.addEventListener('click', chooseTile)
@@ -100,6 +105,7 @@ function determinePair() {
 
         if (numOfMatches == 8) {
             winFunction()
+            clearInterval(timeTracker)
         }
 
     } else {
@@ -116,6 +122,7 @@ function determinePair() {
     numOfTurns = 0
     totalMoves += 1
     totalMovesIndicator.innerHTML = totalMoves
+    totalMovesWin.innerHTML = totalMoves
 }
 
 function winFunction() {
@@ -126,6 +133,8 @@ function winFunction() {
 function initiateGame() {
     timeIndicator.innerHTML = seconds
     totalMovesIndicator.innerHTML = totalMoves
+    totalMovesWin.innerHTML = totalMoves
+    winContainer.classList.add('display-none')
     while (gameboard.firstChild) {
         gameboard.removeChild(gameboard.firstChild);
     }
@@ -170,15 +179,18 @@ function determineTime() {
     } 
     if(minutes == 0) {
     timeIndicator.innerText = seconds
+    totalTimeWin.innerText = seconds
     } else {
         if (seconds < 10) {
             timeIndicator.innerText = minutes + ":0" + seconds
+            totalMovesWin.innerText = minutes + ":0" + seconds
+    totalTimeWin.innerText = seconds
         } else {
             timeIndicator.innerText = minutes + ":" + seconds
+            totalMovesWin.innerText = minutes + ":" + seconds
         }
     }
-    
-    console.log(seconds)
+
     
 }
 
