@@ -26,7 +26,7 @@ let secondChoice = []
 /********** Home Menu Event Listeners **********/
 gridSizeBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
-        if (btn.value % 2 === 0 ) {
+        if (btn.value % 2 === 0) {
             gridSize = btn.value * btn.value
             gameboard.style.gridTemplateColumns = "repeat(" + btn.value + ",1fr)"
             gameboard.style.gridTemplateRows = "repeat(" + btn.value + ",1fr)"
@@ -57,10 +57,15 @@ let inGameMenuBtn = document.getElementById('in-game-menu-btn')
 
 inGameMenuBtn.addEventListener('click', toggleInGameMenu)
 resumeGameBtn.addEventListener('click', resumeGame)
-newGameBtn.addEventListener('click', initiateGame)
+restartBtn.addEventListener('click', initiateGame)
+newGameBtn.addEventListener('click', function () {
+    toggleInGameMenu();
+    homeMenu.classList.remove('display-none')
+    gameboardContainer.classList.add('display-none')
+})
 
 function toggleInGameMenu() {
-    inGameMenu.classList.remove('display-none')
+    inGameMenu.classList.toggle('display-none')
 }
 
 function resumeGame() {
@@ -128,9 +133,9 @@ function determinePair() {
         }
         numOfMatches += 1
 
-        if (numOfMatches == gridSize/2) {
+        if (numOfMatches == gridSize / 2) {
             winFunction()
-            clearInterval(timeTracker)
+            gameStart = false
         }
 
     } else {
@@ -164,7 +169,6 @@ function initiateGame() {
     totalMovesWin.innerHTML = totalMoves
     winContainer.classList.add('display-none')
     gameboardContainer.classList.remove('display-none')
-
     while (gameboard.firstChild) {
         gameboard.removeChild(gameboard.firstChild);
     }
@@ -192,13 +196,22 @@ function initiateGame() {
     }
     let gamePiece = document.querySelectorAll('.game-piece')
 
-
-
     gamePiece.forEach(function (btn) {
         btn.addEventListener('click', chooseTile)
     })
 
+    numOfTurns = 0
+    numOfMatches = 0
+    seconds = 0
+    minutes = 0
+    totalMoves = 0
 
+    timeIndicator.innerHTML = seconds
+    totalMovesIndicator.innerHTML = totalMoves
+    totalMovesWin.innerHTML = totalMoves
+
+    randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12]
+    classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
 }
 
 

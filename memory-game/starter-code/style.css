@@ -47,6 +47,7 @@ p {
     align-items: center;
     justify-content: center;
     z-index: 50;
+    gap: 50px
 }
 
 .home-menu-container h2 {
@@ -63,7 +64,7 @@ p {
     gap: 15px;
     height: auto;
     width: 100%;
-    max-width: 400px;
+    max-width: 550px;
 }
 
 .home-menu-item {
@@ -97,13 +98,7 @@ p {
     transition: 0.4s;
 }
 
-.orange-btn {
-    background-color: var(--accent-color);
-}
 
-.orange-btn:hover {
-    background-color: #f9c36b;
-}
 
 .btn.active {
     background-color: var(--primary-color);
@@ -111,6 +106,18 @@ p {
 
 .btn:hover {
     background-color: var(--hover-color);
+}
+
+.btn:focus {
+    background-color: var(--primary-color);
+}
+
+.orange-btn {
+    background-color: var(--accent-color);
+}
+
+.orange-btn:hover {
+    background-color: #f9c36b;
 }
 
 /************* In Game Menu *******************/
@@ -292,6 +299,36 @@ p {
 }
 
 .eleven {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.twelve {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.thirteen {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.fourteen {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.fifteen {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.sixteen {
+    background-image: url("./assets/kangaroo.png");
+
+}
+
+.seventeen {
     background-image: url("./assets/kangaroo.png");
 
 }
