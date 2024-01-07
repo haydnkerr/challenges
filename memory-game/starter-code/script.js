@@ -1,7 +1,9 @@
 let gameStart = false
 let homeMenu = document.getElementById('home-menu-container')
 let startGameBtn = document.getElementById('start-game-btn')
+let numPlayersBtn = document.querySelectorAll('.num-players-btn')
 let gridSizeBtn = document.querySelectorAll('.grid-size-btn')
+let themeBtn = document.querySelectorAll('.theme-btn')
 
 
 let gameboard = document.getElementById('gameboard')
@@ -9,6 +11,7 @@ let slot = '';
 let randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12]
 let gridSize = 16
 let numPlayers = 1
+let gameTheme = 'icons';
 let randomNum
 let playerOneScore = 0
 let playerTwoScore = 0
@@ -24,16 +27,38 @@ let firstChoice = []
 let secondChoice = []
 
 /********** Home Menu Event Listeners **********/
+themeBtn.forEach(function(btn){
+    btn.addEventListener('click', function() {
+        for (let i = 0; i < 2; i++) {
+            themeBtn[i].classList.remove('active')
+        }
+        this.classList.add('active')
+        gameTheme = this.value
+    })
+})
+
+numPlayersBtn.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        for (let i = 0; i < 4; i++) {
+            numPlayersBtn[i].classList.remove('active')
+        }
+        this.classList.add('active')
+        numPlayers = this.value
+    })
+})
+
 gridSizeBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
         if (btn.value % 2 === 0) {
             gridSize = btn.value * btn.value
             gameboard.style.gridTemplateColumns = "repeat(" + btn.value + ",1fr)"
             gameboard.style.gridTemplateRows = "repeat(" + btn.value + ",1fr)"
+            gameboard.style.aspectRatio = 1/1
         } else {
             gridSize = 6
             gameboard.style.gridTemplateColumns = "repeat(3,1fr)"
             gameboard.style.gridTemplateRows = "repeat(2,1fr)"
+            gameboard.style.aspectRatio = 4/3
         }
         for (let i = 0; i < 4; i++) {
             gridSizeBtn[i].classList.remove('active')
@@ -161,6 +186,7 @@ function winFunction() {
 
 
 function initiateGame() {
+    setUpIndicators()
     randomArray.splice(gridSize, randomArray.length)
     console.log(randomArray)
     gameStart = true
@@ -214,13 +240,11 @@ function initiateGame() {
     classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
 }
 
-
-
+function setUpIndicators() {
+    
+}
 
 let timeTracker = setInterval(determineTime, 1000);
-
-
-
 
 
 function determineTime() {
