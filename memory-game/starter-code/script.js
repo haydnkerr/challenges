@@ -1,7 +1,7 @@
 let homeMenu = document.getElementById('home-menu-container')
+let startGameBtn = document.getElementById('start-game-btn')
 
 let gameboard = document.getElementById('gameboard')
-let startGameBtn = document.querySelector('.start-game-btn')
 let slot = '';
 let randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
 let randomNum
@@ -17,6 +17,8 @@ let playerOne = true
 let firstChoiceActive = true
 let firstChoice = []
 let secondChoice = []
+
+startGameBtn.addEventListener('click', initiateGame)
 
 // In Game Menu Buttons
 let resumeGameBtn = document.getElementById('resume-game-btn')
@@ -65,16 +67,19 @@ function chooseTile() {
 }
 
 function determinePair() {
+    let gamePiece = document.querySelectorAll('.game-piece')
     if (choiceOneValue == choiceTwoValue) {
+        console.log('correct')
         for (let i = 0; i < gamePiece.length; i++) {
             let innerPiece = gamePiece[i].querySelector('.game-piece-inner');
 
             if (innerPiece.classList.contains('chosen-piece') && !innerPiece.classList.contains('discovered-piece')) {
                 innerPiece.classList.add('discovered-piece');
             }
+
         }
-        
-        
+
+
     } else {
         for (let i = 0; i < gamePiece.length; i++) {
             let innerPiece = gamePiece[i].querySelector('.game-piece-inner');
@@ -96,60 +101,35 @@ startGameBtn.addEventListener('click', initiateGame)
 
 function initiateGame() {
     homeMenu.classList.add('display-none')
+    for (let i = 0; i < 16; i++) {
+        slot = document.createElement('button');
+        slot.className = 'game-piece active-piece'
+        randomNum = Math.floor(Math.random() * randomArray.length);
+        slot.value = randomArray[randomNum];
+        let innerDiv = document.createElement('div');
+        innerDiv.className = 'game-piece-inner';
+        let front = document.createElement('div');
+        front.className = 'game-piece-front';
+        let back = document.createElement('div');
+        back.className = classNames[slot.value] + ' game-piece-back';
+        innerDiv.appendChild(front)
+        innerDiv.appendChild(back)
+        slot.appendChild(innerDiv)
+        randomArray.splice(randomNum, 1)
+        // gameboardArray.push(slot)
+        gameboard.appendChild(slot);
+    }
+    let gamePiece = document.querySelectorAll('.game-piece')
+
+    
+
+    gamePiece.forEach(function (btn) {
+        btn.addEventListener('click', chooseTile)
+    })
 }
 
-// for (let i = 0; i < 16; i++) {
-//     slot = document.createElement('button');
-//     slot.className = 'gameboard-piece'
-//     randomNum = Math.floor(Math.random() * randomArray.length);
-//     slot.value = randomArray[randomNum];
-//     gameboardArray.push(slot)
-//     if (slot.value == 1) {
-//         slot.className = 'one gameboard-piece'
-//     } else if (slot.value == 2) {
-//         slot.className = 'two gameboard-piece'
-//     } else if (slot.value == 3) {
-//         slot.className = 'three gameboard-piece'
-//     } else if (slot.value == 4) {
-//         slot.className = 'four gameboard-piece'
-//     } else if (slot.value == 5) {
-//         slot.className = 'five gameboard-piece'
-//     } 
-//     gameboard.appendChild(slot);
-// }
+let classNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
-// let gameboardPiece = document.querySelectorAll('.gameboard-piece')
-// let playerOneScoreDisplay = document.getElementById('player-one-score')
 
-// function tileChoice(e) {
-//     if (firstChoice == true) {
-//         if (playerOne == true) {
-//             playerOneFirstChoice = e.value
-//             console.log(playerOneFirstChoice)
-//             firstChoice = false
-//         }
-//     } else {
-//         if (playerOne == true) {
-//             playerOneSecondChoice = e.value
-//             console.log(playerOneSecondChoice)
-//             if (playerOneFirstChoice == playerOneSecondChoice) {
-//                 playerOneScore += 1
-//                 playerOneScoreDisplay.innerHTML = playerOneScore
-//                 firstChoice = true
-//                 secondChoice = false
 
-//             } else {
-//                 firstChoice = true
-//                 secondChoice = false
-//                 console.log('lose')
-//             }
-//         }
-//     }
-// }
-
-// gameboardPiece.forEach(function (btn) {
-//     btn.addEventListener('click', function () {
-//         tileChoice(btn);
-//     });
-// });
 

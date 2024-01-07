@@ -214,9 +214,22 @@ p {}
   }
 
 
+.chosen-piece .game-piece-back {
+    background-color: var(--accent-color);
+}
+
+.discovered-piece .game-piece-back {
+    background-color: var(--secondary-color);
+}
+
 
 .active-piece:hover .game-piece-front {
     background-color: var(--hover-color);
+}
+
+.zero {
+    background-image: url("./assets/bird.png");
+
 }
 
 .one {
@@ -258,6 +271,22 @@ p {}
     background-image: url("./assets/snake.png");
 
 }
+
+.nine {
+    background-image: url("./assets/bird.png");
+}
+
+.ten {
+    background-image: url("./assets/snake.png");
+
+}
+
+.eleven {
+    background-image: url("./assets/snake.png");
+
+}
+
+
 
 
 
