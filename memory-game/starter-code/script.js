@@ -8,7 +8,7 @@ let themeBtn = document.querySelectorAll('.theme-btn')
 
 let gameboard = document.getElementById('gameboard')
 let slot = '';
-let randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12]
+let randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18]
 let gridSize = 16
 let numPlayers = 1
 let gameTheme = 'icons';
@@ -27,8 +27,8 @@ let firstChoice = []
 let secondChoice = []
 
 /********** Home Menu Event Listeners **********/
-themeBtn.forEach(function(btn){
-    btn.addEventListener('click', function() {
+themeBtn.forEach(function (btn) {
+    btn.addEventListener('click', function () {
         for (let i = 0; i < 2; i++) {
             themeBtn[i].classList.remove('active')
         }
@@ -37,8 +37,8 @@ themeBtn.forEach(function(btn){
     })
 })
 
-numPlayersBtn.forEach(function(btn) {
-    btn.addEventListener('click', function() {
+numPlayersBtn.forEach(function (btn) {
+    btn.addEventListener('click', function () {
         for (let i = 0; i < 4; i++) {
             numPlayersBtn[i].classList.remove('active')
         }
@@ -53,12 +53,12 @@ gridSizeBtn.forEach(function (btn) {
             gridSize = btn.value * btn.value
             gameboard.style.gridTemplateColumns = "repeat(" + btn.value + ",1fr)"
             gameboard.style.gridTemplateRows = "repeat(" + btn.value + ",1fr)"
-            gameboard.style.aspectRatio = 1/1
+            gameboard.style.aspectRatio = 1 / 1
         } else {
             gridSize = 6
             gameboard.style.gridTemplateColumns = "repeat(3,1fr)"
             gameboard.style.gridTemplateRows = "repeat(2,1fr)"
-            gameboard.style.aspectRatio = 4/3
+            gameboard.style.aspectRatio = 4 / 3
         }
         for (let i = 0; i < 4; i++) {
             gridSizeBtn[i].classList.remove('active')
@@ -114,6 +114,8 @@ let minutes = 0
 let totalMoves = 0
 let timeIndicator = document.getElementById('time-passed')
 let totalMovesIndicator = document.getElementById('total-moves-indicator')
+let pointTrackerContainer = document.getElementById('point-tracker-container')
+let timeTrackerContainer = document.getElementById('time-tracker-container')
 
 let winContainer = document.getElementById('win-container')
 let totalMovesWin = document.getElementById('total-moves-win')
@@ -205,14 +207,19 @@ function initiateGame() {
         slot = document.createElement('button');
         slot.className = 'game-piece active-piece'
         randomNum = Math.floor(Math.random() * randomArray.length);
-        console.log(randomArray[randomNum])
         slot.value = randomArray[randomNum];
         let innerDiv = document.createElement('div');
         innerDiv.className = 'game-piece-inner';
         let front = document.createElement('div');
         front.className = 'game-piece-front';
         let back = document.createElement('div');
-        back.className = classNames[slot.value] + ' game-piece-back';
+        if (gameTheme == 'icons') {
+            back.className = classNames[slot.value] + ' game-piece-back';
+        } else {
+            back.className = 'game-piece-back';
+            back.innerHTML = "<h1>" + randomArray[randomNum] + "</h1>"
+        }
+
         innerDiv.appendChild(front)
         innerDiv.appendChild(back)
         slot.appendChild(innerDiv)
@@ -241,7 +248,60 @@ function initiateGame() {
 }
 
 function setUpIndicators() {
-    
+    if (numPlayers < 2) {
+        pointTrackerContainer.classList.remove('display-none')
+        timeTrackerContainer.classList.add('display-none')
+        console.log('no success')
+    } else {
+        console.log('success')
+        for (let i = 0; i < numPlayers; i++) {
+            let mainContainer = document.createElement('div');
+            mainContainer.className = 'turn-indicator-container';
+
+
+            let turnTriangle = document.createElement('div');
+            turnTriangle.className = 'turn-triangle display-none';
+
+
+            let playerPointsContainer = document.createElement('div');
+            playerPointsContainer.className = 'player-points-container';
+
+
+            let playerDiv = document.createElement('p');
+            let num = i + 1
+            playerDiv.textContent = 'P' + num;
+
+
+            let timeIndicator = document.createElement('h2');
+            timeIndicator.className = 'points-indicator';
+            timeIndicator.textContent = '0';
+
+
+            playerPointsContainer.appendChild(playerDiv);
+            playerPointsContainer.appendChild(timeIndicator);
+
+
+            let currentTurnStatement = document.createElement('div');
+            currentTurnStatement.className = 'current-turn-statement';
+
+            let currentTurn = document.createElement('span');
+            currentTurn.className = 'current-turn display-none';
+            currentTurn.textContent = 'current turn';
+
+            currentTurnStatement.appendChild(currentTurn);
+
+            mainContainer.appendChild(turnTriangle);
+            mainContainer.appendChild(playerPointsContainer);
+            mainContainer.appendChild(currentTurnStatement);
+
+            pointTrackerContainer.appendChild(mainContainer);
+
+            pointTrackerContainer.classList.remove('display-none')
+            timeTrackerContainer.classList.add('display-none')
+
+        }
+    }
+
 }
 
 let timeTracker = setInterval(determineTime, 1000);

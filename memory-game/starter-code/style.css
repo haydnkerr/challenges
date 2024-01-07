@@ -175,8 +175,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
-    max-width: 572px;
-    margin: 15px 0px
+    max-width: 525px;
 }
 
 .game-piece {
@@ -222,6 +221,10 @@ p {
     background-position: center;
     background-size: 60%;
     transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
 }
 
 /* .game-piece:hover .game-piece-inner {
@@ -341,7 +344,7 @@ p {
 
 
 
-
+/******************** Points Container **************************/
 .stat-tracker-container {
     width: 100%;
     display: flex;
@@ -353,6 +356,8 @@ p {
     display: flex;
     width: 100%;
     gap: 24px;
+    align-items: center;
+    justify-content: center;
 }
 
 .stats-cell {
@@ -372,15 +377,30 @@ p {
     flex-direction: column;
     align-items: center;
     flex: 1;
+    max-width: 250px;
 }
 
 .turn-triangle {
     height: 0;
     width: 0;
+    border-bottom: 15px solid var(--accent-color);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+}
+
+/* .turn-indicator-container::before {
+    height: 0;
+    width: 0;
     border-bottom: 10px solid var(--accent-color);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+    content: '';
+} */
 
+.player-points-container.active {
+    background-color: var(--accent-color);
+    color: white
 }
 
 .player-points-container {
@@ -397,6 +417,13 @@ p {
 
 .time-tracker-container {
     max-width: 540px;
+}
+
+.current-turn {
+    font-size: 0.60rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
 }
 
 /************** Win Screen ***************/

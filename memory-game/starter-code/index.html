@@ -23,7 +23,7 @@
       <div class="home-menu-item">
         <h3>Select Theme</h3>
         <div class="button-container">
-          <button class= "btn theme-btn" value="numbers">Numbers</button>
+          <button class="btn theme-btn" value="numbers">Numbers</button>
           <button class="active btn theme-btn" value="icons">Icons</button>
         </div>
       </div>
@@ -48,7 +48,7 @@
             <button value="6" class="btn grid-size-btn">6x6</button>
           </div>
         </div>
-        
+
       </div>
       <button id="start-game-btn" class=" btn start-game-btn orange-btn">Start Game</button>
     </div>
@@ -76,17 +76,17 @@
     </div>
 
     <div class="stat-tracker-container">
-      <div class="stats point-tracker-container display-none">
-        <div class="turn-indicator-container">
+      <div class="stats point-tracker-container display-none" id="point-tracker-container">
+        <!-- <div class="turn-indicator-container">
           <div class="turn-triangle">
 
           </div>
-          <div class="player-points-container">
+          <div class="player-points-container active">
             <p>P1</p>
             <h2 id="time-indicator">4</h2>
           </div>
           <div class="current-turn-statement">
-            <p>current turn</p>
+            <span class="current-turn">current turn</span>
           </div>
         </div>
         <div class="turn-indicator-container">
@@ -98,7 +98,7 @@
             <h2 id="time-indicator">4</h2>
           </div>
           <div class="current-turn-statement">
-            <p>current turn</p>
+            <span class="current-turn">current turn</span>
           </div>
         </div>
         <div class="turn-indicator-container">
@@ -110,7 +110,7 @@
             <h2 id="time-indicator">4</h2>
           </div>
           <div class="current-turn-statement">
-            <p>current turn</p>
+            <span class="current-turn">current turn</span>
           </div>
         </div>
         <div class="turn-indicator-container">
@@ -122,19 +122,19 @@
             <h2 id="time-indicator">4</h2>
           </div>
           <div class="current-turn-statement">
-            <p>current turn</p>
+            <span class="current-turn">current turn</span>
           </div>
-        </div>
+        </div> -->
       </div>
 
-      <div class="stats time-tracker-container">
+      <div class="stats time-tracker-container" id="time-tracker-container">
         <div class="stats-cell">
           <p>Time</p>
           <h2 id="time-passed"></h2>
         </div>
         <div class="stats-cell">
           <p>Moves</p>
-          
+
           <h2 id="total-moves-indicator"></h2>
         </div>
       </div>
