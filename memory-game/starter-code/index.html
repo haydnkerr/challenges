@@ -17,14 +17,14 @@
 
 <body>
   <!--      Home Menu     -->
-  <section id="home-menu-container" class="home-menu-container display-none">
+  <section id="home-menu-container" class="home-menu-container">
     <h2>memory</h2>
     <div class="home-menu">
       <div class="home-menu-item">
         <h3>Select Theme</h3>
         <div class="button-container">
-          <button class="active">Numbers</button>
-          <button>Icons</button>
+          <button class= "btn">Numbers</button>
+          <button class="active btn">Icons</button>
         </div>
       </div>
       <div class="home-menu-item">
@@ -38,10 +38,17 @@
       </div>
       <div class="home-menu-item">
         <h3>Grid Size</h3>
-        <div class="button-container">
-          <button class="btn active" value="16">4x4</button>
-          <button value="36" class="btn">6x6</button>
+        <div class="quad-btn-container">
+          <div class="button-container">
+            <button class="btn" value="4">2x2</button>
+            <button value="9" class="btn">3x3</button>
+          </div>
+          <div class="button-container">
+            <button class="btn active" value="16">4x4</button>
+            <button value="36" class="btn">6x6</button>
+          </div>
         </div>
+        
       </div>
       <button id="start-game-btn" class=" btn start-game-btn orange-btn">Start Game</button>
     </div>
@@ -60,7 +67,7 @@
 
   <!--      Gameboard Container     -->
 
-  <section class="gameboard-container" id="gameboard-container">
+  <section class="gameboard-container display-none" id="gameboard-container">
     <div class="gameboard-header">
       <img src="./assets/logo.svg">
       <button class="orange-btn btn" id="in-game-menu-btn">Menu</button>

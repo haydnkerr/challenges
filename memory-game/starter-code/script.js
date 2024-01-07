@@ -1,9 +1,7 @@
-window.onload = initiateGame
-
+let gameStart = false
 let homeMenu = document.getElementById('home-menu-container')
 let startGameBtn = document.getElementById('start-game-btn')
 
-startGameBtn.addEventListener('click', initiateGame)
 
 let gameboard = document.getElementById('gameboard')
 let slot = '';
@@ -22,7 +20,10 @@ let firstChoiceActive = true
 let firstChoice = []
 let secondChoice = []
 
-startGameBtn.addEventListener('click', initiateGame)
+startGameBtn.addEventListener('click', function () {
+    homeMenu.classList.add('display-none')
+    initiateGame()
+})
 
 // In Game Menu Buttons
 let resumeGameBtn = document.getElementById('resume-game-btn')
@@ -44,6 +45,7 @@ function resumeGame() {
 }
 
 /********* Gameboard **********/
+let gameboardContainer = document.getElementById('gameboard-container')
 let gamePiece = document.querySelectorAll('.game-piece')
 
 let gameboardArray = [];
@@ -131,19 +133,24 @@ function winFunction() {
 
 
 function initiateGame() {
+    gameStart = true
     timeIndicator.innerHTML = seconds
     totalMovesIndicator.innerHTML = totalMoves
     totalMovesWin.innerHTML = totalMoves
     winContainer.classList.add('display-none')
+    gameboardContainer.classList.remove('display-none')
+    
     while (gameboard.firstChild) {
         gameboard.removeChild(gameboard.firstChild);
     }
     inGameMenu.classList.add('display-none')
-    homeMenu.classList.add('display-none')
+
+
     for (let i = 0; i < 16; i++) {
         slot = document.createElement('button');
         slot.className = 'game-piece active-piece'
         randomNum = Math.floor(Math.random() * randomArray.length);
+        console.log(randomArray[randomNum])
         slot.value = randomArray[randomNum];
         let innerDiv = document.createElement('div');
         innerDiv.className = 'game-piece-inner';
@@ -165,12 +172,23 @@ function initiateGame() {
     gamePiece.forEach(function (btn) {
         btn.addEventListener('click', chooseTile)
     })
+
+    
 }
+
+
+
 
 let timeTracker = setInterval(determineTime,1000);
 
+
+
+
+
 function determineTime() {
-    seconds += 1
+    if (gameStart) {
+        seconds += 1
+    console.log(seconds)
     if (seconds > 59) {
         minutes += 1
         seconds = 0
@@ -190,6 +208,8 @@ function determineTime() {
             totalMovesWin.innerText = minutes + ":" + seconds
         }
     }
+    }
+    
 
     
 }

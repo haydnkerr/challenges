@@ -32,7 +32,9 @@ h3 {
     color: #7191A5
 }
 
-p {}
+p {
+    font-size: 1.125rem;
+}
 
 /**************   Home Menu   **************/
 .home-menu-container {
@@ -43,6 +45,8 @@ p {}
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    z-index: 50;
 }
 
 .home-menu-container h2 {
@@ -72,6 +76,12 @@ p {}
     display: flex;
     gap: 10px;
     width: 100%;
+}
+
+.quad-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .btn {
