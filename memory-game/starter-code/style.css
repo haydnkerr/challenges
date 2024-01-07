@@ -166,7 +166,6 @@ p {
     aspect-ratio: 1/1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 10px;
     max-width: 572px;
 }
@@ -284,16 +283,16 @@ p {
 }
 
 .nine {
-    background-image: url("./assets/bird.png");
+    background-image: url("./assets/penguin.png");
 }
 
 .ten {
-    background-image: url("./assets/snake.png");
+    background-image: url("./assets/koala.png");
 
 }
 
 .eleven {
-    background-image: url("./assets/snake.png");
+    background-image: url("./assets/kangaroo.png");
 
 }
 
