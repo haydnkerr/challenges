@@ -1,3 +1,5 @@
+window.onload = initiateGame
+
 let homeMenu = document.getElementById('home-menu-container')
 let startGameBtn = document.getElementById('start-game-btn')
 
@@ -29,6 +31,7 @@ let inGameMenuBtn = document.getElementById('in-game-menu-btn')
 
 inGameMenuBtn.addEventListener('click', toggleInGameMenu)
 resumeGameBtn.addEventListener('click', resumeGame)
+newGameBtn.addEventListener('click', initiateGame)
 
 function toggleInGameMenu() {
     inGameMenu.classList.remove('display-none')
@@ -100,6 +103,10 @@ let gameboardArray = [];
 startGameBtn.addEventListener('click', initiateGame)
 
 function initiateGame() {
+    while (gameboard.firstChild) {
+        gameboard.removeChild(gameboard.firstChild);
+    }
+    inGameMenu.classList.add('display-none')
     homeMenu.classList.add('display-none')
     for (let i = 0; i < 16; i++) {
         slot = document.createElement('button');
