@@ -387,7 +387,6 @@ function setUpIndicators() {
 function changePlayer() {
     if (numPlayers > 1) {
         for (let i = 0; i <= numPlayers; i++) {
-            // let div = turnIndicatorContainer
             let div = pointTrackerContainer
             if (div.childNodes[i]) {
                 if (currentPlayer-1 == i) {
@@ -417,35 +416,6 @@ function changePlayer() {
 
 }
 
-// function populateWinningScreen() {
-//     while (playerResultsContainer.firstChild) {
-//         playerResultsContainer.removeChild(playerResultsContainer.firstChild)
-//     }
-//     for (let i = 0; i < numPlayers; i++) {
-//         let div = document.createElement('div')
-//         div.classList.add('player-stats-container')
-//         let name = document.createElement('p')
-//         let points = document.createElement('h2')
-//         if (i == 0) {
-//             name.innerHTML = "Player 1"
-//             points.innerHTML = playerOneScore + " Pairs"
-//         } else if (i == 1){
-//             name.innerHTML = "Player 2"
-//             points.innerHTML = playerTwoScore + " Pairs"
-//         } else if (i == 2){
-//             name.innerHTML = "Player 3"
-//             points.innerHTML = playerThreeScore + " Pairs"
-//         } else if (i == 3){
-//             name.innerHTML = "Player 4"
-//             points.innerHTML = playerFourScore + " Pairs"
-//         }
-
-//         div.appendChild(name);
-//         div.appendChild(points);
-
-//         playerResultsContainer.appendChild(div);
-//     }
-// }
 
 
 function populateWinningScreen() {
@@ -453,7 +423,7 @@ function populateWinningScreen() {
         playerResultsContainer.removeChild(playerResultsContainer.firstChild);
     }
 
-    // Create an array to store player information for sorting
+    
     let players = [];
 
     for (let i = 0; i < numPlayers; i++) {
@@ -465,10 +435,10 @@ function populateWinningScreen() {
         players.push(player);
     }
 
-    // Sort players array based on scores in descending order
+
     players.sort((a, b) => b.score - a.score);
 
-    // Populate the winning screen based on the sorted players array
+
     for (let i = 0; i < numPlayers; i++) {
         let div = document.createElement('div');
         div.classList.add('player-stats-container');
@@ -486,7 +456,7 @@ function populateWinningScreen() {
         playerResultsContainer.appendChild(div);
     }
 
-    // Add the "winner" class to the containers of players with the highest score (including ties)
+
     for (let i = 0; i < numPlayers && players[i].score === players[0].score; i++) {
         playerResultsContainer.children[i].classList.add('winner');
         let num = i + 1
@@ -506,17 +476,16 @@ function getWinsText(currentIndex, players) {
 
 
 function getPlayerScore(playerIndex) {
-    switch (playerIndex) {
-        case 0:
-            return playerOneScore;
-        case 1:
-            return playerTwoScore;
-        case 2:
-            return playerThreeScore;
-        case 3:
-            return playerFourScore;
-        default:
-            return 0;
+    if (playerIndex === 0) {
+        return playerOneScore;
+    } else if (playerIndex === 1) {
+        return playerTwoScore;
+    } else if (playerIndex === 2) {
+        return playerThreeScore;
+    } else if (playerIndex === 3) {
+        return playerFourScore;
+    } else {
+        return 0;
     }
 }
 
