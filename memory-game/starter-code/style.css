@@ -494,6 +494,10 @@ p {
     gap: 10px
 }
 
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+  }
+
 .display-none {
     display: none;
 }

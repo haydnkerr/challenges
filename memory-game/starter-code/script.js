@@ -250,7 +250,7 @@ function initiateGame() {
 
     for (let i = 0; i < gridSize; i++) {
         slot = document.createElement('button');
-        slot.className = 'game-piece active-piece'
+        slot.className = 'game-piece active-piece disable-dbl-tap-zoom'
         randomNum = Math.floor(Math.random() * randomArray.length);
         slot.value = randomArray[randomNum];
         let innerDiv = document.createElement('div');
