@@ -85,7 +85,7 @@ inGameMenuBtn.addEventListener('click', toggleInGameMenu)
 resumeGameBtn.addEventListener('click', resumeGame)
 restartBtn.addEventListener('click', initiateGame)
 newGameBtn.addEventListener('click', function () {
-   
+
     toggleInGameMenu();
     homeMenu.classList.remove('display-none')
     gameboardContainer.classList.add('display-none')
@@ -147,16 +147,19 @@ gamePiece.forEach(function (btn) {
 
 function chooseTile() {
     let flipPiece = this.querySelector('.game-piece-inner')
-    if (numOfTurns < 2) {
-        flipPiece.classList.add('chosen-piece')
-        if (numOfTurns == 0) {
-            choiceOneValue = this.value
-        } else {
-            choiceTwoValue = this.value
-        }
-        numOfTurns += 1
+    if (!flipPiece.classList.contains('chosen-piece')) {
+        if (numOfTurns < 2) {
+            flipPiece.classList.add('chosen-piece')
+            if (numOfTurns == 0) {
+                choiceOneValue = this.value
+            } else {
+                choiceTwoValue = this.value
+            }
+            numOfTurns += 1
 
+        }
     }
+
     if (numOfTurns > 1) {
         setTimeout(determinePair, 750)
     }
@@ -346,10 +349,10 @@ function setUpIndicators() {
             let num = i + 1
             if (window.innerWidth > 600) {
                 playerDiv.textContent = 'Player ' + num;
-              } else {
+            } else {
                 playerDiv.textContent = 'P' + num;
-              }
-            
+            }
+
 
 
             let timeIndicator = document.createElement('h2');
@@ -394,7 +397,7 @@ function changePlayer() {
         for (let i = 0; i <= numPlayers; i++) {
             let div = pointTrackerContainer
             if (div.childNodes[i]) {
-                if (currentPlayer-1 == i) {
+                if (currentPlayer - 1 == i) {
                     div.childNodes[i].childNodes[0].style.opacity = "1"
                     div.childNodes[i].childNodes[1].classList.add('active')
                     div.childNodes[i].childNodes[2].style.opacity = "1"
@@ -413,7 +416,7 @@ function changePlayer() {
                     div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerFourScore
                 }
             }
-            
+
         }
 
 
@@ -428,7 +431,7 @@ function populateWinningScreen() {
         playerResultsContainer.removeChild(playerResultsContainer.firstChild);
     }
 
-    
+
     let players = [];
 
     for (let i = 0; i < numPlayers; i++) {
@@ -467,10 +470,10 @@ function populateWinningScreen() {
         playerResultsContainer.children[i].classList.add('winner');
         let num = i + 1
         playerResultsContainer.children[i].children[0].innerHTML += " (Winner!)"
-        
+
     }
-    
-    
+
+
 }
 
 function getWinsText(currentIndex, players) {
