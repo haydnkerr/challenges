@@ -249,12 +249,13 @@ p {
 }
 
 .zero {
-    background-image: url("./assets/bird.png");
+    background-image: url("./assets/crocodile.png");
 
 }
 
 .one {
-    background-image: url("./assets/cat.png");
+    
+    background-image: url("./assets/elephant.png");
 
 }
 
@@ -323,12 +324,12 @@ p {
 }
 
 .fifteen {
-    background-image: url("./assets/crocodile.png");
+    background-image: url("./assets/bird.png")
 
 }
 
 .sixteen {
-    background-image: url("./assets/elephant.png");
+    background-image: url("./assets/cat.png")
 
 }
 
