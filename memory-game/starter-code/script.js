@@ -455,13 +455,17 @@ function populateWinningScreen() {
 
         playerResultsContainer.appendChild(div);
     }
+    multiPlayerWinContainer.childNodes[1].innerHTML = "We Have A Winner!"
 
 
     for (let i = 0; i < numPlayers && players[i].score === players[0].score; i++) {
         playerResultsContainer.children[i].classList.add('winner');
         let num = i + 1
         playerResultsContainer.children[i].children[0].innerHTML += " (Winner!)"
+        
     }
+    
+    
 }
 
 function getWinsText(currentIndex, players) {
