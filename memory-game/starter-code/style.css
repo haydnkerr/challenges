@@ -442,6 +442,15 @@ p {
     padding: 24px
 }
 
+.player-win-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 18px;
+}
+
 .win-container p {
     color: #7191A5
 }
@@ -467,6 +476,22 @@ p {
     background-color: var(--secondary-color);
     border-radius: 10px;
     padding: 15px
+}
+
+.player-stats-container.winner {
+    background-color: #152938;
+    color: white;
+}
+
+.player-stats-container.winner p {
+    color: white;
+}
+
+.player-results-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px
 }
 
 .display-none {

@@ -96,22 +96,36 @@
 
   <section id="win-container" class="win-container">
     <div class="win-menu">
-      <h1>You did it!</h1>
-      <p>Game over! Here's how you got on...</p>
-      <div class="player-stats-container">
-        <p>Time Elapsed</p>
-        <h2 id="total-time-win">4</h2>
+      <div class="player-win-menu display-none " id="single-player-win-container">
+        <h1>You did it!</h1>
+        <p>Game over! Here's how you got on...</p>
+        <div class="player-stats-container">
+          <p>Time Elapsed</p>
+          <h2 id="total-time-win">4</h2>
+        </div>
+  
+        <div class="player-stats-container">
+          <p>Moves Taken</p>
+          <h2 id="total-moves-win">4</h2>
+        </div>
+        
       </div>
-
-      <div class="player-stats-container">
-        <p>Moves Taken</p>
-        <h2 id="total-moves-win">4</h2>
+  
+      <div id="multi-player-win-container" class="player-win-menu">
+        <h1>It's a tie!</h1>
+        <p>Game over! Here are the results</p>
+        <div class="player-results-container" id="player-results-container">
+  
+        </div>
       </div>
       <div class="button-container">
         <button class="btn orange-btn" id="win-restart-btn">Restart</button>
         <button class="btn" id="setup-new-game-btn">Setup New Game</button>
       </div>
     </div>
+    
+
+    
   </section>
 
 

@@ -85,6 +85,7 @@ inGameMenuBtn.addEventListener('click', toggleInGameMenu)
 resumeGameBtn.addEventListener('click', resumeGame)
 restartBtn.addEventListener('click', initiateGame)
 newGameBtn.addEventListener('click', function () {
+   
     toggleInGameMenu();
     homeMenu.classList.remove('display-none')
     gameboardContainer.classList.add('display-none')
@@ -100,8 +101,12 @@ function resumeGame() {
 
 /******************* Win Container  *******************/
 let setupNewGameBtn = document.getElementById('setup-new-game-btn')
+let multiPlayerWinContainer = document.getElementById('multi-player-win-container')
+let singlePlayerWinContainer = document.getElementById('single-player-win-container')
+let playerResultsContainer = document.getElementById('player-results-container')
 
-setupNewGameBtn.addEventListener('click', function() {
+
+setupNewGameBtn.addEventListener('click', function () {
     homeMenu.classList.remove('display-none')
     gameboardContainer.classList.add('display-none')
 })
@@ -112,7 +117,7 @@ let gamePiece = document.querySelectorAll('.game-piece')
 let turnIndicatorContainer = document.getElementById('point-tracker-container')
 
 let gameboardArray = [];
-let classNames = ['filler','zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen','eighteen'];
+let classNames = ['filler', 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen'];
 
 let choiceOneValue
 let choiceTwoValue
@@ -161,13 +166,13 @@ function determinePair() {
     let gamePiece = document.querySelectorAll('.game-piece')
     if (choiceOneValue == choiceTwoValue) {
         if (currentPlayer == 1) {
-            playerOneScore +=1
-        } else if(currentPlayer == 2) {
-            playerTwoScore +=1
-        } else if(currentPlayer == 3) {
-            playerThreeScore +=1
-        } else if(currentPlayer == 4) {
-            playerFourScore +=1
+            playerOneScore += 1
+        } else if (currentPlayer == 2) {
+            playerTwoScore += 1
+        } else if (currentPlayer == 3) {
+            playerThreeScore += 1
+        } else if (currentPlayer == 4) {
+            playerFourScore += 1
         }
         for (let i = 0; i < gamePiece.length; i++) {
             let innerPiece = gamePiece[i].querySelector('.game-piece-inner');
@@ -182,6 +187,7 @@ function determinePair() {
         if (numOfMatches == gridSize / 2) {
             winFunction()
             gameStart = false
+            populateWinningScreen()
         }
 
     } else {
@@ -199,13 +205,13 @@ function determinePair() {
     totalMoves += 1
     totalMovesIndicator.innerHTML = totalMoves
     totalMovesWin.innerHTML = totalMoves + " Moves"
-    
+
     if (numPlayers == currentPlayer) {
         currentPlayer = 1
     } else {
         currentPlayer += 1
     }
-    
+
     changePlayer()
 }
 
@@ -215,20 +221,30 @@ function winFunction() {
 
 
 function initiateGame() {
+    while (pointTrackerContainer.firstChild !== null) {
+        pointTrackerContainer.removeChild(pointTrackerContainer.firstChild);
+    }
+    playerOneScore = 0
+    playerTwoScore = 0
+    playerThreeScore = 0
+    playerFourScore = 0
+    currentPlayer = 1
     setUpIndicators()
+
     randomArray.splice(gridSize, randomArray.length)
     classNames.splice(gridSize, classNames.length)
-    console.log(randomArray)
-    console.log(classNames)
+
     gameStart = true
     timeIndicator.innerHTML = seconds
     totalMovesIndicator.innerHTML = totalMoves
     totalMovesWin.innerHTML = totalMoves
     winContainer.classList.add('display-none')
     gameboardContainer.classList.remove('display-none')
+
     while (gameboard.firstChild) {
         gameboard.removeChild(gameboard.firstChild);
     }
+
     inGameMenu.classList.add('display-none')
 
 
@@ -253,10 +269,8 @@ function initiateGame() {
         innerDiv.appendChild(back)
         slot.appendChild(innerDiv)
         randomArray.splice(randomNum, 1)
-        
-        console.log(classNames)
-        console.log(randomArray)
-        // gameboardArray.push(slot)
+
+
         gameboard.appendChild(slot);
     }
     let gamePiece = document.querySelectorAll('.game-piece')
@@ -267,8 +281,8 @@ function initiateGame() {
 
     let gamePieceBack = document.querySelectorAll('.game-piece-back')
 
-    gamePieceBack.forEach( function(element) {
-        if(gridSize == 4) {
+    gamePieceBack.forEach(function (element) {
+        if (gridSize == 4) {
             element.style.fontSize = "5rem"
         } else if (gridSize == 6) {
             element.style.fontSize = "4rem"
@@ -277,14 +291,17 @@ function initiateGame() {
         } else if (gridSize == 36) {
             element.style.fontSize = "1.35rem"
         }
-        
+
     })
+
+
 
     numOfTurns = 0
     numOfMatches = 0
     seconds = 0
     minutes = 0
     totalMoves = 0
+
 
     timeIndicator.innerHTML = seconds
     totalMovesIndicator.innerHTML = totalMoves
@@ -296,11 +313,15 @@ function initiateGame() {
 
 function setUpIndicators() {
     if (numPlayers < 2) {
+        multiPlayerWinContainer.classList.add('display-none')
+        singlePlayerWinContainer.classList.remove('display-none')
         pointTrackerContainer.classList.add('display-none')
         timeTrackerContainer.classList.remove('display-none')
-        console.log('no success')
     } else {
-        console.log('success')
+        multiPlayerWinContainer.classList.remove('display-none')
+        singlePlayerWinContainer.classList.add('display-none')
+        pointTrackerContainer.classList.remove('display-none')
+        timeTrackerContainer.classList.add('display-none')
         for (let i = 0; i < numPlayers; i++) {
             let mainContainer = document.createElement('div');
             mainContainer.className = 'turn-indicator-container';
@@ -311,7 +332,7 @@ function setUpIndicators() {
                 turnTriangle.className = 'turn-triangle';
             } else {
                 turnTriangle.className = 'turn-triangle';
-            }         
+            }
 
 
             let playerPointsContainer = document.createElement('div');
@@ -319,8 +340,8 @@ function setUpIndicators() {
                 playerPointsContainer.className = 'player-points-container';
             } else {
                 playerPointsContainer.className = 'player-points-container';
-            } 
-            
+            }
+
             let playerDiv = document.createElement('p');
             let num = i + 1
             playerDiv.textContent = 'P' + num;
@@ -343,8 +364,8 @@ function setUpIndicators() {
                 currentTurn.className = 'current-turn';
             } else {
                 currentTurn.className = 'current-turn';
-            } 
-            
+            }
+
             currentTurn.textContent = 'current turn';
 
             currentTurnStatement.appendChild(currentTurn);
@@ -365,31 +386,138 @@ function setUpIndicators() {
 
 function changePlayer() {
     if (numPlayers > 1) {
-        for (let i = 1; i <= numPlayers; i++) {
-            let div = turnIndicatorContainer
-            if (currentPlayer == i) {
-                div.childNodes[i].childNodes[0].style.opacity = "1"
-                div.childNodes[i].childNodes[1].classList.add('active')
-                div.childNodes[i].childNodes[2].style.opacity = "1"
-            } else {
-                div.childNodes[i].childNodes[0].style.opacity = "0"
-                div.childNodes[i].childNodes[1].classList.remove('active')
-                div.childNodes[i].childNodes[2].style.opacity = "0"
+        for (let i = 0; i <= numPlayers; i++) {
+            // let div = turnIndicatorContainer
+            let div = pointTrackerContainer
+            if (div.childNodes[i]) {
+                if (currentPlayer-1 == i) {
+                    div.childNodes[i].childNodes[0].style.opacity = "1"
+                    div.childNodes[i].childNodes[1].classList.add('active')
+                    div.childNodes[i].childNodes[2].style.opacity = "1"
+                } else {
+                    div.childNodes[i].childNodes[0].style.opacity = "0"
+                    div.childNodes[i].childNodes[1].classList.remove('active')
+                    div.childNodes[i].childNodes[2].style.opacity = "0"
+                }
+                if (i == 0) {
+                    div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerOneScore
+                } else if (i == 1) {
+                    div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerTwoScore
+                } else if (i == 2) {
+                    div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerThreeScore
+                } else if (i == 3) {
+                    div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerFourScore
+                }
             }
-            if (i == 1) {
-                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerOneScore
-            } else if(i == 2) {
-                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerTwoScore
-            } else if(i == 3) {
-                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerThreeScore
-            } else if(i == 4) {
-                div.childNodes[i].childNodes[1].childNodes[1].innerHTML = playerFourScore
-            }
+            
         }
 
-        
+
     }
-    
+
+}
+
+// function populateWinningScreen() {
+//     while (playerResultsContainer.firstChild) {
+//         playerResultsContainer.removeChild(playerResultsContainer.firstChild)
+//     }
+//     for (let i = 0; i < numPlayers; i++) {
+//         let div = document.createElement('div')
+//         div.classList.add('player-stats-container')
+//         let name = document.createElement('p')
+//         let points = document.createElement('h2')
+//         if (i == 0) {
+//             name.innerHTML = "Player 1"
+//             points.innerHTML = playerOneScore + " Pairs"
+//         } else if (i == 1){
+//             name.innerHTML = "Player 2"
+//             points.innerHTML = playerTwoScore + " Pairs"
+//         } else if (i == 2){
+//             name.innerHTML = "Player 3"
+//             points.innerHTML = playerThreeScore + " Pairs"
+//         } else if (i == 3){
+//             name.innerHTML = "Player 4"
+//             points.innerHTML = playerFourScore + " Pairs"
+//         }
+
+//         div.appendChild(name);
+//         div.appendChild(points);
+
+//         playerResultsContainer.appendChild(div);
+//     }
+// }
+
+
+function populateWinningScreen() {
+    while (playerResultsContainer.firstChild) {
+        playerResultsContainer.removeChild(playerResultsContainer.firstChild);
+    }
+
+    // Create an array to store player information for sorting
+    let players = [];
+
+    for (let i = 0; i < numPlayers; i++) {
+        let player = {
+            index: i,
+            score: getPlayerScore(i)
+        };
+
+        players.push(player);
+    }
+
+    // Sort players array based on scores in descending order
+    players.sort((a, b) => b.score - a.score);
+
+    // Populate the winning screen based on the sorted players array
+    for (let i = 0; i < numPlayers; i++) {
+        let div = document.createElement('div');
+        div.classList.add('player-stats-container');
+
+        let name = document.createElement('p');
+        let winsText = getWinsText(i, players);
+        name.innerHTML = "Player " + (players[i].index + 1) + winsText;
+
+        let points = document.createElement('h2');
+        points.innerHTML = players[i].score + " Pairs";
+
+        div.appendChild(name);
+        div.appendChild(points);
+
+        playerResultsContainer.appendChild(div);
+    }
+
+    // Add the "winner" class to the containers of players with the highest score (including ties)
+    for (let i = 0; i < numPlayers && players[i].score === players[0].score; i++) {
+        playerResultsContainer.children[i].classList.add('winner');
+        let num = i + 1
+        playerResultsContainer.children[i].children[0].innerHTML += " (Winner!)"
+    }
+}
+
+function getWinsText(currentIndex, players) {
+    if (currentIndex > 0 && players[currentIndex].score === players[currentIndex - 1].score) {
+        return "";
+    } else {
+        return "";
+    }
+}
+
+
+
+
+function getPlayerScore(playerIndex) {
+    switch (playerIndex) {
+        case 0:
+            return playerOneScore;
+        case 1:
+            return playerTwoScore;
+        case 2:
+            return playerThreeScore;
+        case 3:
+            return playerFourScore;
+        default:
+            return 0;
+    }
 }
 
 
