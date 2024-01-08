@@ -427,7 +427,7 @@ p {
     font-size: 0.60rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-
+    display: none;
 }
 
 /************** Win Screen ***************/
@@ -496,4 +496,14 @@ p {
 
 .display-none {
     display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .current-turn {
+        display: block;
+    }
+
+    .player-points-container {
+        flex-direction: row;
+    }
 }

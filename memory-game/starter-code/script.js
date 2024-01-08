@@ -344,7 +344,12 @@ function setUpIndicators() {
 
             let playerDiv = document.createElement('p');
             let num = i + 1
-            playerDiv.textContent = 'P' + num;
+            if (window.innerWidth > 600) {
+                playerDiv.textContent = 'Player ' + num;
+              } else {
+                playerDiv.textContent = 'P' + num;
+              }
+            
 
 
             let timeIndicator = document.createElement('h2');
