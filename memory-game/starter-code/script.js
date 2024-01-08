@@ -510,10 +510,10 @@ function determineTime() {
             if (seconds < 10) {
                 timeIndicator.innerText = minutes + ":0" + seconds
                 totalMovesWin.innerText = minutes + ":0" + seconds
-                totalTimeWin.innerText = seconds
+                totalTimeWin.innerText = minutes + ":0" + seconds
             } else {
                 timeIndicator.innerText = minutes + ":" + seconds
-                totalMovesWin.innerText = minutes + ":" + seconds
+                totalTimeWin.innerText = minutes + ":" + seconds
             }
         }
     }
