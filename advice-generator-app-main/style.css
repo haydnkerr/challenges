@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: hsl(193, 38%, 86%);
+    --secondary-color: hsl(150, 100%, 66%);
+    --background-color: hsl(218, 23%, 16%);
+    --secondary-background: hsl(217, 19%, 24%);
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 24px 0px 
+}
+
+p {
+    font-size: 0.80rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/*********** Quote card **************/
+main {
+    background-color: var(--secondary-background);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 540px;
+    padding: 30px 20px 0px 20px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#breakpoint {
+    content: url("./images/pattern-divider-mobile.svg")
+}
+
+button {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    aspect-ratio: 1/1;
+    transform: translateY(32px);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0px 0px 40px 1px var(--secondary-color);
+}
+
+@media only screen and (min-width: 550px) {
+    #breakpoint {
+        content: url("./images/pattern-divider-desktop.svg")
+    }
+}

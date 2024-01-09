@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-color: hsl(25, 97%, 53%);
+
+}
+
+body {
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Overpass";
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+h3 {
+
+}
+
+p {
+    color: #969FAD;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+button {
+    color: #7C8798;
+}

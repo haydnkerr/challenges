@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: hsl(259, 100%, 65%);
+    --secondary-color: hsl(0, 1%, 44%);
+    --background-color: hsl(0, 0%, 94%);
+    --error-color: hsl(0, 100%, 67%);
+}
+
+
+body {
+width: 100vw;
+height: 100svh;
+font-family: "Poppins", sans-serif;
+background-color: var(--background-color);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--error-color);
+}
