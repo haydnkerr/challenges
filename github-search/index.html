@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js" defer></script>
+    <title>Git User Search</title>
+</head>
+<body>
+    <main>
+        <section class="header">
+            <h2>devfinder</h2>
+            <div id="theme-toggle" class="theme-toggle-container">
+                <h3>light</h3>
+                <img>
+            </div>
+        </section >
+        
+
+        <section class="user-search-container">
+            <div>
+                <img>
+                <input value="" id="user-input" placeholder="Search GitHub username...">
+            </div>
+            <button id="search-btn" class="btn">Search</button>
+        </section>
+
+        <section class="user-info-container">
+            <div>
+                <img id="user-avatar">
+                <div>
+                    <h2 id="username"></h2>
+                    <p id="date-joined"></p>
+                </div>
+                <div id="bio"></div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stats">
+                    <h3>Repos</h3>
+                    <h2 id="repos-stat">--</h2>
+                </div>
+
+                <div class="stats">
+                    <h3>Followers</h3>
+                    <h2 id="followers-stat">--</h2>
+                </div>
+
+                <div class="stats">
+                    <h3>Following</h3>
+                    <h2 id="following-stat">--</h2>
+                </div>
+            </div>
+
+            <div>
+                <div class="social-links-container">
+                    <div class="links-cell locations-container">
+                        <img>
+                        <h3 id="user-location">Location</h3>
+                    </div>
+                    <div class="links-cell git-container">
+                        <img>
+                        <h3 id="git-link">Github</h3>
+                    </div>
+                </div>
+                <div class="social-links-container">
+                    <div class="twitter-container">
+                        <img>
+                        <h3 id="twitter">Twitter</h3>
+                    </div>
+                    <div class="company-container">
+                        <img>
+                        <h3 id="company">Company</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

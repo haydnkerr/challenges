@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #e67973;
+    --secondary-color: #161930;
+    --gradient: linear-gradient(#161930,#323761);
+    --background-color: #20213d;
+    --text-color: #dce3fa
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100svh;
+}
+
+h1 {
+    font-size: 7rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    border-radius: 45px;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 20px;
+    
+}
+
+h1 {
+    color: white;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 50px 0px;
+}
+/******** Main Page ************/
+.toggle-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+    height: 50px;
+}
+
+.toggle-choice-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 4;
+    height: 50px;
+}
+
+.toggle-indicator {
+    position: absolute;
+    width: 33.3%;
+    left: 0%;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    transition: 500ms;
+}
+
+.toggle-choice {
+    text-align: center;
+    flex: 1;
+    background: none;
+    border: none;
+    color: gainsboro;
+}
+
+
+
+.circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    border: none;
+}
+
+
+.timer-container {
+    background: var(--gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    box-shadow: 0px 0px 50px 0.5px rgb(29, 45, 81);
+}
+
+.timer-outer {
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.timer-inner {
+    background-color: var(--background-color);
+    transform: rotateZ(90deg) rotateY(-180deg);
+    position: absolute;
+    width: 400px;
+    transform-origin: top center;
+}
+
+.circle-border {
+    stroke-dasharray: 1125px;
+    stroke: var(--primary-color);
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-dashoffset: 0px;
+    fill:transparent;
+    animation: countdown 300s linear infinite forwards;
+    animation-play-state: paused;
+}
+
+.clock-interface {
+    position: absolute;
+    top: 50;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px
+}
+
+.pause-timer-btn {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+
+@keyframes countdown {
+    from{
+        stroke-dashoffset: 0px;
+    }
+    to {
+        stroke-dashoffset: 1125px;
+    }
+}
+
+/******** Settings Modal **********/
+.settings-modal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100vw;
+    height: 100svh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.356);
+    top: 0;
+    left: 0;
+    padding: 25px;
+}
+
+.settings-menu {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px 25px 0px 25px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.time-input-container {
+    display: flex;
+    width: 100%;
+    gap: 20px
+}
+
+.time-input {
+    flex: 1;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline-color: var(--primary-color);
+}
+
+hr {
+    margin: 25px 0px
+}
+
+.font-picker-btn {
+    padding: 8px;
+
+}
+
+.font-picker-btn.active {
+    background-color: var(--background-color);
+    color: white;
+}
+
+.color-picker-btn {
+    width: 50px;
+    border: none;
+    color: transparent;
+}
+
+.color-picker-btn.active {
+    color: unset;
+}
+
+.aqua {
+    background-color: #92eff8;
+}
+
+.coral {
+    background-color: #e67973; 
+}
+
+.purple {
+    background-color: #ca8fea;
+}
+
+.apply-settings-btn {
+    align-self: center;
+    transform: translateY(20px);
+}
+
+
+
+
+
+.flex-space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.display-none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}

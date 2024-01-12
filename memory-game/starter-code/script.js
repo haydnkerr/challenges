@@ -273,9 +273,12 @@ function initiateGame() {
         slot.appendChild(innerDiv)
         randomArray.splice(randomNum, 1)
 
+  
 
+    
         gameboard.appendChild(slot);
     }
+
     let gamePiece = document.querySelectorAll('.game-piece')
 
     gamePiece.forEach(function (btn) {

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <p>pomodoro</p>
+        <section class="toggle-container">
+            <div class="toggle-choice-container">
+                <button value="0" class="toggle-choice" id="pomodoro-choice">pomodoro</button>
+                <button value="33" class="toggle-choice" id="short-break-choice">short break</button>
+                <button value="66" class="toggle-choice" id="long-break-choice">long break</button>
+            </div>
+            <div id="toggle-indicator" class="toggle-indicator">
+
+            </div>
+            
+        </section>
+
+        <section class="timer-container circle">
+            <div class="timer-outer circle">
+                <svg  class="timer-inner circle">
+                    <circle cx="50%" cy="50%" r="45%" class="circle-border" id="circle-tracker">
+                    </circle>
+                </svg>
+            
+            </div>
+            <div class="circle clock-interface">
+                <button class="pause-timer-btn hidden">resume</button>
+                <h1 id="current-time">00:00</h1>
+                <button class="pause-timer-btn" id="pause-timer-btn">start</button>
+            </div>
+        </section>
+        <button id="open-modal-btn">Settings</button>
+
+        <section class="settings-modal display-none" id="settings-modal">
+            <div class="settings-menu">
+                <div class="flex-space-between">
+                    <h2>Settings</h2>
+                    <button class="close-modal-btn" id="close-modal-btn">X</button>
+                </div>
+                <hr>
+                <div>
+                    <h3>time (minutes)</h3>
+                    <div class="time-input-container">
+                        <div class="time-input">
+                            <h4>pomodoro</h4>
+                            <input class="pomodoro-value" value="25" type="number" min="20" max="90" step="5" placeholder="25">
+                        </div>
+                        <div class="time-input">
+                            <h4>short break</h4>
+                            <input class="short-break-value" value="5" type="number" min="5" max="15" placeholder="5">
+                        </div>
+                        <div class="time-input">
+                            <h4>long break</h4>
+                            <input class="long-break-value" value="20" type="number" min="20" max="45" placeholder="20">
+                        </div>
+                    </div>
+    
+                </div>
+                <hr>
+                <div class="flex-space-between">
+                    <h3>font</h3>
+                    <div>
+                        <button value="" class="font-picker-btn circle active">Aa</button>
+                        <button value="" class="font-picker-btn circle">Aa</button>
+                        <button value="" class="font-picker-btn circle">Aa</button>
+                    </div>
+    
+                </div>
+                <hr>
+                <div class="flex-space-between">
+                    <h3>color</h3>
+                    <div>
+                        <button value="#e67973" class="active color-picker-btn coral circle">tick</button>
+                        <button value="#92eff8" class="color-picker-btn aqua circle">tick</button>
+                        <button value="#ca8fea" class="color-picker-btn purple circle">tick</button>
+                    </div>
+                </div>
+                <button class="btn apply-settings-btn" id="apply-settings-btn">Apply</button>
+            </div>
+            
+        </section>
+
+    </main>
+</body>
+</html>
