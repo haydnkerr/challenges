@@ -75,6 +75,12 @@ input {
   width: 250px;
 }
 
+.user-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
 .stats-container {
     display: flex;
     width: 100%;

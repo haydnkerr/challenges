@@ -1,6 +1,7 @@
 let usernameSearch = 'haydnkerr'
 let userInput = document.getElementById('user-input')
 let searchBtn = document.getElementById('search-btn')
+let name = document.getElementById('name')
 let username = document.getElementById('username')
 let dateJoined = document.getElementById('date-joined')
 let userAvatar = document.getElementById('user-avatar')
@@ -38,8 +39,9 @@ function populateUser() {
 
 
         .then(data => {
+            name.innerHTML = data.name
             username.innerHTML = data.login
-            userAvatar = data.avatar_url
+            userAvatar.src = data.avatar_url
             dateJoined.innerHTML = data.created_at
             bio.innerHTML = data.bio
             reposStat.innerHTML = data.public_repos

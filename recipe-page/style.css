@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: ;
+    --secondary-color: hsl(332, 51%, 32%);
+    --tertiary-color: #000;
+    --background-color: hsl(30, 54%, 90%);
+    --heading-text: #854632;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: "Young Serif", "Times New Roman", serif;
+    color: black;
+}
+
+h2 {
+    font-size: 1.75remrem;
+    font-family: "Young Serif", "Times New Roman", serif;
+    color: var(--heading-text);
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-family: "Outfit";
+    color: var();
+}
+
+p {
+    font-size: 1rem;
+    font-family:  "Outfit";
+}

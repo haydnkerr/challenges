@@ -167,7 +167,7 @@ max-width: 400px;
 
 .winning-statement-container {
     width: 100%;
-    padding: 50px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,6 +180,7 @@ max-width: 400px;
 .winning-statement {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .winning-statement-btn-container {
@@ -276,6 +277,16 @@ heading {
 @media only screen and (max-width: 350px) {
     .gameboard {
         height: 350px
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #winning-piece {
+        width: 50px;
     }
 }
 

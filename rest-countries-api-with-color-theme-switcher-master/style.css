@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: hsl(0, 0%, 98%);
+    --text-color:hsl(200, 15%, 8%);
+    --input-color: hsl(0, 0%, 52%);
+    --elements: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: ; 
+}
+
+h1 {
+    font-size: ;
+}
+
+h2 {
+    font-size: ;
+}
+
+h3 {
+    font-size: ;
+}
+
+p {
+    font-size: ;
+}
