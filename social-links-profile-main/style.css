@@ -31,7 +31,9 @@ main {
     background-color: var(--primary-color);
     padding: 25px;
     border-radius: 10px;
-    gap: 15px
+    gap: 25px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .img-container {
