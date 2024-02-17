@@ -267,9 +267,9 @@ button {
     transform-style: preserve-3d;
   }
 
-  /* .hidden-letter-tile:hover .hidden-letter-inner {
+  .hidden-letter-tile:hover .hidden-letter-inner {
     transform: rotateY(180deg);
-  } */
+  }
   
 
 
