@@ -576,6 +576,14 @@ button {
         padding: 9px;
     }
 
+    .hidden-letter-back {
+        border-radius: 40px;
+    }
+
+    .hidden-letter-front {
+        border-radius: 40px;
+    }
+
     /***** In-Game Menu *******/
 
     .flex-row {
