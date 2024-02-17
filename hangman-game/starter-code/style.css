@@ -459,7 +459,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 50px;
+    padding: 0px 15px;
 }
 
 .pause-menu-heading {
