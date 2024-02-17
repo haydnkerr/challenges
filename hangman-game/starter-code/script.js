@@ -36,12 +36,12 @@ guessLetterBtn.forEach(function (btn) {
 
 /* Check Letter Function  */
 function checkLetter(letter) {
-    for (let i=0; i < hiddenWord.length; i++) {
+    for (let i = 0; i < hiddenWord.length; i++) {
         if (letter == hiddenWord[i]) {
             console.log(hiddenWord[i])
+            console.log(i)
             const letterTile = hiddenWordContainer.children[i].querySelector('.hidden-letter-inner');
             letterTile.classList.add('reveal-letter')
-            console.log(letterTile)
             correctGuess = true
         }
     }
@@ -51,7 +51,6 @@ function checkLetter(letter) {
     } else {
         correctGuess = false
     }
-    console.log(health)
     healthBar.style.width = health + "%";
 };
 
@@ -66,7 +65,7 @@ function initiateGame(category) {
     })
     .then(data => {
         const randNum = Math.floor(Math.random()* data.categories[category].length)
-        hiddenWord = data.categories[category][randNum].name
+        hiddenWord = data.categories[category][randNum].name.toLowerCase()
         console.log(hiddenWord);
 
         populateWord(hiddenWord)
