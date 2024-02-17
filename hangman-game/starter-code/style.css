@@ -499,6 +499,8 @@ button {
         width: 112px;
         height: 128px
     } */
+
+
     /***** In-Game Menu *******/
 }
 
@@ -518,6 +520,16 @@ button {
 
 
     /***** Universsal Stylings ******/
+    .circle-btn {
+        width: 75px;
+        height: 75px;
+        padding: 25px;
+    }
+
+    .big-circle {
+        width: 200px;
+        height: 200px;
+    }
     /************ Home Screen ***********/
     /******** How To Play Screen ********/
     .instructions-container {
@@ -535,5 +547,15 @@ button {
         height: 128px
     }
 
+    .progress-bar-container {
+        width: 240px;
+        height: 32px;
+        padding: 9px;
+    }
+
     /***** In-Game Menu *******/
+
+    .flex-row {
+        gap: 3rem;
+    }
 }
