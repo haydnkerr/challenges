@@ -1,8 +1,11 @@
 let hiddenWord = '';
 let chosenCategory = '';
 let lettersAlreadyChosen = [];
+let animationCount = 0;
 let wrongGuesses = 0
+let correctGuesses = 0
 let health = 100;
+let gameOver = false;
 let healthBar = document.querySelector('.progress-bar')
 let correctGuess = false
 let homeScreen = document.querySelector('.home-screen-container')
@@ -14,6 +17,8 @@ let homeScreenHeader = document.querySelector('.menu-header')
 let homeScreenHeaderTitle = document.querySelector('.menu-header-title')
 let categoryHeader = document.querySelector('.category-header')
 let howToScreen = document.querySelector('.instructions-container')
+let pauseMenuScreen = document.querySelector('.pause-menu-container')
+let pauseMenuHeading = document.querySelector('.pause-menu-heading')
 
 /* Buttons */
 let chooseCategoryBtn = document.querySelectorAll('.category-btn')
@@ -21,11 +26,15 @@ let howToBtn = document.querySelector('.how-to-btn');
 let guessLetterBtn = document.querySelectorAll('.key-btn');
 let backBtn = document.querySelector('.back-btn')
 let playBtn = document.querySelector('.play-btn')
+let pauseMenuBtn = document.querySelector('.pause-menu-btn')
+let continueGameBtn = document.querySelector('.continue-game-btn')
+let newCategoryBtn = document.querySelector('.new-category-btn')
+let quitGameBtn = document.querySelector('.quit-game-btn')
 
 playBtn.addEventListener('click', toggleCategory)
 
 function toggleCategory() {
-    homeScreen.classList.toggle('display-none')
+    homeScreen.classList.add('display-none')
     categoryContainer.classList.toggle('display-none')
     homeScreenHeader.classList.toggle('display-none')
     homeScreenHeaderTitle.innerHTML = "Pick a Category"
@@ -35,7 +44,7 @@ function toggleCategory() {
 backBtn.addEventListener('click', goBack)
 
 function goBack() {
-    homeScreen.classList.toggle('display-none')
+    homeScreen.classList.remove('display-none')
     howToScreen.classList.add('display-none')
     homeScreenHeader.classList.add('display-none')
     categoryContainer.classList.add('display-none')
@@ -44,11 +53,35 @@ function goBack() {
 howToBtn.addEventListener('click', toggleHowTo)
 
 function toggleHowTo() {
-    homeScreen.classList.toggle('display-none')
+    homeScreen.classList.add('display-none')
     howToScreen.classList.toggle('display-none')
     homeScreenHeader.classList.toggle('display-none')
     homeScreenHeaderTitle.innerHTML = "How to Play"
 }
+
+pauseMenuBtn.addEventListener('click', togglePauseMenu)
+
+function togglePauseMenu() {
+    pauseMenuScreen.classList.toggle('display-none')
+}
+
+continueGameBtn.addEventListener('click', function () {
+    togglePauseMenu();
+})
+
+newCategoryBtn.addEventListener('click', function () {
+    togglePauseMenu();
+    toggleCategory();
+    gameScreenHeader.classList.add('display-none')
+    gameScreen.classList.add('display-none')
+})
+
+quitGameBtn.addEventListener('click', function () {
+    togglePauseMenu();
+    homeScreen.classList.remove('display-none')
+    gameScreenHeader.classList.add('display-none')
+    gameScreen.classList.add('display-none')
+})
 
 
 
@@ -82,23 +115,19 @@ guessLetterBtn.forEach(function (btn) {
 
 document.addEventListener('keydown', function (event) {
     console.log(lettersAlreadyChosen)
-    // Get the pressed key
-    var key = event.key.toLowerCase();
 
-    // Get all buttons
-    var buttons = document.querySelectorAll('.key-btn');
+    let key = event.key.toLowerCase();
 
-    // Loop through each button
+
+    let buttons = document.querySelectorAll('.key-btn');
+
+
 
     if (!lettersAlreadyChosen.includes(key)) {
         buttons.forEach(function (button) {
-            // Check if the button's text content matches the pressed key or if the key is the space bar
             if ((button.textContent.trim().toLowerCase() === key) || (key === " ")) {
-                // Trigger a click event on the matching button
-                // button.click();
 
-                // Call checkLetter() function
-                checkLetter(key); // Pass the pressed key to checkLetter()
+                checkLetter(key);
 
                 lettersAlreadyChosen.push(key);
 
@@ -125,6 +154,7 @@ function checkLetter(letter) {
             const letterTile = hiddenWordContainer.children[i].querySelector('.hidden-letter-inner');
             letterTile.classList.add('reveal-letter')
             correctGuess = true
+            correctGuesses += 1
         }
     }
 
@@ -138,11 +168,28 @@ function checkLetter(letter) {
 
     if (wrongGuesses >= 8) {
         loseGame()
+    } else if (correctGuesses == hiddenWord.length) {
+        winGame()
     }
 };
 
 /* Start Game Function */
 function initiateGame(category) {
+    hiddenWord = '';
+    chosenCategory = '';
+    lettersAlreadyChosen = [];
+    animationCount = 0
+    wrongGuesses = 0
+    correctGuesses = 0
+    health = 100;
+    correctGuess = false
+    gameOver = false;
+    hiddenWordContainer.innerHTML = ''
+    for (let i = 0; i < guessLetterBtn.length; i++) {
+        guessLetterBtn[i].classList.remove('inactive-key')
+    }
+
+
     fetch('data.json')
         .then(response => {
             if (!response.ok) {
@@ -198,6 +245,29 @@ function loseGame() {
         const letterTile = hiddenWordContainer.children[i].querySelector('.hidden-letter-inner');
         letterTile.classList.add('reveal-letter')
     }
+    pauseMenuHeading.innerHTML = "You Lose"
+    gameOver = true;
+    setTimeout(togglePauseMenu, 1500);
 }
+
+let animationInterval; // Variable to store interval identifier
+
+function winGame() {
+    pauseMenuHeading.innerHTML = "You Win";
+    gameOver = true;
+    animationInterval = setInterval(addAnimation, 75); // Store interval identifier
+}
+
+function addAnimation() {
+    const tile = document.querySelectorAll('.hidden-letter-tile');
+    if (animationCount < tile.length) {
+        tile[animationCount].classList.add("animated-tile");
+        animationCount += 1;
+    } else {
+        clearInterval(animationInterval); // Clear the interval using the stored identifier
+        setTimeout(togglePauseMenu, 500);
+    }
+}
+
 
 

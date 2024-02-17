@@ -21,7 +21,7 @@
     --body-color: #887DC0;
     --opaque-top: #0043ece2;
     --opaque-background: #26167677;
-    --font-XL: 2.5rem;
+    --font-XL: 3.5rem;
     --font-large: 2.5rem;
     --font-medium: 1.5rem;
     --font-small: 2rem;
@@ -167,6 +167,7 @@ p {
     justify-content: center;
     align-items: center;
     max-width: 592px;
+    width: 100%;
 }
 
 .menu {
@@ -311,7 +312,20 @@ button {
     width: 40px;
     height: 60px;
     perspective: 1000px;
+    transition: 1s;
 }
+
+.animated-tile {
+    animation-name: moveUpAndDown;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+  }
+
+@keyframes moveUpAndDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-75px); }
+  }
 
 
 .hidden-letter-inner {
@@ -435,16 +449,29 @@ button {
 }
 
 /***** In-Game Menu *******/
+.overlay {
+    width: 100vw;
+    height: 100dvh;
+    position: absolute;
+    background-color: rgba(3, 4, 76, 0.582);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+.pause-menu-heading {
+    transform: translateY(-20px);
+}
 .game-menu-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    transform: translateY(-50px);
+    gap: 1.5rem;
+    padding: 0px 0px 25px 0px;
+    width: 100%;
 }
-
-
-
-
 
 .flex-row {
     display: flex;

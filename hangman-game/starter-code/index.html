@@ -23,7 +23,7 @@
 
     <div class="game-screen-header display-none">
       <div class="flex-row">
-        <button tabindex="0" class="circle-btn">
+        <button tabindex="0" class="circle-btn pause-menu-btn">
           <img src="./assets/images/icon-menu.svg">
         </button>
         
@@ -166,19 +166,22 @@
 
 
     <!-- ============== In-Game Menu  ============== -->
-    <section class="menu-bg display-none">
-      <div class="game-menu-container menu">
-        <h1 class="game-menu-heading">Paused</h1>
-        <button tabindex="0" class="game-menu-btn btn-primary" value="continue">
-          <h4>Continue</h4>
-        </button>
-        <button tabindex="0" class="game-menu-btn btn-primary" value="new">
-          <h4>new category</h4>
-        </button>
-        <button tabindex="0" class="game-menu-btn btn-primary btn-secondary" value="quit">
-          <h4>quit game</h4>
-        </button>
+    <section class="pause-menu-container game-menu overlay display-none">
+      <div class="menu-bg">
+        <div class="game-menu-container menu">
+          <h1 class="game-menu-heading pause-menu-heading">Paused</h1>
+          <button tabindex="0" class="game-menu-btn btn-primary continue-game-btn" value="continue">
+            <h4>Continue</h4>
+          </button>
+          <button tabindex="0" class="game-menu-btn btn-primary new-category-btn" value="new">
+            <h4>new category</h4>
+          </button>
+          <button tabindex="0" class="game-menu-btn btn-primary btn-secondary quit-game-btn" value="quit">
+            <h4>quit game</h4>
+          </button>
+        </div>
       </div>
+      
 
     </section>
 
