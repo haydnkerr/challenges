@@ -1,0 +1,423 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Mouse Memoirs';
+    src: url('./assets/fonts/MouseMemoirs-Regular.ttf') format('woff2'),
+}
+
+/***  Contents ***/
+
+
+
+/*** Universal Stylings ****/
+:root {
+    --primary-color: #2463FF;
+    --secondary-color: #FFF;
+    --background-color: #261676;
+    --body-color: #887DC0;
+    --opaque-top: #0043ece2;
+    --opaque-background: #26167677;
+    --font-XL: 5.5rem;
+    --font-large: 1.5rem;
+    --font-medium: 1.5rem;
+    --font-small: 2rem;
+    --font-body: 1rem;
+}
+
+body {
+    background-image: url("./assets/images/background-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 100dvh;
+    width: 100%;
+    padding: 25px;
+    font-family: 'Mouse Memoirs';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;;
+}
+
+
+
+.game-menu-heading {
+    /* text-shadow: -3px 3px 0 black, 3px 3px 0 black, 3px -3px 0 black, -3px -3px 0 black; */
+    background-color: white;
+    background-image: linear-gradient(#67B6FF,white);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
+    
+
+}
+
+h1 {
+    font-size: var(--font-XL);
+
+}
+
+h2 {
+    font-size: var(--font-large);
+    
+}
+
+h3 {
+    font-size: var(--font-medium);
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: var(--font-small);
+}
+
+p {
+    font-size: var(--font-body);
+    color: #887DC0;
+}
+
+.btn-primary {
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+    border-top: 1px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    border-left: 2px solid var(--background-color);
+    border-bottom: 5px solid var(--background-color);
+    box-shadow: inset 0 2px 0px 2px rgba(255, 255, 255, 0.253);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 12px 64px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #678ff6;
+    box-shadow: inset 0 2px 0px 2px #356df8;
+}
+
+.btn-secondary {
+    background: linear-gradient(#FE71FE, #7199FF);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(#fc90fc, #7199FF);
+    box-shadow: inset 0 2px 0px 2px #FE71FE;
+}
+
+.circle-btn {
+    border: none;
+    background: linear-gradient(#fc90fc, #7199FF);
+    box-shadow: inset 0 -4px 0px 2px #9e2df558;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+
+}
+
+.circle-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-bg {
+    background: linear-gradient(var(--opaque-top), var(--opaque-background));
+    border-top: 1px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    border-left: 2px solid var(--background-color);
+    border-bottom: 10px solid var(--background-color);
+    box-shadow: inset 0 8px 0px 4px var(--primary-color);
+    border-radius: 48px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+button {
+    font-family: 'Mouse Memoirs';
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/**********  Home Screen ********/
+
+.home-screen-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transform: translateY(-50px);
+}
+/******** How To Play Screen ********/
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.instruction {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.instruction h2 {
+    color: var(--primary-color)
+}
+
+.instruction h3 {
+    color: var(--background-color);
+}
+
+/***** Category Screen ********/
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.category-btn {
+    padding: 24px;
+    border-radius: 20px;
+}
+
+
+/***** Play Screen *******/
+.progress-bar-container {
+    width: 60px;
+    height: 16px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 4px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    border-radius: 25px;
+}
+
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.hidden-word-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hidden-letter-container {
+    
+}
+
+.hidden-letter-tile {
+    background-color: transparent;
+    width: 40px;
+    height: 60px;
+    perspective: 1000px;
+  }
+  
+
+  .hidden-letter-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+
+  .hidden-letter-tile:hover .hidden-letter-inner {
+    transform: rotateY(180deg);
+  }
+  
+
+
+  .reveal-letter {
+    transform: rotateY(180deg);
+}
+  
+  .hidden-letter-front, .hidden-letter-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+.hidden-letter-front {
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+    border-top: 1px solid var(--background-color);
+    border-right: 3px solid var(--background-color);
+    border-left: 3px solid var(--background-color);
+    border-bottom: 5px solid var(--background-color);
+    box-shadow: inset 0 3px 0px 2px rgba(255, 255, 255, 0.253);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: 0.25;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden-letter-back {
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+    border-top: 1px solid var(--background-color);
+    border-right: 3px solid var(--background-color);
+    border-left: 3px solid var(--background-color);
+    border-bottom: 5px solid var(--background-color);
+    box-shadow: inset 0 3px 0px 2px rgba(255, 255, 255, 0.253);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    
+}
+
+.hidden-letter-back h2 {
+    font-size: 2.5rem;
+}
+
+.hidden-letter {
+    font-size: 2.5rem;
+    opacity: 1;
+}
+
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.keyboard-row {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    height: 56px;
+}
+
+.key-btn {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    transition: 0.3s;
+    color: var(--background-color);
+    
+}
+
+.inactive-key {
+    opacity: 0.2;
+}
+
+.key-btn:hover,
+.key-btn:focus {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.inactive-key:hover, .inactive-key:focus {
+    color: var(--background-color);
+    background-color: white;
+}
+
+/***** In-Game Menu *******/
+.game-menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transform: translateY(-50px);
+}
+
+
+
+
+
+.flex-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/****** Media Queries ******/
+@media screen {
+    :root {
+    }
+
+
+    /***** Universsal Stylings ******/
+
+
+
+
+    /*          Home Screen          */
+    /******** How To Play Screen ********/
+
+
+    /***** Category Screen ********/
+
+    /***** Gameplay Screen *******/
+
+    /***** In-Game Menu *******/
+}

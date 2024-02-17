@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./script.js"></script>
+
+  <title>Frontend Mentor | Hangman game</title>
+</head>
+
+<body>
+  <header>
+    <div class="flex-row">
+      <button class="circle-btn">
+        <img src="./assets/images/icon-menu.svg">
+      </button>
+      
+      <h2>Countries</h2>
+    </div>
+
+    <div class="flex-row">
+      <div class="progress-bar-container">
+        <div class="progress-bar">
+
+        </div>
+      </div>
+      <img src="./assets/images/icon-heart.svg">
+    </div>
+  </header>
+  <main>
+    <!-- ============== Category Menu  ============== -->
+    <section class="category-container">
+      <button tabindex="0" class="category-btn btn-primary" value="Movies">
+        <h3>Movies</h3>
+      </button>
+      <button tabindex="0" class="category-btn btn-primary" value="TV Shows">
+        <h3>Tv Shows</h3>
+      </button>
+      <button tabindex="0" class="category-btn btn-primary" value="Countries">
+        <h3>Countries</h3>
+      </button>
+      <button tabindex="0" class="category-btn btn-primary" value="Capital Cities">
+        <h3>Capital Cities</h3>
+      </button>
+      <button tabindex="0" class="category-btn btn-primary" value="Animals">
+        <h3>Animals</h3>
+      </button>
+      <button tabindex="0" class="category-btn btn-primary" value="Sports">
+        <h3>Sports</h3>
+      </button>
+    </section>
+
+    <!-- ============== Home Screen  ============== -->
+
+    <section class="menu-bg display-none">
+      <div class="home-screen-container menu">
+        <img src="./assets/images/logo.svg">
+        <button class="circle-btn">
+          <img src="./assets/images/icon-play.svg">
+        </button>
+        
+        <button class="how-to-btn btn-primary">
+          <h4>how to play</h4>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ============== How To Menu  ============== -->
+
+    <section class="instructions-container display-none">
+      <div class="instruction">
+        <h2>01</h2>
+        <h3>Choose a category</h3>
+        <p>
+          First, choose a word category, like animals or movies.
+          The computer then randomly selects a secret word from that
+          topic and shows you blanks for each letter of the word.
+        </p>
+      </div>
+
+      <div class="instruction">
+        <h2>02</h2>
+        <h3>Guess letters</h3>
+        <p>
+          Take turns guessing letters. The computer fills in the
+          relevant blank spaces if your guess is correct. If it's
+          wrong, you lose some health, which empties after eight
+          incorrect guesses.
+        </p>
+      </div>
+
+      <div class="instruction">
+        <h2>03</h2>
+        <h3>Win or lose</h3>
+        <p>
+          You win by guessing all the letters in the word before your
+          health runs out. If the health bar empties before you guess
+          the word, you lose.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============== Gameplay Screen  ============== -->
+
+    <section class="game-screen">
+
+      <div class="hidden-word-container">
+
+
+      </div>
+
+      <div class="keyboard-container">
+        <div class="keyboard-row">
+          <button tabindex="0" class="key-btn" value="a"><h3>a</h3></button>
+          <button tabindex="0" class="key-btn" value="b"><h3>b</h3></button>
+          <button tabindex="0" class="key-btn" value="c"><h3>c</h3></button>
+          <button tabindex="0" class="key-btn" value="d"><h3>d</h3></button>
+          <button tabindex="0" class="key-btn" value="e"><h3>e</h3></button>
+          <button tabindex="0" class="key-btn" value="f"><h3>f</h3></button>
+          <button tabindex="0" class="key-btn" value="g"><h3>g</h3></button>
+          <button tabindex="0" class="key-btn" value="h"><h3>h</h3></button>
+          <button tabindex="0" class="key-btn" value="i"><h3>i</h3></button>
+        </div>
+
+        <div class="keyboard-row">
+          <button tabindex="0" class="key-btn" value="j"><h3>j</h3></button>
+          <button tabindex="0" class="key-btn" value="k"><h3>k</h3></button>
+          <button tabindex="0" class="key-btn" value="l"><h3>l</h3></button>
+          <button tabindex="0" class="key-btn" value="m"><h3>m</h3></button>
+          <button tabindex="0" class="key-btn" value="n"><h3>n</h3></button>
+          <button tabindex="0" class="key-btn" value="o"><h3>o</h3></button>
+          <button tabindex="0" class="key-btn" value="p"><h3>p</h3></button>
+          <button tabindex="0" class="key-btn" value="q"><h3>q</h3></button>
+          <button tabindex="0" class="key-btn" value="r"><h3>r</h3></button>
+        </div>
+
+        <div class="keyboard-row">
+          <button tabindex="0" class="key-btn" value="s"><h3>s</h3></button>
+          <button tabindex="0" class="key-btn" value="t"><h3>t</h3></button>
+          <button tabindex="0" class="key-btn" value="u"><h3>u</h3></button>
+          <button tabindex="0" class="key-btn" value="v"><h3>v</h3></button>
+          <button tabindex="0" class="key-btn" value="w"><h3>w</h3></button>
+          <button tabindex="0" class="key-btn" value="x"><h3>x</h3></button>
+          <button tabindex="0" class="key-btn" value="y"><h3>y</h3></button>
+          <button tabindex="0" class="key-btn" value="z"><h3>z</h3></button>
+          <button class="key-btn hidden" value="1">z</button>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ============== In-Game Menu  ============== -->
+    <section class="menu-bg display-none">
+      <div class="game-menu-container menu">
+        <h1 class="game-menu-heading">Paused</h1>
+        <button tabindex="0" class="game-menu-btn btn-primary" value="continue">
+          <h4>Continue</h4>
+        </button>
+        <button tabindex="0" class="game-menu-btn btn-primary" value="new">
+          <h4>new category</h4>
+        </button>
+        <button tabindex="0" class="game-menu-btn btn-primary btn-secondary" value="quit">
+          <h4>quit game</h4>
+        </button>
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+
+</body>
+
+</html>
