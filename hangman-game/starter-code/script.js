@@ -5,6 +5,7 @@ let healthBar = document.querySelector('.progress-bar')
 let correctGuess = false
 let hiddenWordContainer = document.querySelector('.hidden-word-container')
 let categoryContainer = document.querySelector('.category-container')
+let gameScreen = document.querySelector('.game-screen')
 
 /* Buttons */
 let chooseCategoryBtn = document.querySelectorAll('.category-btn')
@@ -102,6 +103,7 @@ function populateWord(word) {
     }
 
     categoryContainer.classList.add('display-none')
+    gameScreen.classList.remove('display-none')
 }
 
 
