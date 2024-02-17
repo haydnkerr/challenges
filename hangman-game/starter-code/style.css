@@ -244,6 +244,7 @@ button {
     width: 100%;
     justify-content: center;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .hidden-letter-container {
