@@ -21,8 +21,8 @@
     --body-color: #887DC0;
     --opaque-top: #0043ece2;
     --opaque-background: #26167677;
-    --font-XL: 4rem;
-    --font-large: 1.5rem;
+    --font-XL: 2.5rem;
+    --font-large: 2.5rem;
     --font-medium: 1.5rem;
     --font-small: 2rem;
     --font-body: 1rem;
@@ -285,15 +285,7 @@ button {
 }
 
 .category-header {
-    background-color: white;
-    background-image: linear-gradient(#67B6FF, white);
-    background-size: 100%;
-    background-repeat: repeat;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -moz-background-clip: text;
+    color: white;
 }
 
 .game-screen {
