@@ -3,14 +3,51 @@ let chosenCategory = '';
 let health = 100;
 let healthBar = document.querySelector('.progress-bar')
 let correctGuess = false
+let homeScreen = document.querySelector('.home-screen-container')
 let hiddenWordContainer = document.querySelector('.hidden-word-container')
 let categoryContainer = document.querySelector('.category-container')
 let gameScreen = document.querySelector('.game-screen')
+let gameScreenHeader = document.querySelector('.game-screen-header')
+let homeScreenHeader = document.querySelector('.menu-header')
+let homeScreenHeaderTitle = document.querySelector('.menu-header-title')
+let categoryHeader = document.querySelector('.category-header')
+let howToScreen = document.querySelector('.instructions-container')
 
 /* Buttons */
 let chooseCategoryBtn = document.querySelectorAll('.category-btn')
-let guessBtn = document.querySelector('.how-to-btn');
+let howToBtn = document.querySelector('.how-to-btn');
 let guessLetterBtn = document.querySelectorAll('.key-btn');
+let backBtn = document.querySelector('.back-btn')
+let playBtn = document.querySelector('.play-btn')
+
+playBtn.addEventListener('click', toggleCategory)
+
+function toggleCategory() {
+    homeScreen.classList.toggle('display-none')
+    categoryContainer.classList.toggle('display-none')
+    homeScreenHeader.classList.toggle('display-none')
+    homeScreenHeaderTitle.innerHTML = "Pick a Category"
+}
+
+
+backBtn.addEventListener('click', goBack)
+
+function goBack() {
+    homeScreen.classList.toggle('display-none')
+    howToScreen.classList.add('display-none')
+    homeScreenHeader.classList.add('display-none')
+    categoryContainer.classList.add('display-none')
+}
+
+howToBtn.addEventListener('click', toggleHowTo)
+
+function toggleHowTo() {
+    homeScreen.classList.toggle('display-none')
+    howToScreen.classList.toggle('display-none')
+    homeScreenHeader.classList.toggle('display-none')
+    homeScreenHeaderTitle.innerHTML = "How to Play"
+}
+
 
 
 
@@ -19,6 +56,9 @@ chooseCategoryBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
         chosenCategory = this.value;
         initiateGame(chosenCategory)
+        homeScreenHeader.classList.toggle('display-none')
+        gameScreenHeader.classList.remove('display-none')
+        categoryHeader.innerHTML = this.value
     })
 })
 

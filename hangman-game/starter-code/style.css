@@ -21,11 +21,12 @@
     --body-color: #887DC0;
     --opaque-top: #0043ece2;
     --opaque-background: #26167677;
-    --font-XL: 5.5rem;
+    --font-XL: 4rem;
     --font-large: 1.5rem;
     --font-medium: 1.5rem;
     --font-small: 2rem;
     --font-body: 1rem;
+    --menu-gap: 1rem
 }
 
 body {
@@ -38,21 +39,29 @@ body {
     padding: 25px;
     font-family: 'Mouse Memoirs';
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
 
 header {
+    width: 100%;
+    max-width: 1250px;
+}
+
+.menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 main {
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1250px;
 }
 
 
@@ -60,7 +69,7 @@ main {
 .game-menu-heading {
     /* text-shadow: -3px 3px 0 black, 3px 3px 0 black, 3px -3px 0 black, -3px -3px 0 black; */
     background-color: white;
-    background-image: linear-gradient(#67B6FF,white);
+    background-image: linear-gradient(#67B6FF, white);
     background-size: 100%;
     background-repeat: repeat;
     background-clip: text;
@@ -68,7 +77,7 @@ main {
     -webkit-background-clip: text;
     -moz-text-fill-color: transparent;
     -moz-background-clip: text;
-    
+
 
 }
 
@@ -79,7 +88,7 @@ h1 {
 
 h2 {
     font-size: var(--font-large);
-    
+
 }
 
 h3 {
@@ -143,6 +152,8 @@ p {
     height: 100%;
 }
 
+
+
 .menu-bg {
     background: linear-gradient(var(--opaque-top), var(--opaque-background));
     border-top: 1px solid var(--background-color);
@@ -155,6 +166,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 592px;
 }
 
 .menu {
@@ -174,23 +186,54 @@ button {
 
 /**********  Home Screen ********/
 
-.home-screen-container {
+.home-screen-menu {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
     transform: translateY(-50px);
+    padding: 0px 25px
 }
+
+.home-logo {
+    width: 100%;
+    transform: translateY(-15px);
+}
+
+.big-circle {
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(#fc90fc, #7199FF);
+    box-shadow: inset 0 -4px 0px 2px #9e2df558;
+    border-bottom: 8px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    border-left: 2px solid var(--background-color);
+    padding: 30px
+}
+
 /******** How To Play Screen ********/
+.menu-header-title {
+    background-color: white;
+    background-image: linear-gradient(#67B6FF, white);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
+}
+
 .instructions-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--menu-gap);
 }
 
 .instruction {
     background-color: white;
     padding: 2rem;
     border-radius: 1rem;
+    flex: 1
 
 }
 
@@ -206,12 +249,15 @@ button {
 
 .category-container {
     display: flex;
-    flex-direction: column;
-    gap: 1rem
+    gap: var(--menu-gap);
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .category-btn {
     padding: 24px;
+    min-width: 300px;
+    flex: 1;
     border-radius: 20px;
 }
 
@@ -232,11 +278,30 @@ button {
     border-radius: 25px;
 }
 
+.game-screen-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-header {
+    background-color: white;
+    background-image: linear-gradient(#67B6FF, white);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
+}
+
 .game-screen {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    width: 100%;
 }
 
 .hidden-word-container {
@@ -247,44 +312,43 @@ button {
     flex-wrap: wrap;
 }
 
-.hidden-letter-container {
-    
-}
+
 
 .hidden-letter-tile {
     background-color: transparent;
     width: 40px;
     height: 60px;
     perspective: 1000px;
-  }
-  
+}
 
-  .hidden-letter-inner {
+
+.hidden-letter-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.5s;
     transform-style: preserve-3d;
-  }
+}
 
-  /* .hidden-letter-tile:hover .hidden-letter-inner {
+/* .hidden-letter-tile:hover .hidden-letter-inner {
     transform: rotateY(180deg);
   } */
-  
 
 
-  .reveal-letter {
+
+.reveal-letter {
     transform: rotateY(180deg);
 }
-  
-  .hidden-letter-front, .hidden-letter-back {
+
+.hidden-letter-front,
+.hidden-letter-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-  }
+}
 
 .hidden-letter-front {
     border: none;
@@ -324,15 +388,15 @@ button {
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg);
-    
+
 }
 
 .hidden-letter-back h2 {
-    font-size: 2.5rem;
+    font-size: var(--font-large);
 }
 
 .hidden-letter {
-    font-size: 2.5rem;
+    font-size: var(--font-large);
     opacity: 1;
 }
 
@@ -340,6 +404,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 100%;
 }
 
 .keyboard-row {
@@ -357,7 +422,8 @@ button {
     border: none;
     transition: 0.3s;
     color: var(--background-color);
-    
+    background-color: white;
+
 }
 
 .inactive-key {
@@ -370,7 +436,8 @@ button {
     color: white;
 }
 
-.inactive-key:hover, .inactive-key:focus {
+.inactive-key:hover,
+.inactive-key:focus {
     color: var(--background-color);
     background-color: white;
 }
@@ -402,23 +469,71 @@ button {
 }
 
 /****** Media Queries ******/
-@media screen {
+@media screen and (min-width: 700px) {
     :root {
+        /* --font-XL: 8.5rem;
+        --font-large: 5.5rem;
+        --font-medium: 3rem;
+        --font-small: 2rem;
+        --font-body: 1.75rem;
+        --menu-gap: 2rem */
+    }
+
+    body {
+        background-image: url("./assets/images/background-tablet.svg");
     }
 
 
     /***** Universsal Stylings ******/
-
-
-
-
-    /*          Home Screen          */
+    /************ Home Screen ***********/
     /******** How To Play Screen ********/
 
 
     /***** Category Screen ********/
+    .category-btn {
+        padding: 32px;
+    }
 
     /***** Gameplay Screen *******/
+    /* .hidden-letter-tile {
+        width: 112px;
+        height: 128px
+    } */
+    /***** In-Game Menu *******/
+}
+
+@media screen and (min-width: 1000px) {
+    :root {
+        --font-XL: 8.5rem;
+        --font-large: 5.5rem;
+        --font-medium: 3rem;
+        --font-small: 2rem;
+        --font-body: 1.75rem;
+        --menu-gap: 2rem
+    }
+
+    body {
+        background-image: url("./assets/images/background-desktop.svg");
+    }
+
+
+    /***** Universsal Stylings ******/
+    /************ Home Screen ***********/
+    /******** How To Play Screen ********/
+    .instructions-container {
+        flex-direction: row;
+    }
+
+    /***** Category Screen ********/
+    .category-btn {
+        padding: 64px;
+    }
+
+    /***** Gameplay Screen *******/
+    .hidden-letter-tile {
+        width: 112px;
+        height: 128px
+    }
 
     /***** In-Game Menu *******/
 }

@@ -14,26 +14,36 @@
 
 <body>
   <header>
-    <div class="flex-row">
-      <button class="circle-btn">
-        <img src="./assets/images/icon-menu.svg">
+    <div class="menu-header display-none">
+      <button class="circle-btn back-btn">
+        <img src="./assets/images/icon-back.svg">
       </button>
-      
-      <h2>Countries</h2>
+      <h1 class="menu-header-title">How to Play</h1>
     </div>
 
-    <div class="flex-row">
-      <div class="progress-bar-container">
-        <div class="progress-bar">
-
-        </div>
+    <div class="game-screen-header display-none">
+      <div class="flex-row">
+        <button class="circle-btn">
+          <img src="./assets/images/icon-menu.svg">
+        </button>
+        
+        <h2 class="category-header"></h2>
       </div>
-      <img src="./assets/images/icon-heart.svg">
+  
+      <div class="flex-row">
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+  
+          </div>
+        </div>
+        <img src="./assets/images/icon-heart.svg">
+      </div>
     </div>
+    
   </header>
   <main>
     <!-- ============== Category Menu  ============== -->
-    <section class="category-container">
+    <section class="category-container display-none">
       <button tabindex="0" class="category-btn btn-primary" value="Movies">
         <h3>Movies</h3>
       </button>
@@ -56,10 +66,10 @@
 
     <!-- ============== Home Screen  ============== -->
 
-    <section class="menu-bg display-none">
-      <div class="home-screen-container menu">
-        <img src="./assets/images/logo.svg">
-        <button class="circle-btn">
+    <section class="menu-bg home-screen-container">
+      <div class="home-screen-menu menu">
+        <img class="home-logo" src="./assets/images/logo.svg">
+        <button class="circle-btn big-circle play-btn">
           <img src="./assets/images/icon-play.svg">
         </button>
         
