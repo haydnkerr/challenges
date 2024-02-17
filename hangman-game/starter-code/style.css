@@ -21,7 +21,7 @@
     --body-color: #887DC0;
     --opaque-top: #0043ece2;
     --opaque-background: #26167677;
-    --font-XL: 3.5rem;
+    --font-XL: 3rem;
     --font-large: 2.5rem;
     --font-medium: 1.5rem;
     --font-small: 2rem;
@@ -36,7 +36,7 @@ body {
     background-position: bottom;
     height: 100dvh;
     width: 100%;
-    padding: 25px;
+    padding: 5px 25px;
     font-family: 'Mouse Memoirs';
     display: flex;
     justify-content: flex-start;
@@ -118,7 +118,7 @@ p {
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
-    padding: 12px 0px;
+    padding: 10px 0px;
     width: 100%;
     max-width: 260px;
 }
