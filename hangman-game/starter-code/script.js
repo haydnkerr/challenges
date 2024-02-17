@@ -185,6 +185,8 @@ function initiateGame(category) {
     correctGuess = false
     gameOver = false;
     hiddenWordContainer.innerHTML = ''
+    healthBar.style.width = health + "%";
+    
     for (let i = 0; i < guessLetterBtn.length; i++) {
         guessLetterBtn[i].classList.remove('inactive-key')
     }
