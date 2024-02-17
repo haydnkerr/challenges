@@ -63,13 +63,24 @@ pauseMenuBtn.addEventListener('click', togglePauseMenu)
 
 function togglePauseMenu() {
     pauseMenuScreen.classList.toggle('display-none')
+    for (let i = 0; i < guessLetterBtn.length; i++) {
+        guessLetterBtn[i].tabIndex = "-1"
+    }
+}
+
+function toggleKeyTabIndex() {
+    for (let i = 0; i < guessLetterBtn.length; i++) {
+        guessLetterBtn[i].tabIndex = "0"
+    }
 }
 
 continueGameBtn.addEventListener('click', function () {
     togglePauseMenu();
+    toggleKeyTabIndex()
 })
 
 newCategoryBtn.addEventListener('click', function () {
+    toggleKeyTabIndex()
     togglePauseMenu();
     toggleCategory();
     gameScreenHeader.classList.add('display-none')
@@ -77,6 +88,7 @@ newCategoryBtn.addEventListener('click', function () {
 })
 
 quitGameBtn.addEventListener('click', function () {
+    toggleKeyTabIndex()
     togglePauseMenu();
     homeScreen.classList.remove('display-none')
     gameScreenHeader.classList.add('display-none')
@@ -112,24 +124,21 @@ guessLetterBtn.forEach(function (btn) {
 
 /* Check Letter Function  */
 
-
-document.addEventListener('keydown', function (event) {
-    console.log(lettersAlreadyChosen)
+document.addEventListener('keyup', function (event) {
+    // Check if the event has already been handled
+    if (event.repeat) {
+        return;
+    }
 
     let key = event.key.toLowerCase();
-
-
     let buttons = document.querySelectorAll('.key-btn');
 
-
-
     if (!lettersAlreadyChosen.includes(key)) {
+        lettersAlreadyChosen.push(key);
         buttons.forEach(function (button) {
-            if ((button.textContent.trim().toLowerCase() === key) || (key === " ")) {
-
+            if ((button.textContent.trim().toLowerCase() === key)) {
                 checkLetter(key);
-
-                lettersAlreadyChosen.push(key);
+                
 
                 for (let i = 0; i < guessLetterBtn.length; i++) {
                     if (event.key === guessLetterBtn[i].value) {
@@ -139,10 +148,9 @@ document.addEventListener('keydown', function (event) {
                 }
             }
         });
-
     }
-
 });
+
 
 
 
@@ -150,7 +158,8 @@ document.addEventListener('keydown', function (event) {
 
 function checkLetter(letter) {
     for (let i = 0; i < hiddenWord.length; i++) {
-        if (letter == hiddenWord[i]) {
+        if (letter === hiddenWord[i]) {
+            console.log(letter)
             const letterTile = hiddenWordContainer.children[i].querySelector('.hidden-letter-inner');
             letterTile.classList.add('reveal-letter')
             correctGuess = true
@@ -175,6 +184,7 @@ function checkLetter(letter) {
 
 /* Start Game Function */
 function initiateGame(category) {
+    pauseMenuHeading.innerHTML = "Paused"
     hiddenWord = '';
     chosenCategory = '';
     lettersAlreadyChosen = [];
@@ -186,7 +196,8 @@ function initiateGame(category) {
     gameOver = false;
     hiddenWordContainer.innerHTML = ''
     healthBar.style.width = health + "%";
-    
+    toggleKeyTabIndex()
+
     for (let i = 0; i < guessLetterBtn.length; i++) {
         guessLetterBtn[i].classList.remove('inactive-key')
     }
@@ -215,6 +226,10 @@ function populateWord(word) {
     for (let i = 0; i < word.length; i++) {
         const hiddenLetterTile = document.createElement('div');
         hiddenLetterTile.classList.add('hidden-letter-tile');
+        if (word[i] === ' ') {
+            hiddenLetterTile.classList.add('hidden');
+            correctGuesses += 1
+        }
 
         const hiddenLetterInner = document.createElement('div');
         hiddenLetterInner.classList.add('hidden-letter-inner');

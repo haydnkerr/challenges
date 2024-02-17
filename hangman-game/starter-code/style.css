@@ -118,7 +118,9 @@ p {
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
-    padding: 12px 64px;
+    padding: 12px 0px;
+    width: 100%;
+    max-width: 260px;
 }
 
 .btn-primary:hover,
@@ -260,6 +262,8 @@ button {
     min-width: 300px;
     flex: 1;
     border-radius: 20px;
+    padding: 12px 64px;
+    max-width: 1000%;
 }
 
 
@@ -463,13 +467,13 @@ button {
 }
 
 .pause-menu-heading {
-    transform: translateY(-20px);
 }
+
 .game-menu-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding: 0px 0px 25px 0px;
+    padding: 25px;
     width: 100%;
 }
 
