@@ -59,7 +59,9 @@ function toggleHowTo() {
     homeScreenHeaderTitle.innerHTML = "How to Play"
 }
 
-pauseMenuBtn.addEventListener('click', togglePauseMenu)
+pauseMenuBtn.addEventListener('click', function() {
+    togglePauseMenu()
+    })
 
 function togglePauseMenu() {
     pauseMenuScreen.classList.toggle('display-none')
@@ -76,7 +78,10 @@ function toggleKeyTabIndex() {
 
 continueGameBtn.addEventListener('click', function () {
     togglePauseMenu();
-    toggleKeyTabIndex()
+    toggleKeyTabIndex();
+    if (gameOver) {
+        initiateGame(chosenCategory)
+    }
 })
 
 newCategoryBtn.addEventListener('click', function () {
@@ -184,9 +189,9 @@ function checkLetter(letter) {
 
 /* Start Game Function */
 function initiateGame(category) {
+    continueGameBtn.innerHTML = "<h4>Continue</h4>"
     pauseMenuHeading.innerHTML = "Paused"
     hiddenWord = '';
-    chosenCategory = '';
     lettersAlreadyChosen = [];
     animationCount = 0
     wrongGuesses = 0
@@ -262,16 +267,18 @@ function loseGame() {
         const letterTile = hiddenWordContainer.children[i].querySelector('.hidden-letter-inner');
         letterTile.classList.add('reveal-letter')
     }
+    continueGameBtn.innerHTML = "<h4>Play Again</h4>"
     pauseMenuHeading.innerHTML = "You Lose"
     gameOver = true;
     setTimeout(togglePauseMenu, 1500);
 }
 
-let animationInterval; // Variable to store interval identifier
+let animationInterval;
 
 function winGame() {
-    pauseMenuHeading.innerHTML = "You Win";
     gameOver = true;
+    continueGameBtn.innerHTML = "<h4>Play Again</h4>"
+    pauseMenuHeading.innerHTML = "You Win";
     animationInterval = setInterval(addAnimation, 75); // Store interval identifier
 }
 

@@ -236,16 +236,26 @@ button {
     background-color: white;
     padding: 2rem;
     border-radius: 1rem;
-    flex: 1
-
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.5rem auto;
+    gap: 0.5rem;
 }
 
 .instruction h2 {
-    color: var(--primary-color)
+    color: var(--primary-color);
+    grid-area: 1 / 1 / 2 / 2;
+    font-size: 1.5rem;
 }
 
 .instruction h3 {
     color: var(--background-color);
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: 1.5rem;
+}
+
+.instruction p {
+    grid-area: 2 / 1 / 3 / 3;
 }
 
 /***** Category Screen ********/
@@ -422,6 +432,7 @@ button {
     display: flex;
     gap: 8px;
     height: 56px;
+    justify-content: center;
 }
 
 .key-btn {
@@ -495,11 +506,12 @@ button {
 @media screen and (min-width: 700px) {
     :root {
         /* --font-XL: 8.5rem;
-        --font-large: 5.5rem;
+        
         --font-medium: 3rem;
         --font-small: 2rem;
         --font-body: 1.75rem;
         --menu-gap: 2rem */
+        --font-large: 5.5rem;
     }
 
     body {
@@ -510,7 +522,24 @@ button {
     /***** Universsal Stylings ******/
     /************ Home Screen ***********/
     /******** How To Play Screen ********/
-
+    .instruction {
+        grid-template-columns: 5rem auto;
+        gap: 0px
+    }
+    
+    .instruction h2 {
+        grid-area: 1 / 1 / 3 / 2;
+        font-size: var(--font-large);
+    }
+    
+    .instruction h3 {
+        grid-area: 1 / 2 / 2 / 3;
+        font-size: 2.5rem;
+    }
+    
+    .instruction p {
+        grid-area: 2 / 2 / 3 / 3;
+    }
 
     /***** Category Screen ********/
     .category-btn {
@@ -559,12 +588,34 @@ button {
         flex-direction: row;
     }
 
+    .instruction {
+        display: flex;
+        flex-direction: column;
+        /* grid-template-columns: 5rem auto;
+        gap: 0px */
+        gap: 2rem; 
+        align-items: center;
+    }
+    
+    .instruction p {
+        text-align: center;
+        }
+
     /***** Category Screen ********/
     .category-btn {
         padding: 64px;
     }
 
     /***** Gameplay Screen *******/
+    .key-btn {
+        border-radius: 1.5rem;
+        width: 109px;
+    }
+
+    .keyboard-row {
+        gap: 1.5rem;
+        height: 84px;    }
+
     .hidden-letter-tile {
         width: 112px;
         height: 128px
