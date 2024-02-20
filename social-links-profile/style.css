@@ -55,7 +55,7 @@ main {
 
 .social-img {
     width: 30px;
-    height: auto;
+    height: 30px;
     padding: 2px;
     cursor: pointer;
     transition: 0.3s;
