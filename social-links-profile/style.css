@@ -45,6 +45,26 @@ main {
     text-align: center;
 }
 
+.social-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.social-img {
+    width: 30px;
+    height: auto;
+    padding: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-img:hover {
+    padding: 0px
+}
+
 .btn-container {
     display: flex;
     flex-direction: column;
