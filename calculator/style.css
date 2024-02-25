@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-
+:root {
+    
+}
 
 body {
     height: 100svh;
@@ -15,40 +17,3 @@ body {
     background: rgb(19, 19, 102);
 }
 
-h1 {
-    color: white
-}
-
-.button-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    width: 500px;
-    gap: 10px;
-}
-
-button {
-    border: none;
-    border-radius: 15px;
-    height: 75px;
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.num-btn, .operator-btn {
-    background: rgb(255, 239, 218)
-}
-
-.num-btn:active, .operator-btn:active {
-    background: rgb(237, 208, 170);
-}
-
-.span-two {
-    grid-column: span 2;
-    color: white
-}
-
-.equal-btn {
-    background: rgb(207, 4, 4);
-}

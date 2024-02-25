@@ -1,37 +1,66 @@
-let summaryList = document.getElementById("summary-list")
-let storedJsonData = [];
-fetch('data.json')
+let scoresContainer = document.querySelector('.scores-container')
+let totalScore = document.querySelector('.total-score')
+let score = 0
+let sumOfScores = 0
 
-    .then(response => response.json())
-    .then(data => {
+window.addEventListener('load', populate)
 
-        localStorage.setItem('myJsonData', JSON.stringify(data));
+function populate() {
+    fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
 
-        // storedJsonData.push(JSON.parse(localStorage.getItem('myJsonData')));
+                let scoreCard = document.createElement('div')
+                scoreCard.classList.add('score-card')
+                scoreCard.id = data[i].category.toLowerCase()
 
-        storedJsonData = JSON.parse(localStorage.getItem('myJsonData'));
+                let leftSide = document.createElement('div')
+                leftSide.classList.add('space-between')
 
-        // Add a new item to the array
-        let newItem = {
-            "category": "NewCategory",
-            "score": 90,
-            "icon": "./assets/images/icon-new.svg"
-        };
-
-        storedJsonData.push(newItem);
-
-        // Update the stored JSON array in local storage
-        localStorage.setItem('myJsonData', JSON.stringify(storedJsonData));
-
-        console.log(storedJsonData);
-
-
-
-    })
+                let image = document.createElement('img')
+                image.src = data[i].icon
 
 
-    .catch(error => {
-        console.error('Error fetching JSON:', error);
-    });
+
+                let title = document.createElement('p')
+                title.classList.add(data[i].category.toLowerCase())
+                title.innerHTML = data[i].category
+
+                leftSide.appendChild(image)
+                leftSide.appendChild(title)
+
+                let rightSide = document.createElement('div')
+                let score = document.createElement('p')
+                score.innerHTML = data[i].score 
+
+                let opaque = document.createElement('span')
+                opaque.classList.add('opaque-text')
+                opaque.innerHTML = " / 100"
+
+                score.appendChild(opaque)
+
+                rightSide.append(score)
+
+                scoreCard.appendChild(leftSide)
+                scoreCard.appendChild(rightSide)
+                scoresContainer.append(scoreCard)
+
+                sumOfScores += data[i].score
+            }
+
+            score = Math.floor(sumOfScores / 4)
+
+            totalScore.innerHTML = score
+        })
+        .catch(error => {
+            console.error('There was an error', error)
+        })
+}
 
 

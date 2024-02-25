@@ -1,0 +1,51 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(25, 21, 54);
+}
+
+.circle {
+  display: flex;
+  flex-direction: column;
+  transform: rotate(90deg);
+  align-items: flex-end;
+}
+
+.circle span {
+  /* position: absolute; */
+  /* width: 10px;
+    height: 10px; */
+  background: white;
+  /* border-radius: 50%; */
+  /* transform: rotate(calc(var(--i) * (360deg / 12))) translateY(40px);
+    opacity: 0.1; */
+  animation: fade 1s linear infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+  border-radius: 15px 15px 0px 0px;
+  border-radius: 50px;
+}
+
+
+
+@keyframes fade {
+  0% {
+    opacity: 0.2;
+    width: 5px;
+    height: 60px;
+  }
+
+
+  50% {
+    opacity: 1;
+    width: 40px;
+    height: 10px;
+  }
+
+  100% {
+    opacity: 0.2;
+    width: 5px;
+    height: 60px;
+  }
+}

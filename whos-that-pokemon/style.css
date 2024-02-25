@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    width: 100%;
+    background: url("./bg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.pokemon {
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    width: 100%;
+    flex: 1;
+}
+
+.one {
+    background-color: #197170;
+}
+
+.two {
+    background-color: #ee8329;
+}
+
+.three {
+    background-color: #f3db80;
+}
+
+.four {
+    background-color: #cd5241;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.final-color {
+    background: #DA8E3E;
+    height: 100%
+}
+
+.image {
+    position: absolute;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 90%;
+    opacity: 0;
+    transition: opacity 4s;
+}
+
+.appear {
+    opacity: 1
+}
+

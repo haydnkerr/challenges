@@ -4,33 +4,46 @@
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: ;
-    --secondary-color: hsl(332, 51%, 32%);
-    --tertiary-color: #000;
-    --background-color: hsl(30, 54%, 90%);
-    --heading-text: #854632;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-family: "Young Serif", "Times New Roman", serif;
-    color: black;
+
+.number {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border: none;
+    background-color: #0c5a66;
+    border-radius: 50%;
+    color: white;
+    font-family: 'Fredoka';
+    font-size: 8rem;
+    overflow: hidden;
+    font-weight: 700;
 }
 
-h2 {
-    font-size: 1.75remrem;
-    font-family: "Young Serif", "Times New Roman", serif;
-    color: var(--heading-text);
+.number::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-image: url(./assets/images/frog-green.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: top .4s;
+    
 }
 
-h3 {
-    font-size: 1.25rem;
-    font-family: "Outfit";
-    color: var();
-}
-
-p {
-    font-size: 1rem;
-    font-family:  "Outfit";
+.number:hover::after {
+    top: 55%;
+    cursor: pointer;
 }

@@ -1,0 +1,36 @@
+<section class="pokemon">
+        <div class="one box"></div>
+        <div class="two box"></div>
+        <div class="three box"></div>
+        <div class="four box"></div>
+    </section>
+
+.pokemon {
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: contain;
+}
+
+.box {
+    width: 100%;
+    flex: 1
+}
+
+.one {
+    background-color: #197170;
+}
+
+.two {
+    background-color: #ee8329;
+}
+
+.three {
+    
+    background-color: #f3db80;
+}
+
+.four {
+    background-color: #cd5241;
+}
+
