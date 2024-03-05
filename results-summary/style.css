@@ -9,10 +9,10 @@
     --yellow-text: hsl(39, 100%, 56%);
     --green-text: hsl(166, 100%, 37%);
     --blue-text: hsl(234, 85%, 45%);
-    --red-background: hsla(0, 100%, 67%, 0.146);
-    --yellow-background: hsla(39, 100%, 56%, 0.15);
-    --green-background: hsla(166, 100%, 37%, 0.15);
-    --blue-background: hsla(234, 85%, 45%, 0.15);
+    --red-background: hsla(0, 100%, 67%, 0.05);
+    --yellow-background: hsla(39, 100%, 56%, 0.05);
+    --green-background: hsla(166, 100%, 37%, 0.05);
+    --blue-background: hsla(234, 85%, 45%, 0.05);
     --body-text: #303B59;
     --gradient-one: linear-gradient(#6943FF, #2F2CE9 );
     --gradient-two:linear-gradient(#4D21C9, #2421c925);
