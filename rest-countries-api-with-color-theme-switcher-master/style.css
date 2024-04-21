@@ -1,32 +1,79 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
 
 :root {
     --background-color: hsl(0, 0%, 98%);
     --text-color:hsl(200, 15%, 8%);
     --input-color: hsl(0, 0%, 52%);
-    --elements: hsl(0, 0%, 100%);
+    --accent-color: hsl(0, 0%, 100%);
 }
 
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: hsl(0, 0%, 98%);
+        --text-color:hsl(200, 15%, 8%);
+        --input-color: hsl(0, 0%, 52%);
+        --accent-color: hsl(0, 0%, 100%);
+    }
+}
+
+.country-btn {
+    border: none;
+    background: white;
+    padding: 0;
+    text-align: left;
+}
+
+
+
 body {
-    font-family: ; 
+    font-family: 'Nunito Sans', sans-serif; 
+    background: F2F2F2;
 }
 
 h1 {
-    font-size: ;
+    font-size: 1.4rem;
 }
 
 h2 {
-    font-size: ;
+    font-size: 1.125rem;
 }
 
 h3 {
-    font-size: ;
+    font-size: 1rem;
+}
+
+h4 {
+    font-size: 0.75rem;
 }
 
 p {
-    font-size: ;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.single-country {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: 100dvh;
+    top: 50px;
+    left: 0;
+}
+
+@media only screen and (max-width: 750px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    h4 {
+        font-size: 0.875rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
 }
